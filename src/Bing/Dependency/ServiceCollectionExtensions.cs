@@ -61,25 +61,25 @@ namespace Bing.Dependency
             return item;
         }
 
-        /// <summary>
-        /// 获取单例注册服务对象
-        /// </summary>
-        /// <typeparam name="T">对象类型</typeparam>
-        /// <param name="services">服务集合</param>
-        public static T GetSingletonInstanceOrNull<T>(this IServiceCollection services) => (T)services.FirstOrDefault(d => d.ServiceType == typeof(T))?.ImplementationInstance;
+        ///// <summary>
+        ///// 获取单例注册服务对象
+        ///// </summary>
+        ///// <typeparam name="T">对象类型</typeparam>
+        ///// <param name="services">服务集合</param>
+        //public static T GetSingletonInstanceOrNull<T>(this IServiceCollection services) => (T)services.FirstOrDefault(d => d.ServiceType == typeof(T))?.ImplementationInstance;
 
-        /// <summary>
-        /// 获取单例注册服务对象
-        /// </summary>
-        /// <typeparam name="T">对象类型</typeparam>
-        /// <param name="services">服务集合</param>
-        public static T GetSingletonInstance<T>(this IServiceCollection services)
-        {
-            var instance = services.GetSingletonInstanceOrNull<T>();
-            if (instance == null)
-                throw new InvalidOperationException($"无法找到已注册的单例服务: {typeof(T).AssemblyQualifiedName}");
-            return instance;
-        }
+        ///// <summary>
+        ///// 获取单例注册服务对象
+        ///// </summary>
+        ///// <typeparam name="T">对象类型</typeparam>
+        ///// <param name="services">服务集合</param>
+        //public static T GetSingletonInstance<T>(this IServiceCollection services)
+        //{
+        //    var instance = services.GetSingletonInstanceOrNull<T>();
+        //    if (instance == null)
+        //        throw new InvalidOperationException($"无法找到已注册的单例服务: {typeof(T).AssemblyQualifiedName}");
+        //    return instance;
+        //}
 
         /// <summary>
         /// 从Scoped字典获取指定类型的值
