@@ -99,7 +99,7 @@ namespace Bing.Utils.Extensions
             {
                 return string.Empty;
             }
-            StringBuilder sb=new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             int listCount = list.Count;
             int listCountMinusOne = listCount - 1;
 
@@ -187,7 +187,7 @@ namespace Bing.Utils.Extensions
         /// <param name="end">结束索引</param>
         /// <param name="step">递增值</param>
         /// <returns></returns>
-        public static IList<T> Slice<T>(this IList<T> list, int? start, int? end,int? step)
+        public static IList<T> Slice<T>(this IList<T> list, int? start, int? end, int? step)
         {
             if (list == null)
             {
@@ -199,7 +199,7 @@ namespace Bing.Utils.Extensions
                 throw new ArgumentException($"{nameof(step)} 不能为0");
             }
 
-            List<T> result=new List<T>();
+            List<T> result = new List<T>();
 
             if (list.Count == 0)
             {
@@ -224,6 +224,29 @@ namespace Bing.Utils.Extensions
             return result;
         }
 
-        #endregion        
+        #endregion
+
+        #region MoveItem(移动项)
+
+        /// <summary>
+        /// 移动项
+        /// </summary>
+        /// <typeparam name="T">类型</typeparam>
+        /// <param name="source">列表</param>
+        /// <param name="selector">选择器</param>
+        /// <param name="targetIndex">目标索引</param>
+        public static void MoveItem<T>(this List<T> source, Predicate<T> selector, int targetIndex)
+        {
+            if (!targetIndex.InRange(0, source.Count - 1))
+                throw new IndexOutOfRangeException($"{nameof(targetIndex)} 必须在 0 - {source.Count - 1} 范围内.");
+            var currentIndex = source.FindIndex(0, selector);
+            if (currentIndex == targetIndex)
+                return;
+            var item = source[currentIndex];
+            source.RemoveAt(currentIndex);
+            source.Insert(targetIndex, item);
+        }
+
+        #endregion
     }
 }

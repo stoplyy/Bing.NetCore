@@ -211,5 +211,60 @@ namespace Bing.Utils.Extensions
         }
 
         #endregion
+
+        #region SortByDependencies(按依赖关系排序)
+
+        /// <summary>
+        /// 按依赖关系排序
+        /// </summary>
+        /// <typeparam name="T">类型</typeparam>
+        /// <param name="source">源集合</param>
+        /// <param name="getDependencies">获取依赖关系函数</param>
+        public static List<T> SortByDependencies<T>(this IEnumerable<T> source, Func<T, IEnumerable<T>> getDependencies)
+        {
+            /**
+             * 参考：http://www.codeproject.com/Articles/869059/Topological-sorting-in-Csharp
+             *      http://en.wikipedia.org/wiki/Topological_sorting
+             */
+            var sorted = new List<T>();
+            var visited = new Dictionary<T, bool>();
+            foreach (var item in source)
+                SortByDependenciesVisit(item, getDependencies, sorted, visited);
+            return sorted;
+        }
+
+        /// <summary>
+        /// 按依赖关系排序
+        /// </summary>
+        /// <typeparam name="T">类型</typeparam>
+        /// <param name="item">项</param>
+        /// <param name="getDependencies">获取依赖关系函数</param>
+        /// <param name="sorted">已排序列表</param>
+        /// <param name="visited">已访问字典</param>
+        private static void SortByDependenciesVisit<T>(T item, Func<T, IEnumerable<T>> getDependencies, List<T> sorted,
+            Dictionary<T, bool> visited)
+        {
+            bool isProcess;
+            var alreadyVisited = visited.TryGetValue(item, out isProcess);
+            if (alreadyVisited)
+            {
+                if (isProcess)
+                    throw new ArgumentException($"找到循环依赖项！item: {item}");
+            }
+            else
+            {
+                visited[item] = true;
+                var dependencies = getDependencies(item);
+                if (dependencies != null)
+                {
+                    foreach (var dependency in dependencies)
+                        SortByDependenciesVisit(dependency, getDependencies, sorted, visited);
+                }
+                visited[item] = false;
+                sorted.Add(item);
+            }
+        }
+
+        #endregion
     }
 }
