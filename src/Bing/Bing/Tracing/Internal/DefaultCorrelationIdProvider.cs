@@ -1,7 +1,7 @@
 ﻿using System;
-using Bing.Dependency;
+using Bing.DependencyInjection;
 
-namespace Bing.Tracing
+namespace Bing.Tracing.Internal
 {
     /// <summary>
     /// 默认跟踪关联ID提供程序

@@ -1,7 +1,7 @@
 ﻿namespace Bing.Tracing
 {
     /// <summary>
-    /// 跟踪关联ID配置选项信息
+    /// 跟踪关联ID选项配置
     /// </summary>
     public class CorrelationIdOptions
     {
