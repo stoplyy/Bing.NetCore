@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Text;
 using AspectCore.Configuration;
-using Bing.Configurations;
 using Bing.Dependency;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
 
 // ReSharper disable once CheckNamespace
 namespace Bing
@@ -37,7 +35,6 @@ namespace Bing
         {
             services.AddHttpContextAccessor();
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
-            services.TryAddSingleton<IConfigurationAccessor>(DefaultConfigurationAccessor.Empty);
             return Bootstrapper.Run(services, configs, aopConfigAction);
         }
     }
