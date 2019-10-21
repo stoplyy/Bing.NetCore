@@ -16,28 +16,24 @@ namespace Bing.Datas.Stores.Operations
         /// 查询
         /// </summary>
         /// <param name="query">查询对象</param>
-        /// <returns></returns>
         Task<List<TEntity>> QueryAsync(IQueryBase<TEntity> query);
 
         /// <summary>
         /// 查询 - 返回未跟踪的实体
         /// </summary>
         /// <param name="query">查询对象</param>
-        /// <returns></returns>
         Task<List<TEntity>> QueryAsNoTrackingAsync(IQueryBase<TEntity> query);
 
         /// <summary>
         /// 分页查询
         /// </summary>
         /// <param name="query">查询对象</param>
-        /// <returns></returns>
         Task<PagerList<TEntity>> PagerQueryAsync(IQueryBase<TEntity> query);
 
         /// <summary>
         /// 分页查询 - 返回未跟踪的实体
         /// </summary>
         /// <param name="query">查询对象</param>
-        /// <returns></returns>
         Task<PagerList<TEntity>> PagerQueryAsNoTrackingAsync(IQueryBase<TEntity> query);
     }
 }

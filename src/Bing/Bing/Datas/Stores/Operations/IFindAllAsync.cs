@@ -17,7 +17,6 @@ namespace Bing.Datas.Stores.Operations
         /// 查找实体列表
         /// </summary>
         /// <param name="predicate">查询条件</param>
-        /// <returns></returns>
         Task<List<TEntity>> FindAllAsync(Expression<Func<TEntity, bool>> predicate = null);
     }
 }

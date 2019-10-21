@@ -9,13 +9,12 @@ namespace Bing.Datas.Stores.Operations
     /// </summary>
     /// <typeparam name="TEntity">对象类型</typeparam>
     /// <typeparam name="TKey">对象标识类型</typeparam>
-    public interface IExistsByExpression<TEntity,in TKey> where TEntity:class,IKey<TKey>
+    public interface IExistsByExpression<TEntity, in TKey> where TEntity : class, IKey<TKey>
     {
         /// <summary>
         /// 判断是否存在
         /// </summary>
         /// <param name="predicate">查询条件</param>
-        /// <returns></returns>
         bool Exists(Expression<Func<TEntity, bool>> predicate);
     }
 }

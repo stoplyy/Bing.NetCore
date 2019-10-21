@@ -16,7 +16,6 @@ namespace Bing.Datas.Stores.Operations
         /// 查找数量
         /// </summary>
         /// <param name="predicate">查询条件</param>
-        /// <returns></returns>
         Task<int> CountAsync(Expression<Func<TEntity, bool>> predicate = null);
     }
 }

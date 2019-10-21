@@ -18,7 +18,6 @@ namespace Bing.Datas.Stores.Operations
         /// </summary>
         /// <param name="predicate">查询条件</param>
         /// <param name="cancellationToken">取消令牌</param>
-        /// <returns></returns>
-        Task<TEntity> SingleAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken = default(CancellationToken));
+        Task<TEntity> SingleAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken = default);
     }
 }

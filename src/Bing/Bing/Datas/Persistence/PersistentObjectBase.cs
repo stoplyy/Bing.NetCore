@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
 using Bing.Domains.Entities;
 
 namespace Bing.Datas.Persistence

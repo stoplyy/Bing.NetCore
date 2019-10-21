@@ -16,7 +16,6 @@ namespace Bing.Datas.Stores.Operations
         /// 判断是否存在
         /// </summary>
         /// <param name="predicate">查询条件</param>
-        /// <returns></returns>
         Task<bool> ExistsAsync(Expression<Func<TEntity, bool>> predicate);
     }
 }

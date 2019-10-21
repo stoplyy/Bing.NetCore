@@ -8,7 +8,7 @@ namespace Bing.Datas.Stores
     /// 存储器
     /// </summary>
     /// <typeparam name="TEntity">对象类型</typeparam>
-    public interface IStore<TEntity>:IStore<TEntity,Guid> where TEntity:class, IKey<Guid>, IVersion { }
+    public interface IStore<TEntity> : IStore<TEntity, Guid> where TEntity : class, IKey<Guid>, IVersion { }
 
     /// <summary>
     /// 存储器

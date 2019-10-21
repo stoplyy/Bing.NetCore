@@ -13,7 +13,6 @@ namespace Bing.Datas.Stores.Operations
         /// 判断是否存在
         /// </summary>
         /// <param name="ids">标识列表</param>
-        /// <returns></returns>
         bool Exists(params TKey[] ids);
     }
 }
