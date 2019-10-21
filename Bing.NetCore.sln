@@ -214,6 +214,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bing.Permissions", "src\Bin
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bing.Samples.Jwt", "sample\Bing.Samples.Jwt\Bing.Samples.Jwt.csproj", "{0A8432D1-A6DA-4FA6-9CDD-5D6F4400C106}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bing.Samples.DI", "sample\Bing.Samples.DI\Bing.Samples.DI.csproj", "{5CE14E4E-1B53-42C7-B5E8-B321B198D078}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -464,6 +466,10 @@ Global
 		{0A8432D1-A6DA-4FA6-9CDD-5D6F4400C106}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A8432D1-A6DA-4FA6-9CDD-5D6F4400C106}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A8432D1-A6DA-4FA6-9CDD-5D6F4400C106}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CE14E4E-1B53-42C7-B5E8-B321B198D078}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CE14E4E-1B53-42C7-B5E8-B321B198D078}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CE14E4E-1B53-42C7-B5E8-B321B198D078}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CE14E4E-1B53-42C7-B5E8-B321B198D078}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -560,6 +566,7 @@ Global
 		{EFC2120A-C3C9-472B-B464-7AF4E5F4846F} = {FF7DDF01-C939-468A-A1D8-F85624E17856}
 		{1DA7A52C-D593-4B04-9A5B-1136BDC3D69F} = {54819E6C-8549-42E9-94C4-45EDB37F0C22}
 		{0A8432D1-A6DA-4FA6-9CDD-5D6F4400C106} = {474AB182-21D2-44C4-A99C-31FC31E469CB}
+		{5CE14E4E-1B53-42C7-B5E8-B321B198D078} = {474AB182-21D2-44C4-A99C-31FC31E469CB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {82408448-62DC-44A6-B7C1-6FCEBCC12C93}

@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.Loader;
-using Bing.Reflections;
+using Bing.Reflections.Internal;
 using Bing.Utils.Extensions;
 
 namespace Bing.Modularity.PlugIns

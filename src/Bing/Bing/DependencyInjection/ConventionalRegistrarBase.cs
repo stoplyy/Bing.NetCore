@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using Bing.Reflections;
+using Bing.Reflections.Internal;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Bing.DependencyInjection

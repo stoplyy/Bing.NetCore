@@ -28,9 +28,9 @@ namespace Bing.DependencyInjection.Default
             foreach (var serviceType in serviceTypes)
             {
                 var serviceDescriptor = ServiceDescriptor.Describe(serviceType, type, lifeTime.Value);
-                if (dependencyAttribute.ReplaceExisting == true)
+                if (dependencyAttribute?.ReplaceExisting == true)
                     services.Replace(serviceDescriptor);
-                else if (dependencyAttribute.TryAdd == true)
+                else if (dependencyAttribute?.TryAdd == true)
                     services.TryAdd(serviceDescriptor);
                 else
                     services.Add(serviceDescriptor);

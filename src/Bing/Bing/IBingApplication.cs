@@ -7,7 +7,7 @@ namespace Bing
     /// <summary>
     /// Bing 应用程序
     /// </summary>
-    public interface IBingApplication:IModuleContainer,IDisposable
+    public interface IBingApplication : IModuleContainer, IDisposable
     {
         /// <summary>
         /// 应用程序启动(入口)模块类型

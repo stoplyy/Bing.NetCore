@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Description>Bing.AspNetCore 组件，提供AspNetCore的服务端功能的封装</Description>
+    <RootNamespace />
   </PropertyGroup>
 
   <ItemGroup>

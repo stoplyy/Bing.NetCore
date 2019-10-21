@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
-using Bing.Dependency;
 using Bing.Finders;
 
 namespace Bing.Reflections
@@ -9,7 +8,6 @@ namespace Bing.Reflections
     /// <summary>
     /// 定义类型查找器
     /// </summary>
-    [IgnoreDependency]
     public interface ITypeFinder : IFinder<Type>
     {
         /// <summary>
@@ -17,7 +15,6 @@ namespace Bing.Reflections
         /// </summary>
         /// <typeparam name="T">查找类型</typeparam>
         /// <param name="assemblies">在指定的程序集列表中查找</param>
-        /// <returns></returns>
         List<Type> Find<T>(List<Assembly> assemblies = null);
 
         /// <summary>
@@ -25,7 +22,6 @@ namespace Bing.Reflections
         /// </summary>
         /// <param name="findType">查找类型</param>
         /// <param name="assemblies">在指定的程序集列表中查找</param>
-        /// <returns></returns>
         List<Type> Find(Type findType, List<Assembly> assemblies = null);
     }
 }

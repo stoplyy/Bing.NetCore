@@ -43,12 +43,12 @@ namespace Microsoft.Extensions.DependencyInjection
         public static ObjectAccessor<T> AddObjectAccessor<T>(this IServiceCollection services,
             ObjectAccessor<T> accessor)
         {
-            if(services.Any(x=>x.ServiceType==typeof(ObjectAccessor<T>)))
+            if (services.Any(x => x.ServiceType == typeof(ObjectAccessor<T>)))
                 throw new ArgumentException($"该对象访问器类型之前已注册: {typeof(T).AssemblyQualifiedName}");
 
             // 将访问器添加到服务集合起始点，便于快速检索
-            services.Insert(0,ServiceDescriptor.Singleton(typeof(ObjectAccessor<>),accessor));
-            services.Insert(0, ServiceDescriptor.Singleton(typeof(IObjectAccessor<>), accessor));
+            services.Insert(0, ServiceDescriptor.Singleton(typeof(ObjectAccessor<T>), accessor));
+            services.Insert(0, ServiceDescriptor.Singleton(typeof(IObjectAccessor<T>), accessor));
 
             return accessor;
         }
@@ -58,7 +58,7 @@ namespace Microsoft.Extensions.DependencyInjection
         /// </summary>
         /// <typeparam name="T">类型</typeparam>
         /// <param name="services">服务集合</param>
-        public static T GetObjectOrNull<T>(this IServiceCollection services) where T:class => services.GetSingletonInstanceOrNull<IObjectAccessor<T>>()?.Value;
+        public static T GetObjectOrNull<T>(this IServiceCollection services) where T : class => services.GetSingletonInstanceOrNull<IObjectAccessor<T>>()?.Value;
 
         /// <summary>
         /// 获取对象
