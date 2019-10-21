@@ -62,7 +62,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Domains\Entities\Caching\" />
+    <Folder Include="Bing\Domains\Entities\Caching\" />
   </ItemGroup>
 
 </Project>
