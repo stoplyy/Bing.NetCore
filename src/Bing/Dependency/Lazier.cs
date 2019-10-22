@@ -7,7 +7,7 @@ namespace Bing.Dependency
     /// Lazy延迟加载解析器
     /// </summary>
     /// <typeparam name="T">对象类型</typeparam>
-    internal class Lazier<T> : Lazy<T> where T : class
+    public class Lazier<T> : Lazy<T> where T : class
     {
         /// <summary>
         /// 初始化一个<see cref="Lazier{T}"/>类型的实例

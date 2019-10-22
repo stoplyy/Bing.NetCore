@@ -75,7 +75,7 @@ namespace Bing.Datas.EntityFramework.Core
         static UnitOfWorkBase()
         {
             Maps = new ConcurrentDictionary<Type, IEnumerable<IMap>>();
-            LoggerFactory = new LoggerFactory(new[] {new EfLogProvider(),});
+            LoggerFactory = new LoggerFactory(new[] { new EfLogProvider(), });
         }
 
         #endregion
@@ -87,7 +87,7 @@ namespace Bing.Datas.EntityFramework.Core
         /// </summary>
         /// <param name="options">配置</param>
         /// <param name="serviceProvider">服务提供器</param>
-        protected UnitOfWorkBase(DbContextOptions options,IServiceProvider serviceProvider):base(options)
+        protected UnitOfWorkBase(DbContextOptions options, IServiceProvider serviceProvider) : base(options)
         {
             TraceId = Guid.NewGuid().ToString();
             Session = Bing.Sessions.Session.Instance;
@@ -253,7 +253,7 @@ namespace Bing.Datas.EntityFramework.Core
         protected virtual Assembly[] GetAssemblies()
         {
             return new[] { GetType().Assembly };
-        }        
+        }
 
         #endregion
 
