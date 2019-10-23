@@ -68,17 +68,6 @@ namespace Bing.Samples
 
             // 注册AutoMapper
             context.Services.AddAutoMapper();
-
-            context.Services.ConfigureDynamicProxy(config =>
-            {
-                config.EnableParameterAspect();
-                config.NonAspectPredicates.Add(t =>
-                    Bing.Utils.Helpers.Reflection.GetTopBaseType(t.DeclaringType).SafeString() ==
-                    "Microsoft.EntityFrameworkCore.DbContext");
-            });
-            context.Services.AddScoped<IAspectScheduler, ScopeAspectScheduler>();
-            context.Services.AddScoped<IAspectBuilderFactory, ScopeAspectBuilderFactory>();
-            context.Services.AddScoped<IAspectContextFactory, ScopeAspectContextFactory>();
         }
 
         /// <summary>

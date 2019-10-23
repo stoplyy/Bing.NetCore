@@ -212,10 +212,10 @@ namespace Bing.Utils.Extensions
 
         #endregion
 
-        #region SortByDependencies(按依赖关系排序)
+        #region SortByDependencies(拓扑排序)
 
         /// <summary>
-        /// 按依赖关系排序
+        /// 拓扑排序
         /// </summary>
         /// <typeparam name="T">类型</typeparam>
         /// <param name="source">源集合</param>
@@ -225,6 +225,8 @@ namespace Bing.Utils.Extensions
             /**
              * 参考：http://www.codeproject.com/Articles/869059/Topological-sorting-in-Csharp
              *      http://en.wikipedia.org/wiki/Topological_sorting
+             *      https://www.cnblogs.com/myzony/p/9201768.html
+             *      https://www.cnblogs.com/myzony/p/9198904.html
              */
             var sorted = new List<T>();
             var visited = new Dictionary<T, bool>();
@@ -234,7 +236,7 @@ namespace Bing.Utils.Extensions
         }
 
         /// <summary>
-        /// 按依赖关系排序
+        /// 拓扑排序
         /// </summary>
         /// <typeparam name="T">类型</typeparam>
         /// <param name="item">项</param>
