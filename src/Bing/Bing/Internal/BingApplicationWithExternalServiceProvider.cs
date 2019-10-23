@@ -1,4 +1,5 @@
 ﻿using System;
+using Bing.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Bing.Internal
@@ -31,6 +32,7 @@ namespace Bing.Internal
         {
             SetServiceProvider(serviceProvider ?? throw new ArgumentNullException(nameof(serviceProvider)));
             InitializeModules();
+            ServiceLocator.Instance.SetApplicationServiceProvider(ServiceProvider);
         }
     }
 }

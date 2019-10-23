@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
+using AspectCore.Extensions.DependencyInjection;
 using Bing;
 using Bing.Utils.Helpers;
 
@@ -69,7 +70,6 @@ namespace Microsoft.Extensions.DependencyInjection
                     .MakeGenericMethod(containerBuilderType)
                     .Invoke(null, new object[] {services, null});
             }
-            
             return services.BuildServiceProvider();
         }
 

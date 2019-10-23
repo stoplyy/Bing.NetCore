@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Bing.Utils.Helpers;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Bing.Dependency
+namespace Bing.DependencyInjection
 {
     /// <summary>
     /// 应用程序服务定位器。可随时正常解析<see cref="ServiceLifetime.Singleton"/>与<see cref="ServiceLifetime.Transient"/>生命周期类型的服务
@@ -66,7 +66,7 @@ namespace Bing.Dependency
         /// <param name="services">服务集合</param>
         internal void SetServiceCollection(IServiceCollection services)
         {
-            Check.NotNull(services,nameof(services));
+            Check.NotNull(services, nameof(services));
             _services = services;
         }
 
@@ -76,7 +76,7 @@ namespace Bing.Dependency
         /// <param name="provider">服务提供程序</param>
         internal void SetApplicationServiceProvider(IServiceProvider provider)
         {
-            Check.NotNull(provider,nameof(provider));
+            Check.NotNull(provider, nameof(provider));
             _provider = provider;
         }
 

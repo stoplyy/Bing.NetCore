@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Bing
+﻿namespace Bing
 {
     /// <summary>
     /// 应用程序初始化

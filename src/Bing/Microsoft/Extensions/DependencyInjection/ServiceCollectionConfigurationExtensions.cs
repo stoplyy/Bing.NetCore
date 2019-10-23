@@ -24,6 +24,6 @@ namespace Microsoft.Extensions.DependencyInjection
         /// 获取配置
         /// </summary>
         /// <param name="services">服务集合</param>
-        public static IConfigurationRoot GetConfiguration(this IServiceCollection services) => services.GetSingletonInstance<IConfigurationAccessor>().Configuration;
+        public static IConfiguration GetConfiguration(this IServiceCollection services) => services.GetSingletonInstance<IConfiguration>();
     }
 }

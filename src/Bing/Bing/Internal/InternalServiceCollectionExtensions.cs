@@ -1,4 +1,5 @@
 ﻿using Bing.Modularity;
+using Bing.Reflections;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
@@ -32,6 +33,13 @@ namespace Bing.Internal
 
             services.TryAddSingleton<IModuleLoader>(moduleLoader);
             services.AddAssemblyOf<IBingApplication>();
+
+            var finder = new AppDomainAllAssemblyFinder();
+            foreach (var assembly in finder.FindAll(true))
+            {
+                services.AddAssembly(assembly);
+            }
+
             services.Configure<ModuleLifecycleOptions>(options =>
             {
                 options.Contributors.Add<OnPreApplicationInitializationModuleLifecycleContributor>();

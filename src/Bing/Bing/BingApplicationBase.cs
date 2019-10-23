@@ -1,8 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using AspectCore.DynamicProxy;
+using AspectCore.DynamicProxy.Parameters;
+using AspectCore.Extensions.AspectScope;
+using AspectCore.Extensions.DependencyInjection;
+using Bing.Dependency;
 using Bing.DependencyInjection;
 using Bing.Internal;
 using Bing.Modularity;
+using Bing.Utils.Extensions;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Bing
@@ -38,6 +44,20 @@ namespace Bing
             services.AddCoreBingServices(this, options);
 
             Modules = LoadModules(services, options);
+
+            ServiceLocator.Instance.SetServiceCollection(services);
+            services.AddTransient(typeof(Lazy<>), typeof(Lazier<>));
+
+            services.ConfigureDynamicProxy(config =>
+            {
+                config.EnableParameterAspect();
+                config.NonAspectPredicates.Add(t =>
+                    Bing.Utils.Helpers.Reflection.GetTopBaseType(t.DeclaringType).SafeString() ==
+                    "Microsoft.EntityFrameworkCore.DbContext");
+            });
+            services.AddScoped<IAspectScheduler, ScopeAspectScheduler>();
+            services.AddScoped<IAspectBuilderFactory, ScopeAspectBuilderFactory>();
+            services.AddScoped<IAspectContextFactory, ScopeAspectContextFactory>();
         }
 
         /// <summary>

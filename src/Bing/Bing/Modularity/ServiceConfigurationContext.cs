@@ -28,7 +28,7 @@ namespace Bing.Modularity
         /// <summary>
         /// 字典列表
         /// </summary>
-        public IDictionary<string,object> Items { get; }
+        public IDictionary<string, object> Items { get; }
 
         /// <summary>
         /// 获取或设置 字典项

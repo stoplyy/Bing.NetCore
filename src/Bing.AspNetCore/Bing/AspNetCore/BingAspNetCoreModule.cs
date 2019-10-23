@@ -1,4 +1,11 @@
-﻿using Bing.Modularity;
+﻿using AspectCore.DynamicProxy;
+using AspectCore.DynamicProxy.Parameters;
+using AspectCore.Extensions.AspectScope;
+using AspectCore.Extensions.DependencyInjection;
+using Bing.AspNetCore.DependencyInjection;
+using Bing.DependencyInjection;
+using Bing.Modularity;
+using Bing.Utils.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -25,6 +32,7 @@ namespace Bing.AspNetCore
         {
             AddAspNetServices(context.Services);
             context.Services.AddObjectAccessor<IApplicationBuilder>();
+            context.Services.AddSingleton<IScopeServiceResolver, RequestScopedServiceResolver>();
         }
 
         /// <summary>
@@ -34,6 +42,26 @@ namespace Bing.AspNetCore
         private static void AddAspNetServices(IServiceCollection services)
         {
             services.AddHttpContextAccessor();
+            // 注入当前用户，替换Thread.CurrentPrincipal的作用
+            services.AddTransient<System.Security.Principal.IPrincipal>(provider =>
+            {
+                var accessor = provider.GetService<Microsoft.AspNetCore.Http.IHttpContextAccessor>();
+                return accessor?.HttpContext?.User;
+            });
+            // 注入用户会话
+            services.AddSingleton<Bing.Sessions.ISession, Bing.Sessions.Session>();
+            // 注册编码
+            System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
+            services.ConfigureDynamicProxy(config =>
+            {
+                config.EnableParameterAspect();
+                config.NonAspectPredicates.Add(t =>
+                    Bing.Utils.Helpers.Reflection.GetTopBaseType(t.DeclaringType).SafeString() ==
+                    "Microsoft.EntityFrameworkCore.DbContext");
+            });
+            services.AddScoped<IAspectScheduler, ScopeAspectScheduler>();
+            services.AddScoped<IAspectBuilderFactory, ScopeAspectBuilderFactory>();
+            services.AddScoped<IAspectContextFactory, ScopeAspectContextFactory>();
         }
     }
 }

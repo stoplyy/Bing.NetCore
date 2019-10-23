@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Bing.Dependency;
+using Bing.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Bing.Helpers

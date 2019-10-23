@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using Bing.Dependency;
+using Bing.DependencyInjection;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Bing.AspNetCore
+namespace Bing.AspNetCore.DependencyInjection
 {
     /// <summary>
     /// Request的<see cref="ServiceLifetime.Scoped"/>服务解析器
