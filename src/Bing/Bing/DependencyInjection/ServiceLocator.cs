@@ -64,7 +64,7 @@ namespace Bing.DependencyInjection
         /// 设置应用程序服务集合
         /// </summary>
         /// <param name="services">服务集合</param>
-        internal void SetServiceCollection(IServiceCollection services)
+        public void SetServiceCollection(IServiceCollection services)
         {
             Check.NotNull(services, nameof(services));
             _services = services;
@@ -74,7 +74,7 @@ namespace Bing.DependencyInjection
         /// 设置应用程序服务提供程序
         /// </summary>
         /// <param name="provider">服务提供程序</param>
-        internal void SetApplicationServiceProvider(IServiceProvider provider)
+        public void SetApplicationServiceProvider(IServiceProvider provider)
         {
             Check.NotNull(provider, nameof(provider));
             _provider = provider;

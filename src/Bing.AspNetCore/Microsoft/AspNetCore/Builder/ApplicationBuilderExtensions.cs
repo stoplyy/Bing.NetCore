@@ -1,9 +1,9 @@
 ﻿using System;
+using Bing;
 using Bing.DependencyInjection;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Bing.AspNetCore.Builder
+namespace Microsoft.AspNetCore.Builder
 {
     /// <summary>
     /// 应用程序构建器(<see cref="IApplicationBuilder"/>) 扩展
