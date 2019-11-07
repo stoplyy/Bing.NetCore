@@ -1,7 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json;
 
-namespace Bing.Utils
+namespace Bing
 {
     /// <summary>
     /// 列表项

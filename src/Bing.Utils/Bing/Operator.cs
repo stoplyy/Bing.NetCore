@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Bing.Utils
+namespace Bing
 {
     /// <summary>
     /// 查询操作符

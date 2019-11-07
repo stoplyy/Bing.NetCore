@@ -1,4 +1,4 @@
-﻿namespace Bing.Utils
+﻿namespace Bing
 {
     /// <summary>
     /// 名称 - 值

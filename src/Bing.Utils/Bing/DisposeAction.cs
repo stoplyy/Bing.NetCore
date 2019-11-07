@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Threading;
 using Bing.Utils.Helpers;
 
-namespace Bing.Utils
+namespace Bing
 {
     /// <summary>
     /// 释放操作
@@ -27,9 +26,6 @@ namespace Bing.Utils
         /// <summary>
         /// 释放资源
         /// </summary>
-        public void Dispose()
-        {
-            _action();
-        }
+        public void Dispose() => _action();
     }
 }
