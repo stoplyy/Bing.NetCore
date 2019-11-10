@@ -12,6 +12,7 @@ using Bing.Datas.Sql;
 using Bing.Datas.Sql.Matedatas;
 using Bing.Datas.Transactions;
 using Bing.Datas.UnitOfWorks;
+using Bing.DependencyInjection;
 using Bing.Domains.Entities;
 using Bing.Domains.Entities.Auditing;
 using Bing.Exceptions;
@@ -108,15 +109,11 @@ namespace Bing.Datas.EntityFramework.Core
         /// 创建实例
         /// </summary>
         /// <typeparam name="T">对象类型</typeparam>
-        /// <returns></returns>
         private T Create<T>()
         {
             var result = _serviceProvider.GetService(typeof(T));
             if (result == null)
-            {
-                return default(T);
-            }
-
+                return default;
             return (T)result;
         }
 
@@ -149,7 +146,6 @@ namespace Bing.Datas.EntityFramework.Core
         /// <summary>
         /// 获取日志操作
         /// </summary>
-        /// <returns></returns>
         protected virtual ILog GetLog()
         {
             try
@@ -166,27 +162,19 @@ namespace Bing.Datas.EntityFramework.Core
         /// 是否启用EF日志
         /// </summary>
         /// <param name="log">日志操作</param>
-        /// <returns></returns>
         private bool IsEnabled(ILog log)
         {
             var config = GetConfig();
             if (config.LogLevel == DataLogLevel.Off)
-            {
                 return false;
-            }
-
             if (log.IsTraceEnabled == false)
-            {
                 return false;
-            }
-
             return true;
         }
 
         /// <summary>
         /// 获取配置
         /// </summary>
-        /// <returns></returns>
         private DataConfig GetConfig()
         {
             try
@@ -554,5 +542,6 @@ namespace Bing.Datas.EntityFramework.Core
 
         #endregion
 
+        
     }
 }

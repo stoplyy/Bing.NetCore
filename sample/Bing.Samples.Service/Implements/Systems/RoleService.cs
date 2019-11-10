@@ -3,8 +3,10 @@ using System.Threading.Tasks;
 using Bing.Applications.Trees;
 using Bing.Datas.Queries;
 using Bing.Domains.Repositories;
+using Bing.Events.Messages;
 using Bing.Mapping;
 using Bing.Samples.Data;
+using Bing.Samples.Domain.Events;
 using Bing.Samples.Domain.Models;
 using Bing.Samples.Domain.Repositories;
 using Bing.Samples.Domain.Services.Abstractions;
@@ -24,12 +26,17 @@ namespace Bing.Samples.Service.Implements.Systems
         /// 初始化角色服务
         /// </summary>
         /// <param name="unitOfWork">工作单元</param>
+        /// <param name="messageEventBus">消息事件总线</param>
         /// <param name="roleManager">角色服务</param>
         /// <param name="roleRepository">角色仓储</param>
-        public RoleService(ISampleUnitOfWork unitOfWork, IRoleManager roleManager, IRoleRepository roleRepository)
+        public RoleService(ISampleUnitOfWork unitOfWork
+            , IMessageEventBus messageEventBus
+            , IRoleManager roleManager
+            , IRoleRepository roleRepository)
             : base(unitOfWork, roleRepository)
         {
             UnitOfWork = unitOfWork;
+            MessageEventBus = messageEventBus;
             RoleManager = roleManager;
             RoleRepository = roleRepository;
         }
@@ -38,10 +45,17 @@ namespace Bing.Samples.Service.Implements.Systems
         /// 工作单元
         /// </summary>
         public ISampleUnitOfWork UnitOfWork { get; set; }
+
+        /// <summary>
+        /// 消息事件总线
+        /// </summary>
+        public IMessageEventBus MessageEventBus { get; set; }
+
         /// <summary>
         /// 角色服务
         /// </summary>
         public IRoleManager RoleManager { get; set; }
+
         /// <summary>
         /// 角色仓储
         /// </summary>
@@ -56,6 +70,13 @@ namespace Bing.Samples.Service.Implements.Systems
             var role = ToEntity(request);
             role.Type = "Role";
             await RoleManager.CreateAsync(role);
+            await MessageEventBus.PublishAsync(new CreateRoleMessageEvent(
+                new CreateRoleMessage()
+                {
+                    Code = $"event:{role.Code}",
+                    Name = $"event:{role.Name}",
+                    Type = $"event:{role.Type}"
+                }));
             await UnitOfWork.CommitAsync();
             return role.Id;
         }

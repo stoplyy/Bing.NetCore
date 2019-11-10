@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Bing.Samples.Service.Abstractions.Systems;
 using Bing.Samples.Service.Dtos.Systems;
 using Bing.Samples.Service.Queries.Systems;
 using Bing.Webs.Controllers.Trees;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Bing.Samples.Controllers.Systems
 {
@@ -18,7 +20,13 @@ namespace Bing.Samples.Controllers.Systems
         /// <param name="service">角色服务</param>
         public RoleController(IRoleService service) : base(service)
         {
+            RoleService = service;
         }
+
+        /// <summary>
+        /// 角色服务
+        /// </summary>
+        public IRoleService RoleService { get; set; }
 
         /// <summary>
         /// 转换为树型结果
@@ -28,6 +36,17 @@ namespace Bing.Samples.Controllers.Systems
         protected override RoleDto ToResult(List<RoleDto> data, bool async = false)
         {
             throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// 创建角色
+        /// </summary>
+        /// <param name="request">请求</param>
+        [HttpPost]
+        public async Task<IActionResult> CreateAsync([FromBody] CreateRoleRequest request)
+        {
+            var id = await RoleService.CreateAsync(request);
+            return Success(id);
         }
     }
 

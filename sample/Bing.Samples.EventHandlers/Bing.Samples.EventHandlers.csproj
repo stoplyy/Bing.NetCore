@@ -8,9 +8,4 @@
     <ProjectReference Include="..\Bing.Samples.Data\Bing.Samples.Data.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Abstractions\" />
-    <Folder Include="Implements\" />
-  </ItemGroup>
-
 </Project>

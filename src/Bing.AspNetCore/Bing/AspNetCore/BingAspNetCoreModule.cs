@@ -32,7 +32,7 @@ namespace Bing.AspNetCore
         {
             AddAspNetServices(context.Services);
             context.Services.AddObjectAccessor<IApplicationBuilder>();
-            context.Services.AddSingleton<IScopeServiceResolver, RequestScopedServiceResolver>();
+            //context.Services.AddSingleton<IScopeServiceResolver, RequestScopedServiceResolver>();
         }
 
         /// <summary>

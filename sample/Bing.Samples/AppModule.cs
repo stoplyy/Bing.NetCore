@@ -1,9 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Text;
-using AspectCore.DynamicProxy;
-using AspectCore.DynamicProxy.Parameters;
-using AspectCore.Extensions.AspectScope;
-using AspectCore.Extensions.DependencyInjection;
 using Bing.AspNetCore;
 using Bing.AutoMapper;
 using Bing.Datas.Dapper;
@@ -16,9 +12,10 @@ using Bing.Extensions.Swashbuckle.Filters.Operations;
 using Bing.Logs.NLog;
 using Bing.Modularity;
 using Bing.Samples.Data;
+using Bing.Samples.EventHandlers;
 using Bing.Samples.Service;
-using Bing.Utils.Extensions;
 using Bing.Webs.Extensions;
+using Bing.Webs.Filters;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -30,7 +27,7 @@ namespace Bing.Samples
     /// <summary>
     /// 应用程序模块
     /// </summary>
-    [DependsOn(typeof(BingAspNetCoreModule), typeof(SamplesServiceModule))]
+    [DependsOn(typeof(BingAspNetCoreModule), typeof(SamplesServiceModule),typeof(SamplesEventHandlerModule))]
     public class AppModule : BingModule
     {
         /// <summary>
@@ -42,7 +39,11 @@ namespace Bing.Samples
             var configuration = context.Services.GetConfiguration();
             // 注册Mvc
             context.Services
-                .AddMvc()
+                .AddMvc(options =>
+                {
+                    options.Filters.Add<ResultHandlerAttribute>();
+                    options.Filters.Add<ExceptionHandlerAttribute>();
+                })
                 .AddJsonOptions(options =>
                 {
                     options.SerializerSettings.DateFormatString = "yyyy-MM-dd HH:mm:ss";

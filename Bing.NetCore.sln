@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.902
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29424.173
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bing", "src\Bing\Bing.csproj", "{B4159996-5640-4757-AE7F-B18989C7E5E1}"
 EndProject
@@ -234,7 +234,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bing.Samples", "sample\Bing
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "99-Other", "99-Other", "{1258FD2E-CBCF-4622-ABBE-B9ADD1856838}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bing.Samples.EventHandlers", "sample\Bing.Samples.EventHandlers\Bing.Samples.EventHandlers.csproj", "{23BC63AB-D25B-4686-8CEA-012D93E6E2CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bing.Samples.EventHandlers", "sample\Bing.Samples.EventHandlers\Bing.Samples.EventHandlers.csproj", "{23BC63AB-D25B-4686-8CEA-012D93E6E2CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bing.Samples.Infrastructure", "sample\Bing.Samples.Infrastructure\Bing.Samples.Infrastructure.csproj", "{8D2E2805-AE4C-4A63-A829-D7DC562746CE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -510,6 +512,10 @@ Global
 		{23BC63AB-D25B-4686-8CEA-012D93E6E2CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23BC63AB-D25B-4686-8CEA-012D93E6E2CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23BC63AB-D25B-4686-8CEA-012D93E6E2CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D2E2805-AE4C-4A63-A829-D7DC562746CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D2E2805-AE4C-4A63-A829-D7DC562746CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D2E2805-AE4C-4A63-A829-D7DC562746CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D2E2805-AE4C-4A63-A829-D7DC562746CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -617,6 +623,7 @@ Global
 		{234B1945-AD9E-461C-B400-018DAC17D932} = {CB05FC8F-E7B4-4D12-90D5-44C8AEE266C6}
 		{1258FD2E-CBCF-4622-ABBE-B9ADD1856838} = {474AB182-21D2-44C4-A99C-31FC31E469CB}
 		{23BC63AB-D25B-4686-8CEA-012D93E6E2CE} = {BB8514EF-220F-4B36-BBE0-F757D40A10CE}
+		{8D2E2805-AE4C-4A63-A829-D7DC562746CE} = {2F5D4695-5667-405B-BF97-2B4C0F7A7CDD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {82408448-62DC-44A6-B7C1-6FCEBCC12C93}
