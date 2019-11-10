@@ -13,6 +13,7 @@ using Bing.Logs.NLog;
 using Bing.Modularity;
 using Bing.Samples.Data;
 using Bing.Samples.EventHandlers;
+using Bing.Samples.Modules;
 using Bing.Samples.Service;
 using Bing.Webs.Extensions;
 using Bing.Webs.Filters;
@@ -27,7 +28,7 @@ namespace Bing.Samples
     /// <summary>
     /// 应用程序模块
     /// </summary>
-    [DependsOn(typeof(BingAspNetCoreModule), typeof(SamplesServiceModule),typeof(SamplesEventHandlerModule))]
+    [DependsOn(typeof(BingAspNetCoreModule), typeof(SamplesServiceModule), typeof(SamplesEventHandlerModule),typeof(MiniProfilerModule))]
     public class AppModule : BingModule
     {
         /// <summary>

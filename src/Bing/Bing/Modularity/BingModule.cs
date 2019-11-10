@@ -18,7 +18,7 @@ namespace Bing.Modularity
         , IPostConfigureServices
     {
         /// <summary>
-        /// 是否跳过自动服务诸恶
+        /// 是否跳过自动服务注入
         /// </summary>
         protected internal bool SkipAutoServiceRegistration { get; protected set; }
 
