@@ -3,7 +3,7 @@ using System.Text;
 using Bing.AspNetCore;
 using Bing.AutoMapper;
 using Bing.Datas.Dapper;
-using Bing.Datas.EntityFramework.SqlServer;
+using Bing.Datas.EntityFramework.MySql;
 using Bing.Datas.Enums;
 using Bing.Extensions.Swashbuckle.Configs;
 using Bing.Extensions.Swashbuckle.Core;
@@ -28,7 +28,11 @@ namespace Bing.Samples
     /// <summary>
     /// 应用程序模块
     /// </summary>
-    [DependsOn(typeof(BingAspNetCoreModule), typeof(SamplesServiceModule), typeof(SamplesEventHandlerModule),typeof(MiniProfilerModule))]
+    [DependsOn(typeof(BingAspNetCoreModule),
+        typeof(CapModule),
+        typeof(SamplesServiceModule),
+        typeof(SamplesEventHandlerModule),
+        typeof(MiniProfilerModule))]
     public class AppModule : BingModule
     {
         /// <summary>
@@ -55,13 +59,15 @@ namespace Bing.Samples
             context.Services.AddSwaggerCustom(SwaggerOptions);
 
             // 注册工作单元
-            context.Services.AddSqlServerUnitOfWork<ISampleUnitOfWork, Bing.Samples.Data.UnitOfWorks.SqlServer.SampleUnitOfWork>(
+            //context.Services.AddSqlServerUnitOfWork<ISampleUnitOfWork, Bing.Samples.Data.UnitOfWorks.SqlServer.SampleUnitOfWork>(
+            //    configuration.GetConnectionString("DefaultConnection"));
+            context.Services.AddMySqlUnitOfWork<ISampleUnitOfWork, Bing.Samples.Data.UnitOfWorks.MySql.SampleUnitOfWork>(
                 configuration.GetConnectionString("DefaultConnection"));
 
             // 注册SqlQuery
-            context.Services.AddSqlQuery<Bing.Samples.Data.UnitOfWorks.SqlServer.SampleUnitOfWork, Bing.Samples.Data.UnitOfWorks.SqlServer.SampleUnitOfWork>(options =>
+            context.Services.AddSqlQuery<Bing.Samples.Data.UnitOfWorks.MySql.SampleUnitOfWork, Bing.Samples.Data.UnitOfWorks.MySql.SampleUnitOfWork>(options =>
             {
-                options.DatabaseType = DatabaseType.SqlServer;
+                options.DatabaseType = DatabaseType.MySql;
                 options.IsClearAfterExecution = true;
             });
 

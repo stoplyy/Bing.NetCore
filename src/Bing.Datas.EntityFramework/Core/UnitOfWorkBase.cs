@@ -541,7 +541,5 @@ namespace Bing.Datas.EntityFramework.Core
         }
 
         #endregion
-
-        
     }
 }
