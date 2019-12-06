@@ -30,9 +30,9 @@ namespace Bing.Samples.Modules
                 // 启用RabbitMQ
                 o.UseRabbitMQ(x =>
                 {
-                    x.HostName = "47.106.107.73";
+                    x.HostName = "";
                     x.UserName = "admin";
-                    x.Password = "bing2019.00";
+                    x.Password = "";
                 });
             });
         }
