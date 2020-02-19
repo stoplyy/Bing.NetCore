@@ -1,20 +1,18 @@
 ﻿using Bing.Extensions;
 using Bing.Helpers;
-using Bing.Validations.Validators;
 
-// ReSharper disable once CheckNamespace
 namespace System.ComponentModel.DataAnnotations
 {
     /// <summary>
-    /// QQ验证
+    /// 中文验证
     /// </summary>
     [AttributeUsage(AttributeTargets.Property)]
-    public class QQAttribute : ValidationAttribute
+    public class ChineseAttribute : ValidationAttribute
     {
         /// <summary>
         /// 错误消息
         /// </summary>
-        private const string ErrorMsg = "'{0}' 不是有效的QQ号码";
+        private const string ErrorMsg = "'{0}' 必须是中文";
 
         /// <summary>
         /// 格式化错误消息
@@ -33,7 +31,7 @@ namespace System.ComponentModel.DataAnnotations
         {
             if (value.SafeString().IsEmpty())
                 return ValidationResult.Success;
-            if (Regexs.IsMatch(value.SafeString(), ValidatePattern.QQPatter))
+            if (Regexs.IsMatch(value.SafeString(), ValidatePattern.ChinesePattern))
                 return ValidationResult.Success;
             return new ValidationResult(FormatErrorMessage(string.IsNullOrWhiteSpace(validationContext.DisplayName)
                 ? validationContext.MemberName

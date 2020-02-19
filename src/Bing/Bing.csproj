@@ -35,6 +35,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Bing.Abstractions\Bing.Abstractions.csproj" />
     <ProjectReference Include="..\Bing.Utils\Bing.Utils.csproj" />
   </ItemGroup>
 

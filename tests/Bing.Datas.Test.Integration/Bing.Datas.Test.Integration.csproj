@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\Bing.Datas.Dapper\Bing.Datas.Dapper.csproj" />
+    <ProjectReference Include="..\Bing.Tests.Samples\Bing.Tests.Samples.csproj" />
   </ItemGroup>
 
   <ItemGroup>

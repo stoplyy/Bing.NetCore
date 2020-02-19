@@ -15643,61 +15643,6 @@
             验证
             </summary>
         </member>
-        <member name="T:Bing.Validations.Validators.ValidatePattern">
-            <summary>
-            验证正则
-            </summary>
-        </member>
-        <member name="F:Bing.Validations.Validators.ValidatePattern.MobilePhonePattern">
-            <summary>
-            手机号验证正则表达式
-            </summary>
-        </member>
-        <member name="F:Bing.Validations.Validators.ValidatePattern.IdCardPattern">
-            <summary>
-            身份证验证正则表达式
-            </summary>
-        </member>
-        <member name="F:Bing.Validations.Validators.ValidatePattern.ChinesePattern">
-            <summary>
-            中文验证正则表达式
-            </summary>
-        </member>
-        <member name="F:Bing.Validations.Validators.ValidatePattern.UrlPattern">
-            <summary>
-            Url验证正则表达式
-            </summary>
-        </member>
-        <member name="F:Bing.Validations.Validators.ValidatePattern.LetterPattern">
-            <summary>
-            英文字母验证正则表达式
-            </summary>
-        </member>
-        <member name="F:Bing.Validations.Validators.ValidatePattern.PlateNumberOfChinaPatter">
-            <summary>
-            车牌号验证正则表达式
-            </summary>
-        </member>
-        <member name="F:Bing.Validations.Validators.ValidatePattern.PostalCodeOfChinaPatter">
-            <summary>
-            邮政编码验证正则表达式
-            </summary>
-        </member>
-        <member name="F:Bing.Validations.Validators.ValidatePattern.QQPatter">
-            <summary>
-            QQ验证正则表达式
-            </summary>
-        </member>
-        <member name="F:Bing.Validations.Validators.ValidatePattern.WechatNoPatter">
-            <summary>
-            微信号验证正则表达式
-            </summary>
-        </member>
-        <member name="F:Bing.Validations.Validators.ValidatePattern.TelNoOfChinaPatter">
-            <summary>
-            固话验证正则表达式
-            </summary>
-        </member>
         <member name="T:Bing.Configurations.BingConfig">
             <summary>
             Bing 框架配置
@@ -15864,57 +15809,23 @@
             容器操作
             </summary>
         </member>
-        <member name="P:Bing.Helpers.Ioc.DefaultContainer">
-            <summary>
-            默认容器
-            </summary>
-        </member>
-        <member name="M:Bing.Helpers.Ioc.CreateList``1(System.String)">
+        <member name="M:Bing.Helpers.Ioc.CreateList``1">
             <summary>
             创建集合
             </summary>
             <typeparam name="T">对象类型</typeparam>
-            <param name="name">服务名称</param>
         </member>
-        <member name="M:Bing.Helpers.Ioc.CreateList``1(System.Type,System.String)">
-            <summary>
-            创建集合
-            </summary>
-            <typeparam name="TResult">对象类型</typeparam>
-            <param name="type">对象类型</param>
-            <param name="name">服务名称</param>
-        </member>
-        <member name="M:Bing.Helpers.Ioc.Create``1(System.String)">
+        <member name="M:Bing.Helpers.Ioc.Create``1">
             <summary>
             创建实例
             </summary>
             <typeparam name="T">对象类型</typeparam>
-            <param name="name">服务名称</param>
         </member>
-        <member name="M:Bing.Helpers.Ioc.Create(System.Type,System.String)">
+        <member name="M:Bing.Helpers.Ioc.Create(System.Type)">
             <summary>
             创建实例
             </summary>
             <param name="type">对象类型</param>
-            <param name="name">服务名称</param>
-        </member>
-        <member name="M:Bing.Helpers.Ioc.Create``1(System.Type,System.String)">
-            <summary>
-            创建实例
-            </summary>
-            <typeparam name="TResult">对象类型</typeparam>
-            <param name="type">对象类型</param>
-            <param name="name">服务名称</param>
-        </member>
-        <member name="M:Bing.Helpers.Ioc.BeginScope">
-            <summary>
-            作用域开始
-            </summary>
-        </member>
-        <member name="M:Bing.Helpers.Ioc.Dispose">
-            <summary>
-            释放容器
-            </summary>
         </member>
         <member name="T:Bing.Helpers.WebIdentity">
             <summary>
@@ -18116,158 +18027,6 @@
             未认证安全主体
             </summary>
         </member>
-        <member name="T:Bing.Serialization.Binary.BinarySerializationUtil">
-            <summary>
-            二进制序列化工具
-            </summary>
-        </member>
-        <member name="M:Bing.Serialization.Binary.BinarySerializationUtil.Serialize(System.Object)">
-            <summary>
-            序列化
-            </summary>
-            <param name="obj">对象</param>
-            <returns></returns>
-        </member>
-        <member name="M:Bing.Serialization.Binary.BinarySerializationUtil.Serialize(System.Object,System.IO.Stream)">
-            <summary>
-            序列化
-            </summary>
-            <param name="obj">对象</param>
-            <param name="stream">流</param>
-        </member>
-        <member name="M:Bing.Serialization.Binary.BinarySerializationUtil.Deserialize(System.Byte[])">
-            <summary>
-            反序列化
-            </summary>
-            <param name="bytes">字节数组</param>
-            <returns></returns>
-        </member>
-        <member name="M:Bing.Serialization.Binary.BinarySerializationUtil.Deserialize(System.IO.Stream)">
-            <summary>
-            反序列化
-            </summary>
-            <param name="stream">流</param>
-            <returns></returns>
-        </member>
-        <member name="M:Bing.Serialization.Binary.BinarySerializationUtil.DeserializeExtended(System.Byte[])">
-            <summary>
-            反序列化。允许反序列化运行时加载的程序集定义的对象
-            </summary>
-            <param name="bytes">字节数组</param>
-            <returns></returns>
-        </member>
-        <member name="M:Bing.Serialization.Binary.BinarySerializationUtil.DeserializeExtended(System.IO.Stream)">
-            <summary>
-            反序列化。允许反序列化运行时加载的程序集定义的对象
-            </summary>
-            <param name="stream">流</param>
-            <returns></returns>
-        </member>
-        <member name="M:Bing.Serialization.Binary.BinarySerializationUtil.CreateBinaryFormatter(System.Boolean)">
-            <summary>
-            创建二进制格式化程序
-            </summary>
-            <param name="extended">是否允许序列化运行时对象</param>
-            <returns></returns>
-        </member>
-        <member name="T:Bing.Serialization.Binary.BinarySerializationUtil.ExtendedSerializationBinder">
-            <summary>
-            扩展序列化绑定器。允许序列化在运行时加载的程序集中定义的对象
-            </summary>
-        </member>
-        <member name="M:Bing.Serialization.Binary.BinarySerializationUtil.ExtendedSerializationBinder.BindToType(System.String,System.String)">
-            <summary>
-            绑定类型
-            </summary>
-            <param name="assemblyName">程序集名称</param>
-            <param name="typeName">类型名称</param>
-            <returns></returns>
-        </member>
-        <member name="T:Bing.Serialization.DefaultObjectSerializer">
-            <summary>
-            默认对象序列化器
-            </summary>
-        </member>
-        <member name="F:Bing.Serialization.DefaultObjectSerializer._serviceProvider">
-            <summary>
-            服务提供程序
-            </summary>
-        </member>
-        <member name="M:Bing.Serialization.DefaultObjectSerializer.#ctor(System.IServiceProvider)">
-            <summary>
-            初始化一个<see cref="T:Bing.Serialization.DefaultObjectSerializer"/>类型的实例
-            </summary>
-            <param name="serviceProvider">服务提供程序</param>
-        </member>
-        <member name="M:Bing.Serialization.DefaultObjectSerializer.Serialize``1(``0)">
-            <summary>
-            序列化
-            </summary>
-            <typeparam name="T">对象类型</typeparam>
-            <param name="obj">对象</param>
-            <returns></returns>
-        </member>
-        <member name="M:Bing.Serialization.DefaultObjectSerializer.Deserialize``1(System.Byte[])">
-            <summary>
-            反序列化
-            </summary>
-            <typeparam name="T">对象类型</typeparam>
-            <param name="bytes">字节数组</param>
-            <returns></returns>
-        </member>
-        <member name="M:Bing.Serialization.DefaultObjectSerializer.AutoSerialize``1(``0)">
-            <summary>
-            自动序列化
-            </summary>
-            <typeparam name="T">对象类型</typeparam>
-            <param name="obj">对象</param>
-            <returns></returns>
-        </member>
-        <member name="M:Bing.Serialization.DefaultObjectSerializer.AutoDeserialize``1(System.Byte[])">
-            <summary>
-            自动反序列化
-            </summary>
-            <typeparam name="T">对象类型</typeparam>
-            <param name="bytes">字节数组</param>
-            <returns></returns>
-        </member>
-        <member name="T:Bing.Serialization.IObjectSerializer">
-            <summary>
-            对象序列化器
-            </summary>
-        </member>
-        <member name="M:Bing.Serialization.IObjectSerializer.Serialize``1(``0)">
-            <summary>
-            序列化
-            </summary>
-            <typeparam name="T">对象类型</typeparam>
-            <param name="obj">对象</param>
-        </member>
-        <member name="M:Bing.Serialization.IObjectSerializer.Deserialize``1(System.Byte[])">
-            <summary>
-            反序列化
-            </summary>
-            <typeparam name="T">对象类型</typeparam>
-            <param name="bytes">字节数组</param>
-        </member>
-        <member name="T:Bing.Serialization.IObjectSerializer`1">
-            <summary>
-            对象序列化器
-            </summary>
-            <typeparam name="T">数据类型</typeparam>
-        </member>
-        <member name="M:Bing.Serialization.IObjectSerializer`1.Serialize(`0)">
-            <summary>
-            序列化
-            </summary>
-            <param name="obj">对象</param>
-        </member>
-        <member name="M:Bing.Serialization.IObjectSerializer`1.Deserialize(System.Byte[])">
-            <summary>
-            反序列化
-            </summary>
-            <param name="bytes">字节数组</param>
-        </member>
         <member name="T:Bing.Sessions.ISession">
             <summary>
             用户会话
@@ -19074,6 +18833,61 @@
         <member name="M:System.ComponentModel.DataAnnotations.TelNoOfChinaAttribute.IsValid(System.Object,System.ComponentModel.DataAnnotations.ValidationContext)">
             <summary>
             是否验证通过
+            </summary>
+        </member>
+        <member name="T:System.ComponentModel.DataAnnotations.ValidatePattern">
+            <summary>
+            验证正则
+            </summary>
+        </member>
+        <member name="F:System.ComponentModel.DataAnnotations.ValidatePattern.MobilePhonePattern">
+            <summary>
+            手机号验证正则表达式
+            </summary>
+        </member>
+        <member name="F:System.ComponentModel.DataAnnotations.ValidatePattern.IdCardPattern">
+            <summary>
+            身份证验证正则表达式
+            </summary>
+        </member>
+        <member name="F:System.ComponentModel.DataAnnotations.ValidatePattern.ChinesePattern">
+            <summary>
+            中文验证正则表达式
+            </summary>
+        </member>
+        <member name="F:System.ComponentModel.DataAnnotations.ValidatePattern.UrlPattern">
+            <summary>
+            Url验证正则表达式
+            </summary>
+        </member>
+        <member name="F:System.ComponentModel.DataAnnotations.ValidatePattern.LetterPattern">
+            <summary>
+            英文字母验证正则表达式
+            </summary>
+        </member>
+        <member name="F:System.ComponentModel.DataAnnotations.ValidatePattern.PlateNumberOfChinaPatter">
+            <summary>
+            车牌号验证正则表达式
+            </summary>
+        </member>
+        <member name="F:System.ComponentModel.DataAnnotations.ValidatePattern.PostalCodeOfChinaPatter">
+            <summary>
+            邮政编码验证正则表达式
+            </summary>
+        </member>
+        <member name="F:System.ComponentModel.DataAnnotations.ValidatePattern.QQPatter">
+            <summary>
+            QQ验证正则表达式
+            </summary>
+        </member>
+        <member name="F:System.ComponentModel.DataAnnotations.ValidatePattern.WechatNoPatter">
+            <summary>
+            微信号验证正则表达式
+            </summary>
+        </member>
+        <member name="F:System.ComponentModel.DataAnnotations.ValidatePattern.TelNoOfChinaPatter">
+            <summary>
+            固话验证正则表达式
             </summary>
         </member>
         <member name="T:System.ComponentModel.DataAnnotations.WechatNoAttribute">

@@ -6,7 +6,7 @@ namespace Bing.Tests.Samples
     /// <summary>
     /// 用户
     /// </summary>
-    public class User:AggregateRoot<User>
+    public class User : AggregateRoot<User>
     {
         /// <summary>
         /// 初始化一个<see cref="User"/>类型的实例

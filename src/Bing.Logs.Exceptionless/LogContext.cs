@@ -12,10 +12,9 @@ namespace Bing.Logs.Exceptionless
         /// <summary>
         /// 创建日志上下文信息
         /// </summary>
-        /// <returns></returns>
         protected override LogContextInfo CreateInfo()
         {
-            return new LogContextInfo()
+            return new LogContextInfo
             {
                 TraceId = Guid.NewGuid().ToString(),
                 Stopwatch = GetStopwatch(),

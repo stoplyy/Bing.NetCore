@@ -71,7 +71,7 @@ namespace Bing.Logs.Contents
         /// <summary>
         /// 业务编号
         /// </summary>
-        public string BussinessId { get; set; }
+        public string BusinessId { get; set; }
 
         /// <summary>
         /// 租户
@@ -193,7 +193,7 @@ namespace Bing.Logs.Contents
                 {new Item(LogResource.UserId, UserId, 7)},
                 {new Item(LogResource.Operator, Operator, 8)},
                 {new Item(LogResource.Role, Role, 9)},
-                {new Item(LogResource.BusinessId, BussinessId, 10)},
+                {new Item(LogResource.BusinessId, BusinessId, 10)},
                 {new Item(LogResource.Tenant, Tenant, 11)},
                 {new Item(LogResource.Application, Application, 12)},
                 {new Item(LogResource.Module, Module, 13)},

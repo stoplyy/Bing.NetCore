@@ -1,39 +1,18 @@
 ﻿using Bing.Extensions;
+using Bing.Helpers;
 
-// ReSharper disable once CheckNamespace
 namespace System.ComponentModel.DataAnnotations
 {
     /// <summary>
-    /// 金额验证
+    /// 英文字母验证
     /// </summary>
     [AttributeUsage(AttributeTargets.Property)]
-    public class MoneyAttribute : ValidationAttribute
+    public class LetterAttribute : ValidationAttribute
     {
         /// <summary>
         /// 错误消息
         /// </summary>
-        private const string ErrorMsg = "'{0}' 必须是大于 {1}，小于或等于 {2}";
-
-        /// <summary>
-        /// 最小值
-        /// </summary>
-        public decimal Min { get; set; }
-
-        /// <summary>
-        /// 最大值
-        /// </summary>
-        public decimal Max { get; set; }
-
-        /// <summary>
-        /// 初始化一个<see cref="MoneyAttribute"/>类型的实例
-        /// </summary>
-        /// <param name="min">最小值</param>
-        /// <param name="max">最大值</param>
-        public MoneyAttribute(decimal min, decimal max)
-        {
-            Min = min;
-            Max = max;
-        }
+        private const string ErrorMsg = "'{0}' 必须是英文字母";
 
         /// <summary>
         /// 格式化错误消息
@@ -52,7 +31,7 @@ namespace System.ComponentModel.DataAnnotations
         {
             if (value.SafeString().IsEmpty())
                 return ValidationResult.Success;
-            if (value is decimal numberValue && numberValue > Min && numberValue <= Max)
+            if (Regexs.IsMatch(value.SafeString(), ValidatePattern.LetterPattern))
                 return ValidationResult.Success;
             return new ValidationResult(FormatErrorMessage(string.IsNullOrWhiteSpace(validationContext.DisplayName)
                 ? validationContext.MemberName

@@ -106,14 +106,12 @@
             <summary>
             获取格式化提供chengx
             </summary>
-            <returns></returns>
         </member>
         <member name="M:Bing.Logs.Serilog.SerilogProvider.ConvertTo(Bing.Logs.LogLevel)">
             <summary>
             转换日志级别
             </summary>
             <param name="level">日志级别</param>
-            <returns></returns>
         </member>
     </members>
 </doc>

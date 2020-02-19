@@ -1,6 +1,5 @@
 ﻿using Bing.Datas.Dapper.MySql;
 using Bing.Datas.Sql;
-using Bing.Utils.Helpers;
 using Xunit;
 using Xunit.Abstractions;
 using Str = Bing.Helpers.Str;

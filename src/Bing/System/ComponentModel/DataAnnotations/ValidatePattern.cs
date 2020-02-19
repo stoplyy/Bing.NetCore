@@ -1,9 +1,9 @@
-﻿namespace Bing.Validations.Validators
+﻿namespace System.ComponentModel.DataAnnotations
 {
     /// <summary>
     /// 验证正则
     /// </summary>
-    public static class ValidatePattern
+    internal static class ValidatePattern
     {
         /// <summary>
         /// 手机号验证正则表达式

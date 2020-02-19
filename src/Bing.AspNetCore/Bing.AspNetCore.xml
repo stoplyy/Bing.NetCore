@@ -225,6 +225,16 @@
             </summary>
             <param name="context">模型绑定提供程序上下文</param>
         </member>
+        <member name="T:Bing.AspNetCore.Mvc.NullJsonResult">
+            <summary>
+            空JSON结果
+            </summary>
+        </member>
+        <member name="M:Bing.AspNetCore.Mvc.NullJsonResult.#ctor">
+            <summary>
+            初始化一个<see cref="T:Bing.AspNetCore.Mvc.NullJsonResult"/>类型的实例
+            </summary>
+        </member>
         <member name="T:Bing.AspNetCore.Mvc.DefaultApiInterfaceService">
             <summary>
             默认Api接口服务

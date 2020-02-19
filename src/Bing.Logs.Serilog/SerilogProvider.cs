@@ -111,8 +111,6 @@ namespace Bing.Logs.Serilog
 
         #endregion
 
-
-
         /// <summary>
         /// 写日志
         /// </summary>
@@ -123,13 +121,9 @@ namespace Bing.Logs.Serilog
             var provider = GetFormatProvider();
             var logEventLevel = ConvertTo(level);
             if (logEventLevel == null)
-            {
                 return;
-            }
             if (provider == null)
-            {
                 throw new NullReferenceException("日志格式化提供程序不可为空");
-            }
             var message = provider.Format("", content, null);
             _logger.Write(logEventLevel.SafeValue(), message);
         }
@@ -137,13 +131,10 @@ namespace Bing.Logs.Serilog
         /// <summary>
         /// 获取格式化提供chengx
         /// </summary>
-        /// <returns></returns>
         private FormatProvider GetFormatProvider()
         {
             if (_format == null)
-            {
                 return null;
-            }
             return new FormatProvider(_format);
         }
 
@@ -151,29 +142,22 @@ namespace Bing.Logs.Serilog
         /// 转换日志级别
         /// </summary>
         /// <param name="level">日志级别</param>
-        /// <returns></returns>
         private Serilogs.Events.LogEventLevel? ConvertTo(LogLevel level)
         {
             switch (level)
             {
                 case LogLevel.Trace:
                     return LogEventLevel.Verbose;
-
                 case LogLevel.Debug:
                     return LogEventLevel.Debug;
-
                 case LogLevel.Information:
                     return LogEventLevel.Information;
-
                 case LogLevel.Warning:
                     return LogEventLevel.Warning;
-
                 case LogLevel.Error:
                     return LogEventLevel.Error;
-
                 case LogLevel.Fatal:
                     return LogEventLevel.Fatal;
-
                 default:
                     return null;
             }
