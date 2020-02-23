@@ -1,6 +1,5 @@
 ﻿using Bing.Extensions;
 using Bing.Tests;
-using Bing.Extensions;
 using Xunit;
 
 // ReSharper disable once CheckNamespace
@@ -11,8 +10,6 @@ namespace Bing.Utils.Tests.Extensions
     /// </summary>
     public partial class ExtensionsTest : TestBase
     {
-        
-
         /// <summary>
         /// 测试 - 获取布尔值描述
         /// </summary>

@@ -12,25 +12,25 @@ namespace Bing.Utils.IO
         /// </summary>
         private byte[] _buffer;
 
-        /// <summary>
-        /// 读取索引
-        /// </summary>
-        private int _readIndex = 0;
+        ///// <summary>
+        ///// 读取索引
+        ///// </summary>
+        //private int _readIndex = 0;
 
         /// <summary>
         /// 写入索引
         /// </summary>
         private int _writeIndex = 0;
 
-        /// <summary>
-        /// 读取索引标记
-        /// </summary>
-        private int _markReadIndex = 0;
+        ///// <summary>
+        ///// 读取索引标记
+        ///// </summary>
+        //private int _markReadIndex = 0;
 
-        /// <summary>
-        /// 写入索引标记
-        /// </summary>
-        private int _markWriteIndex = 0;
+        ///// <summary>
+        ///// 写入索引标记
+        ///// </summary>
+        //private int _markWriteIndex = 0;
 
         /// <summary>
         /// 缓存区字节数组长度

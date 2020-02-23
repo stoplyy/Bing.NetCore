@@ -39,7 +39,6 @@ namespace Bing.Serialization.Json
         /// <summary>
         /// 从Json字节数组反序列化为对象
         /// </summary>
-        /// <typeparam name="T">对象类型</typeparam>
         /// <param name="data">Json字节数组</param>
         /// <param name="type">对象类型</param>
         /// <param name="settings">Json序列化设置</param>
@@ -58,7 +57,6 @@ namespace Bing.Serialization.Json
         /// <summary>
         /// 从Json字节数组反序列化为对象
         /// </summary>
-        /// <typeparam name="T">对象类型</typeparam>
         /// <param name="data">Json字节数组</param>
         /// <param name="type">对象类型</param>
         /// <param name="settings">Json序列化设置</param>

@@ -5,7 +5,6 @@ using Bing.Extensions;
 using Bing.Samples.Domain.Models;
 using Bing.Samples.Domain.Repositories;
 using Bing.Samples.Domain.Services.Abstractions;
-using Bing.Extensions;
 
 namespace Bing.Samples.Domain.Services.Implements
 {

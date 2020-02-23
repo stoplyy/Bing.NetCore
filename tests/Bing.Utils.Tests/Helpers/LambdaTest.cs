@@ -5,8 +5,6 @@ using Bing.Extensions;
 using Bing.Helpers;
 using Bing.Tests;
 using Bing.Tests.Samples;
-using Bing.Extensions;
-using Bing.Utils.Helpers;
 using Xunit;
 using Xunit.Abstractions;
 using Enum = Bing.Helpers.Enum;

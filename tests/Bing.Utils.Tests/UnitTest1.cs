@@ -6,8 +6,6 @@ using System.Text.RegularExpressions;
 using Bing.Extensions;
 using Bing.Helpers;
 using Bing.Tests;
-using Bing.Extensions;
-using Bing.Utils.Helpers;
 using Bing.Utils.IdGenerators.Core;
 using Bing.Utils.IO;
 using Bing.Utils.Json;
@@ -363,12 +361,12 @@ namespace Bing.Utils.Tests
             }
 
             short sign = 1;
-            //int num = 0, tmp;
-            //if (change < 0)
-            //{
-            //    sign = -1;
-            //    change = -change;
-            //}
+            int num = 0, tmp;
+            if (change < 0)
+            {
+                sign = -1;
+                change = -change;
+            }
 
             var keys = Path.GetFileName(filePaths[0]).Split('.');
             var total = keys[2].ToInt();

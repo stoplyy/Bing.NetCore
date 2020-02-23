@@ -15,7 +15,6 @@ using Bing.Samples.Domain.Services.Abstractions;
 using Bing.Samples.Service.Abstractions.Systems;
 using Bing.Samples.Service.Dtos.Systems;
 using Bing.Samples.Service.Queries.Systems;
-using Bing.Extensions;
 
 namespace Bing.Samples.Service.Implements.Systems
 {

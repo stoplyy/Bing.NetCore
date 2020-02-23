@@ -10380,24 +10380,9 @@
             字节缓存区
             </summary>
         </member>
-        <member name="F:Bing.Utils.IO.ByteBuffer._readIndex">
-            <summary>
-            读取索引
-            </summary>
-        </member>
         <member name="F:Bing.Utils.IO.ByteBuffer._writeIndex">
             <summary>
             写入索引
-            </summary>
-        </member>
-        <member name="F:Bing.Utils.IO.ByteBuffer._markReadIndex">
-            <summary>
-            读取索引标记
-            </summary>
-        </member>
-        <member name="F:Bing.Utils.IO.ByteBuffer._markWriteIndex">
-            <summary>
-            写入索引标记
             </summary>
         </member>
         <member name="F:Bing.Utils.IO.ByteBuffer._capacity">

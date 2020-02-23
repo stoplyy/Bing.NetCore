@@ -3,7 +3,6 @@ using System.Linq.Expressions;
 using Bing.Extensions;
 using Bing.Tests.Samples;
 using Xunit.Abstractions;
-using Bing.Extensions;
 using Xunit;
 
 // ReSharper disable once CheckNamespace

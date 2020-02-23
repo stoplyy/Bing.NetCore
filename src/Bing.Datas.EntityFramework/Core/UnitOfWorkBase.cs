@@ -402,7 +402,7 @@ namespace Bing.Datas.EntityFramework.Core
                         transaction.Commit();
                         return result;
                     }
-                    catch (Exception e)
+                    catch (Exception)
                     {
                         transaction.Rollback();
                         throw;

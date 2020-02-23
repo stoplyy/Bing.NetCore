@@ -253,9 +253,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bing.Caching.Redis.CSRedis"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "12-Serialization", "12-Serialization", "{2C46583B-F721-4969-8F07-53BB3F239CC7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bing.Serialization.NewtonsoftJson", "src\Bing.Serialization.NewtonsoftJson\Bing.Serialization.NewtonsoftJson.csproj", "{B5BDFA8D-4674-4A7F-AA4A-B0DE7D0FC471}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bing.Serialization.NewtonsoftJson", "src\Bing.Serialization.NewtonsoftJson\Bing.Serialization.NewtonsoftJson.csproj", "{B5BDFA8D-4674-4A7F-AA4A-B0DE7D0FC471}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bing.Abstractions", "src\Bing.Abstractions\Bing.Abstractions.csproj", "{3DDC7B5D-0754-4840-BAA7-EBE18D192625}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bing.Abstractions", "src\Bing.Abstractions\Bing.Abstractions.csproj", "{3DDC7B5D-0754-4840-BAA7-EBE18D192625}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "08-Caching", "08-Caching", "{DFB1E617-DFC7-404F-9E7D-83DCC6C8409B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bing.EasyCaching.Tests", "tests\Bing.EasyCaching.Tests\Bing.EasyCaching.Tests.csproj", "{6B0E2DC7-5E49-469E-9923-8E27FEF9944F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -555,6 +559,10 @@ Global
 		{3DDC7B5D-0754-4840-BAA7-EBE18D192625}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3DDC7B5D-0754-4840-BAA7-EBE18D192625}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3DDC7B5D-0754-4840-BAA7-EBE18D192625}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B0E2DC7-5E49-469E-9923-8E27FEF9944F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B0E2DC7-5E49-469E-9923-8E27FEF9944F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B0E2DC7-5E49-469E-9923-8E27FEF9944F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B0E2DC7-5E49-469E-9923-8E27FEF9944F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -671,6 +679,8 @@ Global
 		{2C46583B-F721-4969-8F07-53BB3F239CC7} = {1ABB6E15-A36C-4667-B6C8-CCE8D5DB4B39}
 		{B5BDFA8D-4674-4A7F-AA4A-B0DE7D0FC471} = {2C46583B-F721-4969-8F07-53BB3F239CC7}
 		{3DDC7B5D-0754-4840-BAA7-EBE18D192625} = {0AF1076E-5001-4F92-A564-4E47E9C88ACE}
+		{DFB1E617-DFC7-404F-9E7D-83DCC6C8409B} = {77209C11-A719-45C3-9C49-27FA702503A1}
+		{6B0E2DC7-5E49-469E-9923-8E27FEF9944F} = {DFB1E617-DFC7-404F-9E7D-83DCC6C8409B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {82408448-62DC-44A6-B7C1-6FCEBCC12C93}

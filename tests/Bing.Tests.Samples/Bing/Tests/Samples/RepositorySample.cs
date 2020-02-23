@@ -108,7 +108,7 @@ namespace Bing.Tests.Samples
         /// </summary>
         /// <param name="id">标识</param>
         /// <param name="cancellationToken">取消令牌</param>
-        public async Task<EntitySample> FindAsync(object id, CancellationToken cancellationToken = default)
+        public Task<EntitySample> FindAsync(object id, CancellationToken cancellationToken = default)
         {
             throw new NotImplementedException();
         }
@@ -144,7 +144,7 @@ namespace Bing.Tests.Samples
         /// 查找实体列表
         /// </summary>
         /// <param name="ids">标识列表</param>
-        public async Task<List<EntitySample>> FindByIdsAsync(params Guid[] ids)
+        public Task<List<EntitySample>> FindByIdsAsync(params Guid[] ids)
         {
             throw new NotImplementedException();
         }
@@ -154,7 +154,7 @@ namespace Bing.Tests.Samples
         /// </summary>
         /// <param name="ids">标识列表</param>
         /// <param name="cancellationToken">取消令牌</param>
-        public async Task<List<EntitySample>> FindByIdsAsync(IEnumerable<Guid> ids, CancellationToken cancellationToken = default)
+        public Task<List<EntitySample>> FindByIdsAsync(IEnumerable<Guid> ids, CancellationToken cancellationToken = default)
         {
             throw new NotImplementedException();
         }
@@ -163,7 +163,7 @@ namespace Bing.Tests.Samples
         /// 查找实体列表
         /// </summary>
         /// <param name="ids">逗号分隔的标识列表，范例："1,2"</param>
-        public async Task<List<EntitySample>> FindByIdsAsync(string ids)
+        public Task<List<EntitySample>> FindByIdsAsync(string ids)
         {
             throw new NotImplementedException();
         }
@@ -182,7 +182,7 @@ namespace Bing.Tests.Samples
         /// </summary>
         /// <param name="id">标识</param>
         /// <param name="cancellationToken">取消令牌</param>
-        public async Task<EntitySample> FindByIdNoTrackingAsync(Guid id, CancellationToken cancellationToken = default)
+        public Task<EntitySample> FindByIdNoTrackingAsync(Guid id, CancellationToken cancellationToken = default)
         {
             throw new NotImplementedException();
         }
@@ -218,7 +218,7 @@ namespace Bing.Tests.Samples
         /// 查找实体列表，不跟踪
         /// </summary>
         /// <param name="ids">标识列表</param>
-        public async Task<List<EntitySample>> FindByIdsNoTrackingAsync(params Guid[] ids)
+        public Task<List<EntitySample>> FindByIdsNoTrackingAsync(params Guid[] ids)
         {
             throw new NotImplementedException();
         }
@@ -228,7 +228,7 @@ namespace Bing.Tests.Samples
         /// </summary>
         /// <param name="ids">标识列表</param>
         /// <param name="cancellationToken">取消令牌</param>
-        public async Task<List<EntitySample>> FindByIdsNoTrackingAsync(IEnumerable<Guid> ids, CancellationToken cancellationToken = default)
+        public Task<List<EntitySample>> FindByIdsNoTrackingAsync(IEnumerable<Guid> ids, CancellationToken cancellationToken = default)
         {
             throw new NotImplementedException();
         }
@@ -237,7 +237,7 @@ namespace Bing.Tests.Samples
         /// 查找实体列表，不跟踪
         /// </summary>
         /// <param name="ids">逗号分隔的标识列表，范例："1,2"</param>
-        public async Task<List<EntitySample>> FindByIdsNoTrackingAsync(string ids)
+        public Task<List<EntitySample>> FindByIdsNoTrackingAsync(string ids)
         {
             throw new NotImplementedException();
         }
@@ -256,7 +256,7 @@ namespace Bing.Tests.Samples
         /// </summary>
         /// <param name="predicate">查询条件</param>
         /// <param name="cancellationToken">取消令牌</param>
-        public async Task<EntitySample> SingleAsync(Expression<Func<EntitySample, bool>> predicate, CancellationToken cancellationToken = default)
+        public Task<EntitySample> SingleAsync(Expression<Func<EntitySample, bool>> predicate, CancellationToken cancellationToken = default)
         {
             throw new NotImplementedException();
         }
@@ -274,7 +274,7 @@ namespace Bing.Tests.Samples
         /// 查找实体列表
         /// </summary>
         /// <param name="predicate">查询条件</param>
-        public async Task<List<EntitySample>> FindAllAsync(Expression<Func<EntitySample, bool>> predicate = null)
+        public Task<List<EntitySample>> FindAllAsync(Expression<Func<EntitySample, bool>> predicate = null)
         {
             throw new NotImplementedException();
         }
@@ -292,7 +292,7 @@ namespace Bing.Tests.Samples
         /// 查找实体列表，不跟踪
         /// </summary>
         /// <param name="predicate">查询条件</param>
-        public async Task<List<EntitySample>> FindAllNoTrackingAsync(Expression<Func<EntitySample, bool>> predicate = null)
+        public Task<List<EntitySample>> FindAllNoTrackingAsync(Expression<Func<EntitySample, bool>> predicate = null)
         {
             throw new NotImplementedException();
         }
@@ -328,7 +328,7 @@ namespace Bing.Tests.Samples
         /// 判断是否存在
         /// </summary>
         /// <param name="ids">标识列表</param>
-        public async Task<bool> ExistsAsync(Guid[] ids)
+        public Task<bool> ExistsAsync(Guid[] ids)
         {
             throw new NotImplementedException();
         }
@@ -346,7 +346,7 @@ namespace Bing.Tests.Samples
         /// 判断是否存在
         /// </summary>
         /// <param name="predicate">查询条件</param>
-        public async Task<bool> ExistsAsync(Expression<Func<EntitySample, bool>> predicate)
+        public Task<bool> ExistsAsync(Expression<Func<EntitySample, bool>> predicate)
         {
             throw new NotImplementedException();
         }
@@ -364,7 +364,7 @@ namespace Bing.Tests.Samples
         /// 查找数量
         /// </summary>
         /// <param name="predicate">查询条件</param>
-        public async Task<int> CountAsync(Expression<Func<EntitySample, bool>> predicate = null)
+        public Task<int> CountAsync(Expression<Func<EntitySample, bool>> predicate = null)
         {
             throw new NotImplementedException();
         }
@@ -409,7 +409,7 @@ namespace Bing.Tests.Samples
         /// 查询
         /// </summary>
         /// <param name="query">查询对象</param>
-        public async Task<List<EntitySample>> QueryAsync(IQueryBase<EntitySample> query)
+        public Task<List<EntitySample>> QueryAsync(IQueryBase<EntitySample> query)
         {
             throw new NotImplementedException();
         }
@@ -418,7 +418,7 @@ namespace Bing.Tests.Samples
         /// 查询 - 返回未跟踪的实体
         /// </summary>
         /// <param name="query">查询对象</param>
-        public async Task<List<EntitySample>> QueryAsNoTrackingAsync(IQueryBase<EntitySample> query)
+        public Task<List<EntitySample>> QueryAsNoTrackingAsync(IQueryBase<EntitySample> query)
         {
             throw new NotImplementedException();
         }
@@ -427,7 +427,7 @@ namespace Bing.Tests.Samples
         /// 分页查询
         /// </summary>
         /// <param name="query">查询对象</param>
-        public async Task<PagerList<EntitySample>> PagerQueryAsync(IQueryBase<EntitySample> query)
+        public Task<PagerList<EntitySample>> PagerQueryAsync(IQueryBase<EntitySample> query)
         {
             throw new NotImplementedException();
         }
@@ -436,7 +436,7 @@ namespace Bing.Tests.Samples
         /// 分页查询 - 返回未跟踪的实体
         /// </summary>
         /// <param name="query">查询对象</param>
-        public async Task<PagerList<EntitySample>> PagerQueryAsNoTrackingAsync(IQueryBase<EntitySample> query)
+        public Task<PagerList<EntitySample>> PagerQueryAsNoTrackingAsync(IQueryBase<EntitySample> query)
         {
             throw new NotImplementedException();
         }
@@ -463,7 +463,7 @@ namespace Bing.Tests.Samples
         /// </summary>
         /// <param name="entity">实体</param>
         /// <param name="cancellationToken">取消令牌</param>
-        public async Task AddAsync(EntitySample entity, CancellationToken cancellationToken = default)
+        public Task AddAsync(EntitySample entity, CancellationToken cancellationToken = default)
         {
             throw new NotImplementedException();
         }
@@ -473,7 +473,7 @@ namespace Bing.Tests.Samples
         /// </summary>
         /// <param name="entities">实体集合</param>
         /// <param name="cancellationToken">取消令牌</param>
-        public async Task AddAsync(IEnumerable<EntitySample> entities, CancellationToken cancellationToken = default)
+        public Task AddAsync(IEnumerable<EntitySample> entities, CancellationToken cancellationToken = default)
         {
             throw new NotImplementedException();
         }
@@ -500,7 +500,7 @@ namespace Bing.Tests.Samples
         /// 修改实体
         /// </summary>
         /// <param name="entity">实体</param>
-        public async Task UpdateAsync(EntitySample entity)
+        public Task UpdateAsync(EntitySample entity)
         {
             throw new NotImplementedException();
         }
@@ -509,7 +509,7 @@ namespace Bing.Tests.Samples
         /// 修改实体集合
         /// </summary>
         /// <param name="entities">实体集合</param>
-        public async Task UpdateAsync(IEnumerable<EntitySample> entities)
+        public Task UpdateAsync(IEnumerable<EntitySample> entities)
         {
             throw new NotImplementedException();
         }
@@ -555,7 +555,7 @@ namespace Bing.Tests.Samples
         /// </summary>
         /// <param name="id">标识</param>
         /// <param name="cancellationToken">取消令牌</param>
-        public async Task RemoveAsync(object id, CancellationToken cancellationToken = default)
+        public Task RemoveAsync(object id, CancellationToken cancellationToken = default)
         {
             throw new NotImplementedException();
         }
@@ -565,7 +565,7 @@ namespace Bing.Tests.Samples
         /// </summary>
         /// <param name="entity">实体</param>
         /// <param name="cancellationToken">取消令牌</param>
-        public async Task RemoveAsync(EntitySample entity, CancellationToken cancellationToken = default)
+        public Task RemoveAsync(EntitySample entity, CancellationToken cancellationToken = default)
         {
             throw new NotImplementedException();
         }
@@ -575,7 +575,7 @@ namespace Bing.Tests.Samples
         /// </summary>
         /// <param name="ids">标识集合</param>
         /// <param name="cancellationToken">取消令牌</param>
-        public async Task RemoveAsync(IEnumerable<Guid> ids, CancellationToken cancellationToken = default)
+        public Task RemoveAsync(IEnumerable<Guid> ids, CancellationToken cancellationToken = default)
         {
             throw new NotImplementedException();
         }
@@ -585,7 +585,7 @@ namespace Bing.Tests.Samples
         /// </summary>
         /// <param name="entities">实体集合</param>
         /// <param name="cancellationToken">取消令牌</param>
-        public async Task RemoveAsync(IEnumerable<EntitySample> entities, CancellationToken cancellationToken = default)
+        public Task RemoveAsync(IEnumerable<EntitySample> entities, CancellationToken cancellationToken = default)
         {
             throw new NotImplementedException();
         }

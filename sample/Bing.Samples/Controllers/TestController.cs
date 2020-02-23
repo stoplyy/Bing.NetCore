@@ -48,9 +48,9 @@ namespace Bing.Samples.Controllers
         }
 
         [HttpGet("testEnum")]
-        public async Task<IActionResult> TestEnumAsync([FromQuery]TestEnum e)
+        public Task<IActionResult> TestEnumAsync([FromQuery]TestEnum e)
         {
-            return Success();
+            return Task.FromResult(Success());
         }
     }
 

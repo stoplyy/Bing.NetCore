@@ -47,7 +47,6 @@ namespace Bing.Serialization.Json.Newtonsoft
         /// <summary>
         /// 反序列化
         /// </summary>
-        /// <typeparam name="T">反序列化对象类型</typeparam>
         /// <param name="data">数据</param>
         /// <param name="type">类型</param>
         /// <param name="settings">Json序列化设置</param>

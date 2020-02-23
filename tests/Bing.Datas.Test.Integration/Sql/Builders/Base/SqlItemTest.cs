@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Bing.Datas.Dapper.MySql;
+﻿using Bing.Datas.Dapper.MySql;
 using Bing.Datas.Dapper.PgSql;
 using Bing.Datas.Dapper.SqlServer;
 using Bing.Datas.Sql.Builders.Core;
 using Bing.Datas.Sql.Matedatas;
 using Bing.Datas.Test.Integration.Sql.Builders.Samples;
-using Bing.Extensions;
 using Bing.Extensions;
 using Xunit;
 using Xunit.Abstractions;
