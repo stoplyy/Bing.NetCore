@@ -48,6 +48,19 @@ namespace Bing.Serialization.Json.Newtonsoft
         /// 反序列化
         /// </summary>
         /// <typeparam name="T">反序列化对象类型</typeparam>
+        /// <param name="data">数据</param>
+        /// <param name="type">类型</param>
+        /// <param name="settings">Json序列化设置</param>
+        /// <param name="withNodaTime">是否启用NodaTime</param>
+        public static object DeserializeFromBytes(byte[] data, Type type, JsonSerializerSettings settings = null, bool withNodaTime = false) =>
+            data is null || data.Length is 0
+                ? default
+                : Deserialize(JsonManager.DefaultEncoding.GetString(data), type, settings, withNodaTime);
+
+        /// <summary>
+        /// 反序列化
+        /// </summary>
+        /// <typeparam name="T">反序列化对象类型</typeparam>
         /// <param name="json">Json字符串</param>
         /// <param name="settings">Json序列化设置</param>
         /// <param name="withNodaTime">是否启用NodaTime</param>
