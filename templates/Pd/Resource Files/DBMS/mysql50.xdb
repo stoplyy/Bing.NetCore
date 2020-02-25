@@ -2249,7 +2249,7 @@ from
 <a:Name>AmcdDataType</a:Name>
 <a:CreationDate>0</a:CreationDate>
 <a:Creator/>
-<a:ModificationDate>1557308260</a:ModificationDate>
+<a:ModificationDate>1582610877</a:ModificationDate>
 <a:Modifier>jianx</a:Modifier>
 <a:Comment>Data types translation table from internal data types to target database data types.
         %n is the length of the data type
@@ -2283,7 +2283,7 @@ MN%n=float(%n,0)
 MN%s,%p=float(%s,%p)
 D=date
 T=time
-DT=datetime
+DT=datetime(6)
 TS=tinyblob
 BL=bool
 NO=int
@@ -2365,8 +2365,8 @@ VMBTMAX
 <a:Name>PhysDataType</a:Name>
 <a:CreationDate>0</a:CreationDate>
 <a:Creator/>
-<a:ModificationDate>1432290513</a:ModificationDate>
-<a:Modifier>Administrator</a:Modifier>
+<a:ModificationDate>1582610849</a:ModificationDate>
+<a:Modifier>jianx</a:Modifier>
 <a:Comment>Data types translation table from target database data types to internal data types.</a:Comment>
 <a:MapTargetItem.Value>&lt;Undefined&gt;=&lt;UNDEF&gt;
 bit=BT
@@ -2505,8 +2505,8 @@ set(%s)
 <a:Name>PhysOdbcDataType</a:Name>
 <a:CreationDate>0</a:CreationDate>
 <a:Creator/>
-<a:ModificationDate>1432288922</a:ModificationDate>
-<a:Modifier>Administrator</a:Modifier>
+<a:ModificationDate>1582610859</a:ModificationDate>
+<a:Modifier>jianx</a:Modifier>
 <a:Comment>Data types translation table from target database data types to ODBC data types.</a:Comment>
 <a:MapTargetItem.Value>character(%s)=char(%s)
 char=char(1)

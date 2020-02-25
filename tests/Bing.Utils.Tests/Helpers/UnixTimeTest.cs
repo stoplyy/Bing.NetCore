@@ -1,5 +1,6 @@
 ﻿
 using System;
+using Bing.Extensions;
 using Bing.Helpers;
 using Bing.Tests;
 using Xunit;
@@ -24,6 +25,13 @@ namespace Bing.Utils.Tests.Helpers
             Output.WriteLine(dto.ToString());
             Output.WriteLine(result.ToString());
             Assert.Equal(dto, result);
+        }
+
+        [Fact]
+        public void Test_ToTimestamp_2()
+        {
+            var result = Time.GetTimeFromUnixTimestamp(1582520001);
+            Output.WriteLine(result.ToDateTimeString());
         }
     }
 }
