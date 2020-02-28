@@ -121,7 +121,6 @@
             <summary>
             验证
             </summary>
-            <returns></returns>
         </member>
         <member name="T:Bing.Applications.IQueryService`2">
             <summary>
@@ -14264,14 +14263,12 @@
             <summary>
             获取错误消息
             </summary>
-            <returns></returns>
         </member>
         <member name="M:Bing.Exceptions.Warning.GetMessage(System.Exception)">
             <summary>
             获取错误消息
             </summary>
             <param name="ex">异常</param>
-            <returns></returns>
         </member>
         <member name="M:Bing.Exceptions.Warning.AppendMessage(System.Text.StringBuilder,System.Exception)">
             <summary>
@@ -14284,14 +14281,12 @@
             <summary>
             获取异常列表
             </summary>
-            <returns></returns>
         </member>
         <member name="M:Bing.Exceptions.Warning.GetExceptions(System.Exception)">
             <summary>
             获取异常列表
             </summary>
             <param name="ex">异常</param>
-            <returns></returns>
         </member>
         <member name="M:Bing.Exceptions.Warning.AddException(System.Collections.Generic.List{System.Exception},System.Exception)">
             <summary>
@@ -14305,7 +14300,6 @@
             获取友好提示
             </summary>
             <param name="level">日志级别</param>
-            <returns></returns>
         </member>
         <member name="T:Bing.DomainExtensions">
             <summary>
@@ -15066,6 +15060,28 @@
             </summary>
             <param name="target">验证目标</param>
         </member>
+        <member name="T:Bing.Validations.Handlers.NothingHandler">
+            <summary>
+            验证失败，不做任何处理
+            </summary>
+        </member>
+        <member name="M:Bing.Validations.Handlers.NothingHandler.Handle(Bing.Validations.ValidationResultCollection)">
+            <summary>
+            处理验证错误
+            </summary>
+            <param name="results">验证结果集合</param>
+        </member>
+        <member name="T:Bing.Validations.Handlers.ThrowHandler">
+            <summary>
+            验证失败，抛出异常 - 默认验证处理器
+            </summary>
+        </member>
+        <member name="M:Bing.Validations.Handlers.ThrowHandler.Handle(Bing.Validations.ValidationResultCollection)">
+            <summary>
+            处理验证错误
+            </summary>
+            <param name="results">验证错误集合</param>
+        </member>
         <member name="T:Bing.Validations.ValidationContext`1">
             <summary>
             验证上下文
@@ -15600,48 +15616,6 @@
             过滤
             </summary>
             <param name="strategyName">策略名称</param>
-        </member>
-        <member name="T:Bing.Validations.Handlers.NothingHandler">
-            <summary>
-            验证失败，不做任何处理
-            </summary>
-        </member>
-        <member name="M:Bing.Validations.Handlers.NothingHandler.Handle(Bing.Validations.ValidationResultCollection)">
-            <summary>
-            处理验证错误
-            </summary>
-            <param name="results">验证结果集合</param>
-        </member>
-        <member name="T:Bing.Validations.Handlers.ThrowHandler">
-            <summary>
-            验证失败，抛出异常 - 默认验证处理器
-            </summary>
-        </member>
-        <member name="M:Bing.Validations.Handlers.ThrowHandler.Handle(Bing.Validations.ValidationResultCollection)">
-            <summary>
-            处理验证错误
-            </summary>
-            <param name="results">验证错误集合</param>
-        </member>
-        <member name="T:Bing.Validations.IValidation">
-            <summary>
-            验证操作
-            </summary>
-        </member>
-        <member name="M:Bing.Validations.IValidation.Validate">
-            <summary>
-            验证
-            </summary>
-        </member>
-        <member name="T:Bing.Validations.IValidationRule">
-            <summary>
-            验证规则
-            </summary>
-        </member>
-        <member name="M:Bing.Validations.IValidationRule.Validate">
-            <summary>
-            验证
-            </summary>
         </member>
         <member name="T:Bing.Configurations.BingConfig">
             <summary>

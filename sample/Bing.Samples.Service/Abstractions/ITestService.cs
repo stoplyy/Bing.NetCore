@@ -2,6 +2,8 @@
 using System.Threading.Tasks;
 using Bing.Applications;
 using Bing.Logs.Aspects;
+using Bing.Samples.Service.Requests;
+using Bing.Validations.Aspects;
 
 namespace Bing.Samples.Service.Abstractions
 {
@@ -22,5 +24,11 @@ namespace Bing.Samples.Service.Abstractions
         /// </summary>
         /// <param name="content">内容</param>
         Task WriteLogAsync(string content);
+
+        /// <summary>
+        /// 测试AOP验证
+        /// </summary>
+        /// <param name="request">请求</param>
+        Task TestAopValidateAsync([Valid] ValidSampleRequest request);
     }
 }

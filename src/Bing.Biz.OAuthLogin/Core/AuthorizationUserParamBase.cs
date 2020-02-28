@@ -3,13 +3,14 @@ using System.Linq;
 using Bing.Exceptions;
 using Bing.Mapping;
 using Bing.Validations;
+using Bing.Validations.Abstractions;
 
 namespace Bing.Biz.OAuthLogin.Core
 {
     /// <summary>
     /// 授权用户参数基类
     /// </summary>
-    public class AuthorizationUserParamBase : IValidation
+    public class AuthorizationUserParamBase : IValidatable
     {
         /// <summary>
         /// 访问令牌

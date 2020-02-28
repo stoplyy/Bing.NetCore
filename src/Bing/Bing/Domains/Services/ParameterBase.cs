@@ -1,13 +1,14 @@
 ﻿using System.Linq;
 using Bing.Exceptions;
 using Bing.Validations;
+using Bing.Validations.Abstractions;
 
 namespace Bing.Domains.Services
 {
     /// <summary>
     /// 参数基类
     /// </summary>
-    public abstract class ParameterBase : IValidation
+    public abstract class ParameterBase : IValidatable
     {
         /// <summary>
         /// 验证

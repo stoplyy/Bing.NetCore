@@ -7,6 +7,7 @@ using Bing.Core.Modularity;
 using Bing.Datas.Dapper;
 using Bing.Datas.EntityFramework.SqlServer;
 using Bing.Datas.Enums;
+using Bing.DependencyInjection;
 using Bing.Events.Cap;
 using Bing.Extensions.Swashbuckle.Configs;
 using Bing.Extensions.Swashbuckle.Core;
@@ -51,6 +52,7 @@ namespace Bing.Samples
             services
                 .AddMvc(options =>
                 {
+                    options.Filters.Add<ValidationModelAttribute>();
                     options.Filters.Add<ResultHandlerAttribute>();
                     options.Filters.Add<ExceptionHandlerAttribute>();
                 })
@@ -80,6 +82,7 @@ namespace Bing.Samples
             // 注册AutoMapper
             services.AddAutoMapper();
 
+            // 注册CAP
             services.AddCapEventBus(o =>
             {
                 o.UseEntityFramework<Bing.Samples.Data.UnitOfWorks.SqlServer.SampleUnitOfWork>();
@@ -99,6 +102,9 @@ namespace Bing.Samples
                 //    x.Password = "";
                 //});
             });
+
+            // 启用AOP
+            services.EnableAop();
             return services;
         }
 

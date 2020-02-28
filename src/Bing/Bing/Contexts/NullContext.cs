@@ -30,7 +30,7 @@
         /// </summary>
         /// <typeparam name="T">对象类型</typeparam>
         /// <param name="key">键名</param>
-        public T Get<T>(string key) => default(T);
+        public T Get<T>(string key) => default;
 
         /// <summary>
         /// 移除对象

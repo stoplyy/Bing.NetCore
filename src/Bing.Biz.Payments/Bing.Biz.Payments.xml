@@ -1397,7 +1397,6 @@
             <summary>
             验证
             </summary>
-            <returns></returns>
         </member>
         <member name="M:Bing.Biz.Payments.Core.PayParamBase.ValidateMoney">
             <summary>
@@ -1408,7 +1407,6 @@
             <summary>
             转换为支付参数
             </summary>
-            <returns></returns>
         </member>
         <member name="T:Bing.Biz.Payments.Core.PayResult">
             <summary>

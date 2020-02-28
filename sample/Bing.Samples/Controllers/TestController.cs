@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Bing.Samples.Service.Abstractions;
+using Bing.Samples.Service.Requests;
 using Bing.Webs.Controllers;
 using Microsoft.AspNetCore.Mvc;
 
@@ -47,10 +48,35 @@ namespace Bing.Samples.Controllers
             return Success();
         }
 
+        /// <summary>
+        /// 测试枚举
+        /// </summary>
+        /// <param name="e">枚举</param>
         [HttpGet("testEnum")]
         public Task<IActionResult> TestEnumAsync([FromQuery]TestEnum e)
         {
             return Task.FromResult(Success());
+        }
+
+        /// <summary>
+        /// 测试验证
+        /// </summary>
+        /// <param name="request">请求</param>
+        [HttpPost("testValidate")]
+        public Task<IActionResult> TestValidateAsync([FromBody] ValidSampleRequest request)
+        {
+            return Task.FromResult(Success());
+        }
+
+        /// <summary>
+        /// 测试AOP验证
+        /// </summary>
+        /// <param name="request">请求</param>
+        [HttpPost("testAopValidate")]
+        public async Task<IActionResult> TestAopValidateAsync([FromBody] ValidSampleRequest request)
+        {
+            await TestService.TestAopValidateAsync(request);
+            return Success();
         }
     }
 

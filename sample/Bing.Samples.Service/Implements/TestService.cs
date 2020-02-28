@@ -6,6 +6,7 @@ using Bing.Logs.Aspects;
 using Bing.Logs.Extensions;
 using Bing.Samples.Domain.Events;
 using Bing.Samples.Service.Abstractions;
+using Bing.Samples.Service.Requests;
 
 namespace Bing.Samples.Service.Implements
 {
@@ -46,5 +47,11 @@ namespace Bing.Samples.Service.Implements
             var message = new LogMessage() {Content = content};
             await MessageEventBus.PublishAsync(message.ToEvent());
         }
+
+        /// <summary>
+        /// 测试AOP验证
+        /// </summary>
+        /// <param name="request">请求</param>
+        public Task TestAopValidateAsync(ValidSampleRequest request) => Task.CompletedTask;
     }
 }

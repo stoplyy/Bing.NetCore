@@ -2,13 +2,14 @@
 using System.Linq;
 using Bing.Exceptions;
 using Bing.Validations;
+using Bing.Validations.Abstractions;
 
 namespace Bing.Biz.OAuthLogin.Core
 {
     /// <summary>
     /// 访问令牌参数
     /// </summary>
-    public class AccessTokenParam : IValidation
+    public class AccessTokenParam : IValidatable
     {
         /// <summary>
         /// 授权类型
@@ -31,14 +32,11 @@ namespace Bing.Biz.OAuthLogin.Core
         /// <summary>
         /// 验证
         /// </summary>
-        /// <returns></returns>
         public virtual ValidationResultCollection Validate()
         {
             var result = DataAnnotationValidation.Validate(this);
             if (result.IsValid)
-            {
                 return ValidationResultCollection.Success;
-            }
             throw new Warning(result.First().ErrorMessage);
         }
     }
