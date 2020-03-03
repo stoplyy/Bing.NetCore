@@ -38,18 +38,18 @@ namespace Bing.Serialization.Json
         /// <summary>
         /// 从Utf8Json字节数组反序列化为对象
         /// </summary>
-        /// <typeparam name="T">对象类型</typeparam>
-        /// <param name="data">json字节数组</param>
-        /// <param name="resolver">Json格式化解析器</param>
-        public static async Task<T> FromUtf8JsonBytesAsync<T>(this byte[] data, IJsonFormatterResolver resolver = null) => await Utf8JsonHelper.DeserializeFromBytesAsync<T>(data, resolver);
-
-        /// <summary>
-        /// 从Utf8Json字节数组反序列化为对象
-        /// </summary>
         /// <param name="data">json字节数组</param>
         /// <param name="type">对象类型</param>
         /// <param name="resolver">Json格式化解析器</param>
         public static object FromUtf8JsonBytes(this byte[] data, Type type, IJsonFormatterResolver resolver = null) => Utf8JsonHelper.DeserializeFromBytes(data, type, resolver);
+
+        /// <summary>
+        /// 从Utf8Json字节数组反序列化为对象
+        /// </summary>
+        /// <typeparam name="T">对象类型</typeparam>
+        /// <param name="data">json字节数组</param>
+        /// <param name="resolver">Json格式化解析器</param>
+        public static async Task<T> FromUtf8JsonBytesAsync<T>(this byte[] data, IJsonFormatterResolver resolver = null) => await Utf8JsonHelper.DeserializeFromBytesAsync<T>(data, resolver);
 
         /// <summary>
         /// 从Utf8Json字节数组反序列化为对象

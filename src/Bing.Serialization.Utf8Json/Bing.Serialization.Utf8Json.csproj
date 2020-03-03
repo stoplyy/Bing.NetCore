@@ -9,4 +9,8 @@
     <PackageReference Include="Utf8Json" Version="1.3.7" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Bing.Abstractions\Bing.Abstractions.csproj" />
+  </ItemGroup>
+
 </Project>
