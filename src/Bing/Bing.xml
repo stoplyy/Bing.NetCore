@@ -245,6 +245,22 @@
             忽略拦截 属性
             </summary>
         </member>
+        <member name="T:Bing.Aspects.InterceptorProviderAttribute">
+            <summary>
+            拦截器提供程序 特性
+            </summary>
+        </member>
+        <member name="P:Bing.Aspects.InterceptorProviderAttribute.Type">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="M:Bing.Aspects.InterceptorProviderAttribute.#ctor(System.Type)">
+            <summary>
+            初始化一个<see cref="T:Bing.Aspects.InterceptorProviderAttribute"/>类型的实例
+            </summary>
+            <param name="type">拦截器提供程序类型</param>
+        </member>
         <member name="T:Bing.Aspects.NotEmptyAttribute">
             <summary>
             验证不能为空
