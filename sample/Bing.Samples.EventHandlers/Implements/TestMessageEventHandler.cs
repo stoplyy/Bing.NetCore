@@ -70,5 +70,31 @@ namespace Bing.Samples.EventHandlers.Implements
                 .Debug();
             return Task.CompletedTask;
         }
+
+        /// <summary>
+        /// 写入日志
+        /// </summary>
+        /// <param name="message">消息</param>
+        [EventHandler("WriteLog", Group = "group1.log")]
+        public Task WriteLogByGroup1Async(LogMessage message)
+        {
+            Log.Caption("写入日志消息 group1.log")
+                .Content(message.Content)
+                .Debug();
+            return Task.CompletedTask;
+        }
+
+        /// <summary>
+        /// 写入日志
+        /// </summary>
+        /// <param name="message">消息</param>
+        [EventHandler("WriteLog", Group = "group2.log")]
+        public Task WriteLogByGroup2Async(LogMessage message)
+        {
+            Log.Caption("写入日志消息 group2.log")
+                .Content(message.Content)
+                .Debug();
+            return Task.CompletedTask;
+        }
     }
 }
