@@ -4,6 +4,155 @@
         <name>Bing.AspNetCore</name>
     </assembly>
     <members>
+        <member name="T:Bing.AspNetCore.Apis.DefaultApiInterfaceService">
+            <summary>
+            默认Api接口服务
+            </summary>
+        </member>
+        <member name="F:Bing.AspNetCore.Apis.DefaultApiInterfaceService._controllerDescriptors">
+            <summary>
+            控制器描述列表
+            </summary>
+        </member>
+        <member name="F:Bing.AspNetCore.Apis.DefaultApiInterfaceService._actionDescriptors">
+            <summary>
+            操作描述列表
+            </summary>
+        </member>
+        <member name="F:Bing.AspNetCore.Apis.DefaultApiInterfaceService._partManager">
+            <summary>
+            应用程序部分管理
+            </summary>
+        </member>
+        <member name="F:Bing.AspNetCore.Apis.DefaultApiInterfaceService.Lock">
+            <summary>
+            对象锁
+            </summary>
+        </member>
+        <member name="M:Bing.AspNetCore.Apis.DefaultApiInterfaceService.#ctor(Microsoft.AspNetCore.Mvc.ApplicationParts.ApplicationPartManager)">
+            <summary>
+            初始化一个<see cref="T:Bing.AspNetCore.Apis.DefaultApiInterfaceService"/>类型的实例
+            </summary>
+            <param name="partManager">应用程序部分管理</param>
+        </member>
+        <member name="M:Bing.AspNetCore.Apis.DefaultApiInterfaceService.GetAllController">
+            <summary>
+            获取所有控制器。不包含抽象的类
+            </summary>
+        </member>
+        <member name="M:Bing.AspNetCore.Apis.DefaultApiInterfaceService.GetAllAction">
+            <summary>
+            获取所有操作
+            </summary>
+        </member>
+        <member name="T:Bing.AspNetCore.Apis.IApiInterfaceService">
+            <summary>
+            Api接口服务
+            </summary>
+        </member>
+        <member name="M:Bing.AspNetCore.Apis.IApiInterfaceService.GetAllController">
+            <summary>
+            获取所有控制器。不包含抽象的类
+            </summary>
+        </member>
+        <member name="M:Bing.AspNetCore.Apis.IApiInterfaceService.GetAllAction">
+            <summary>
+            获取所有操作
+            </summary>
+        </member>
+        <member name="T:Bing.AspNetCore.Apis.Models.ActionDescriptor">
+            <summary>
+            操作描述
+            </summary>
+        </member>
+        <member name="P:Bing.AspNetCore.Apis.Models.ActionDescriptor.Controller">
+            <summary>
+            控制器描述
+            </summary>
+        </member>
+        <member name="P:Bing.AspNetCore.Apis.Models.ActionDescriptor.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:Bing.AspNetCore.Apis.Models.ActionDescriptor.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:Bing.AspNetCore.Apis.Models.ActionDescriptor.MethodInfo">
+            <summary>
+            方法信息
+            </summary>
+        </member>
+        <member name="M:Bing.AspNetCore.Apis.Models.ActionDescriptor.#ctor(Bing.AspNetCore.Apis.Models.ControllerDescriptor,System.Reflection.MethodInfo)">
+            <summary>
+            初始化一个<see cref="T:Bing.AspNetCore.Apis.Models.ActionDescriptor"/>类型的实例
+            </summary>
+            <param name="controller">控制器</param>
+            <param name="methodInfo">方法信息</param>
+        </member>
+        <member name="M:Bing.AspNetCore.Apis.Models.ActionDescriptor.Init">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:Bing.AspNetCore.Apis.Models.ActionDescriptor.InitDescription">
+            <summary>
+            初始化描述
+            </summary>
+        </member>
+        <member name="T:Bing.AspNetCore.Apis.Models.ControllerDescriptor">
+            <summary>
+            控制器描述
+            </summary>
+        </member>
+        <member name="P:Bing.AspNetCore.Apis.Models.ControllerDescriptor.Area">
+            <summary>
+            区域
+            </summary>
+        </member>
+        <member name="P:Bing.AspNetCore.Apis.Models.ControllerDescriptor.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:Bing.AspNetCore.Apis.Models.ControllerDescriptor.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:Bing.AspNetCore.Apis.Models.ControllerDescriptor.TypeInfo">
+            <summary>
+            类型信息
+            </summary>
+        </member>
+        <member name="M:Bing.AspNetCore.Apis.Models.ControllerDescriptor.#ctor(System.Reflection.TypeInfo)">
+            <summary>
+            初始化一个<see cref="T:Bing.AspNetCore.Apis.Models.ControllerDescriptor"/>类型的实例
+            </summary>
+            <param name="typeInfo">类型信息</param>
+        </member>
+        <member name="M:Bing.AspNetCore.Apis.Models.ControllerDescriptor.Init">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:Bing.AspNetCore.Apis.Models.ControllerDescriptor.InitName">
+            <summary>
+            初始化名称
+            </summary>
+        </member>
+        <member name="M:Bing.AspNetCore.Apis.Models.ControllerDescriptor.InitArea">
+            <summary>
+            初始化区域
+            </summary>
+        </member>
+        <member name="M:Bing.AspNetCore.Apis.Models.ControllerDescriptor.InitDescription">
+            <summary>
+            初始化描述
+            </summary>
+        </member>
         <member name="T:Bing.AspNetCore.AspNetCoreBingModule">
             <summary>
             基于AspNetCore环境的模块基类
@@ -235,155 +384,6 @@
             初始化一个<see cref="T:Bing.AspNetCore.Mvc.NullJsonResult"/>类型的实例
             </summary>
         </member>
-        <member name="T:Bing.AspNetCore.Mvc.DefaultApiInterfaceService">
-            <summary>
-            默认Api接口服务
-            </summary>
-        </member>
-        <member name="F:Bing.AspNetCore.Mvc.DefaultApiInterfaceService._controllerDescriptors">
-            <summary>
-            控制器描述列表
-            </summary>
-        </member>
-        <member name="F:Bing.AspNetCore.Mvc.DefaultApiInterfaceService._actionDescriptors">
-            <summary>
-            操作描述列表
-            </summary>
-        </member>
-        <member name="F:Bing.AspNetCore.Mvc.DefaultApiInterfaceService._partManager">
-            <summary>
-            应用程序部分管理
-            </summary>
-        </member>
-        <member name="F:Bing.AspNetCore.Mvc.DefaultApiInterfaceService.Lock">
-            <summary>
-            对象锁
-            </summary>
-        </member>
-        <member name="M:Bing.AspNetCore.Mvc.DefaultApiInterfaceService.#ctor(Microsoft.AspNetCore.Mvc.ApplicationParts.ApplicationPartManager)">
-            <summary>
-            初始化一个<see cref="T:Bing.AspNetCore.Mvc.DefaultApiInterfaceService"/>类型的实例
-            </summary>
-            <param name="partManager">应用程序部分管理</param>
-        </member>
-        <member name="M:Bing.AspNetCore.Mvc.DefaultApiInterfaceService.GetAllController">
-            <summary>
-            获取所有控制器。不包含抽象的类
-            </summary>
-        </member>
-        <member name="M:Bing.AspNetCore.Mvc.DefaultApiInterfaceService.GetAllAction">
-            <summary>
-            获取所有操作
-            </summary>
-        </member>
-        <member name="T:Bing.AspNetCore.Mvc.IApiInterfaceService">
-            <summary>
-            Api接口服务
-            </summary>
-        </member>
-        <member name="M:Bing.AspNetCore.Mvc.IApiInterfaceService.GetAllController">
-            <summary>
-            获取所有控制器。不包含抽象的类
-            </summary>
-        </member>
-        <member name="M:Bing.AspNetCore.Mvc.IApiInterfaceService.GetAllAction">
-            <summary>
-            获取所有操作
-            </summary>
-        </member>
-        <member name="T:Bing.AspNetCore.Mvc.Models.ActionDescriptor">
-            <summary>
-            操作描述
-            </summary>
-        </member>
-        <member name="P:Bing.AspNetCore.Mvc.Models.ActionDescriptor.Controller">
-            <summary>
-            控制器描述
-            </summary>
-        </member>
-        <member name="P:Bing.AspNetCore.Mvc.Models.ActionDescriptor.Name">
-            <summary>
-            名称
-            </summary>
-        </member>
-        <member name="P:Bing.AspNetCore.Mvc.Models.ActionDescriptor.Description">
-            <summary>
-            描述
-            </summary>
-        </member>
-        <member name="P:Bing.AspNetCore.Mvc.Models.ActionDescriptor.MethodInfo">
-            <summary>
-            方法信息
-            </summary>
-        </member>
-        <member name="M:Bing.AspNetCore.Mvc.Models.ActionDescriptor.#ctor(Bing.AspNetCore.Mvc.Models.ControllerDescriptor,System.Reflection.MethodInfo)">
-            <summary>
-            初始化一个<see cref="T:Bing.AspNetCore.Mvc.Models.ActionDescriptor"/>类型的实例
-            </summary>
-            <param name="controller">控制器</param>
-            <param name="methodInfo">方法信息</param>
-        </member>
-        <member name="M:Bing.AspNetCore.Mvc.Models.ActionDescriptor.Init">
-            <summary>
-            初始化
-            </summary>
-        </member>
-        <member name="M:Bing.AspNetCore.Mvc.Models.ActionDescriptor.InitDescription">
-            <summary>
-            初始化描述
-            </summary>
-        </member>
-        <member name="T:Bing.AspNetCore.Mvc.Models.ControllerDescriptor">
-            <summary>
-            控制器描述
-            </summary>
-        </member>
-        <member name="P:Bing.AspNetCore.Mvc.Models.ControllerDescriptor.Area">
-            <summary>
-            区域
-            </summary>
-        </member>
-        <member name="P:Bing.AspNetCore.Mvc.Models.ControllerDescriptor.Name">
-            <summary>
-            名称
-            </summary>
-        </member>
-        <member name="P:Bing.AspNetCore.Mvc.Models.ControllerDescriptor.Description">
-            <summary>
-            描述
-            </summary>
-        </member>
-        <member name="P:Bing.AspNetCore.Mvc.Models.ControllerDescriptor.TypeInfo">
-            <summary>
-            类型信息
-            </summary>
-        </member>
-        <member name="M:Bing.AspNetCore.Mvc.Models.ControllerDescriptor.#ctor(System.Reflection.TypeInfo)">
-            <summary>
-            初始化一个<see cref="T:Bing.AspNetCore.Mvc.Models.ControllerDescriptor"/>类型的实例
-            </summary>
-            <param name="typeInfo">类型信息</param>
-        </member>
-        <member name="M:Bing.AspNetCore.Mvc.Models.ControllerDescriptor.Init">
-            <summary>
-            初始化
-            </summary>
-        </member>
-        <member name="M:Bing.AspNetCore.Mvc.Models.ControllerDescriptor.InitName">
-            <summary>
-            初始化名称
-            </summary>
-        </member>
-        <member name="M:Bing.AspNetCore.Mvc.Models.ControllerDescriptor.InitArea">
-            <summary>
-            初始化区域
-            </summary>
-        </member>
-        <member name="M:Bing.AspNetCore.Mvc.Models.ControllerDescriptor.InitDescription">
-            <summary>
-            初始化描述
-            </summary>
-        </member>
         <member name="T:Bing.AspNetCore.RequestScopedServiceResolver">
             <summary>
             Request的<see cref="F:Microsoft.Extensions.DependencyInjection.ServiceLifetime.Scoped"/>服务解析器
@@ -433,160 +433,6 @@
             获取指定服务类型的所有实例
             </summary>
             <param name="serviceType">服务类型</param>
-        </member>
-        <member name="T:Bing.AspNetCore.ApplicationBuilderExtensions">
-            <summary>
-            应用程序构建器(<see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/>) 扩展
-            </summary>
-        </member>
-        <member name="M:Bing.AspNetCore.ApplicationBuilderExtensions.UseBing(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
-            <summary>
-            Bing框架初始化。适用于AspNetCore环境
-            </summary>
-            <param name="app">应用程序构建器</param>
-        </member>
-        <member name="T:Bing.AspNetCore.Extensions">
-            <summary>
-            服务扩展
-            </summary>
-        </member>
-        <member name="M:Bing.AspNetCore.Extensions.AddUploadService(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
-            <summary>
-            注册上传服务
-            </summary>
-            <param name="services">服务集合</param>
-        </member>
-        <member name="M:Bing.AspNetCore.Extensions.AddUploadService``1(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
-            <summary>
-            注册上传服务
-            </summary>
-            <typeparam name="TFileUploadService">文件上传服务类型</typeparam>
-            <param name="services">服务集合</param>
-        </member>
-        <member name="M:Bing.AspNetCore.Extensions.AddApiInterfaceService(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
-            <summary>
-            注册Api接口服务
-            </summary>
-            <param name="services">服务集合</param>
-        </member>
-        <member name="M:Bing.AspNetCore.Extensions.AddApiInterfaceService``1(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
-            <summary>
-            注册Api接口服务
-            </summary>
-            <typeparam name="TApiInterfaceService">Api接口服务类型</typeparam>
-            <param name="services">服务集合</param>
-        </member>
-        <member name="T:Bing.AspNetCore.ServiceCollectionExtensions">
-            <summary>
-            服务集合(<see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>) 扩展
-            </summary>
-        </member>
-        <member name="M:Bing.AspNetCore.ServiceCollectionExtensions.GetHostingEnvironment(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
-            <summary>
-            获取<see cref="T:Microsoft.AspNetCore.Hosting.IHostingEnvironment"/>环境信息
-            </summary>
-            <param name="services">服务集合</param>
-        </member>
-        <member name="T:Bing.AspNetCore.ServiceProviderExtensions">
-            <summary>
-            服务提供程序(<see cref="T:System.IServiceProvider"/>) 扩展
-            </summary>
-        </member>
-        <member name="M:Bing.AspNetCore.ServiceProviderExtensions.HttpContext(System.IServiceProvider)">
-            <summary>
-            获取HttpContext实例
-            </summary>
-            <param name="provider">服务提供程序</param>
-        </member>
-        <member name="M:Bing.AspNetCore.ServiceProviderExtensions.InHttpRequest(System.IServiceProvider)">
-            <summary>
-            当前业务是否处于HttpRequest中
-            </summary>
-            <param name="provider">服务提供程序</param>
-        </member>
-        <member name="T:Bing.AspNetCore.IAspNetCoreUseModule">
-            <summary>
-            AspNetCore环境下的应用模块服务
-            </summary>
-        </member>
-        <member name="M:Bing.AspNetCore.IAspNetCoreUseModule.UseModule(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
-            <summary>
-            应用模块服务。仅在AspNetCore环境下调用，非AspNetCore环境请求执行 UseModule(IServiceProvider) 功能
-            </summary>
-            <param name="app">应用程序构建器</param>
-        </member>
-        <member name="T:Bing.AspNetCore.Tracing.AspNetCoreCorrelationIdProvider">
-            <summary>
-            AspNetCore 跟踪关联ID提供程序
-            </summary>
-        </member>
-        <member name="P:Bing.AspNetCore.Tracing.AspNetCoreCorrelationIdProvider.HttpContextAccessor">
-            <summary>
-            Http上下文访问器
-            </summary>
-        </member>
-        <member name="P:Bing.AspNetCore.Tracing.AspNetCoreCorrelationIdProvider.Options">
-            <summary>
-            跟踪关联ID配置选项信息
-            </summary>
-        </member>
-        <member name="M:Bing.AspNetCore.Tracing.AspNetCoreCorrelationIdProvider.#ctor(Microsoft.AspNetCore.Http.IHttpContextAccessor,Microsoft.Extensions.Options.IOptions{Bing.Tracing.CorrelationIdOptions})">
-            <summary>
-            初始化一个<see cref="T:Bing.AspNetCore.Tracing.AspNetCoreCorrelationIdProvider"/>类型的实例
-            </summary>
-            <param name="httpContextAccessor">Http上下文访问器</param>
-            <param name="options">跟踪关联ID选项</param>
-        </member>
-        <member name="M:Bing.AspNetCore.Tracing.AspNetCoreCorrelationIdProvider.Get">
-            <summary>
-            获取跟踪关联ID
-            </summary>
-        </member>
-        <member name="M:Bing.AspNetCore.Tracing.AspNetCoreCorrelationIdProvider.CreateNewCorrelationId">
-            <summary>
-            创建新跟踪关联ID
-            </summary>
-        </member>
-        <member name="T:Bing.AspNetCore.Tracing.CorrelationIdMiddleware">
-            <summary>
-            跟踪关联ID提供程序
-            </summary>
-        </member>
-        <member name="F:Bing.AspNetCore.Tracing.CorrelationIdMiddleware._next">
-            <summary>
-            方法
-            </summary>
-        </member>
-        <member name="F:Bing.AspNetCore.Tracing.CorrelationIdMiddleware._options">
-            <summary>
-            跟踪关联ID配置选项信息
-            </summary>
-        </member>
-        <member name="F:Bing.AspNetCore.Tracing.CorrelationIdMiddleware._correlationIdProvider">
-            <summary>
-            跟踪关联ID提供程序
-            </summary>
-        </member>
-        <member name="M:Bing.AspNetCore.Tracing.CorrelationIdMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate,Microsoft.Extensions.Options.IOptions{Bing.Tracing.CorrelationIdOptions},Bing.Tracing.ICorrelationIdProvider)">
-            <summary>
-            初始化一个<see cref="T:Bing.AspNetCore.Tracing.CorrelationIdMiddleware"/>类型的实例
-            </summary>
-            <param name="next">方法</param>
-            <param name="options">跟踪关联ID配置选项信息</param>
-            <param name="correlationIdProvider">跟踪关联ID提供程序</param>
-        </member>
-        <member name="M:Bing.AspNetCore.Tracing.CorrelationIdMiddleware.Invoke(Microsoft.AspNetCore.Http.HttpContext)">
-            <summary>
-            执行方法
-            </summary>
-        </member>
-        <member name="M:Bing.AspNetCore.Tracing.CorrelationIdMiddleware.CheckAndSetCorrelationIdOnResponse(Microsoft.AspNetCore.Http.HttpContext,Bing.Tracing.CorrelationIdOptions,System.String)">
-            <summary>
-            检查并设置跟踪关联ID在响应内容
-            </summary>
-            <param name="httpContext">Http上下文</param>
-            <param name="options">跟踪关联ID配置选项信息</param>
-            <param name="correlationId">跟踪关联ID</param>
         </member>
         <member name="T:Bing.AspNetCore.Uploads.DefaultFileUploadService">
             <summary>
@@ -752,6 +598,160 @@
             <summary>
             相对目录
             </summary>
+        </member>
+        <member name="T:Bing.AspNetCore.ApplicationBuilderExtensions">
+            <summary>
+            应用程序构建器(<see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/>) 扩展
+            </summary>
+        </member>
+        <member name="M:Bing.AspNetCore.ApplicationBuilderExtensions.UseBing(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Bing框架初始化。适用于AspNetCore环境
+            </summary>
+            <param name="app">应用程序构建器</param>
+        </member>
+        <member name="T:Bing.AspNetCore.Extensions">
+            <summary>
+            服务扩展
+            </summary>
+        </member>
+        <member name="M:Bing.AspNetCore.Extensions.AddUploadService(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            注册上传服务
+            </summary>
+            <param name="services">服务集合</param>
+        </member>
+        <member name="M:Bing.AspNetCore.Extensions.AddUploadService``1(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            注册上传服务
+            </summary>
+            <typeparam name="TFileUploadService">文件上传服务类型</typeparam>
+            <param name="services">服务集合</param>
+        </member>
+        <member name="M:Bing.AspNetCore.Extensions.AddApiInterfaceService(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            注册Api接口服务
+            </summary>
+            <param name="services">服务集合</param>
+        </member>
+        <member name="M:Bing.AspNetCore.Extensions.AddApiInterfaceService``1(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            注册Api接口服务
+            </summary>
+            <typeparam name="TApiInterfaceService">Api接口服务类型</typeparam>
+            <param name="services">服务集合</param>
+        </member>
+        <member name="T:Bing.AspNetCore.ServiceCollectionExtensions">
+            <summary>
+            服务集合(<see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>) 扩展
+            </summary>
+        </member>
+        <member name="M:Bing.AspNetCore.ServiceCollectionExtensions.GetHostingEnvironment(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            获取<see cref="T:Microsoft.AspNetCore.Hosting.IHostingEnvironment"/>环境信息
+            </summary>
+            <param name="services">服务集合</param>
+        </member>
+        <member name="T:Bing.AspNetCore.ServiceProviderExtensions">
+            <summary>
+            服务提供程序(<see cref="T:System.IServiceProvider"/>) 扩展
+            </summary>
+        </member>
+        <member name="M:Bing.AspNetCore.ServiceProviderExtensions.HttpContext(System.IServiceProvider)">
+            <summary>
+            获取HttpContext实例
+            </summary>
+            <param name="provider">服务提供程序</param>
+        </member>
+        <member name="M:Bing.AspNetCore.ServiceProviderExtensions.InHttpRequest(System.IServiceProvider)">
+            <summary>
+            当前业务是否处于HttpRequest中
+            </summary>
+            <param name="provider">服务提供程序</param>
+        </member>
+        <member name="T:Bing.AspNetCore.IAspNetCoreUseModule">
+            <summary>
+            AspNetCore环境下的应用模块服务
+            </summary>
+        </member>
+        <member name="M:Bing.AspNetCore.IAspNetCoreUseModule.UseModule(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            应用模块服务。仅在AspNetCore环境下调用，非AspNetCore环境请求执行 UseModule(IServiceProvider) 功能
+            </summary>
+            <param name="app">应用程序构建器</param>
+        </member>
+        <member name="T:Bing.AspNetCore.Tracing.AspNetCoreCorrelationIdProvider">
+            <summary>
+            AspNetCore 跟踪关联ID提供程序
+            </summary>
+        </member>
+        <member name="P:Bing.AspNetCore.Tracing.AspNetCoreCorrelationIdProvider.HttpContextAccessor">
+            <summary>
+            Http上下文访问器
+            </summary>
+        </member>
+        <member name="P:Bing.AspNetCore.Tracing.AspNetCoreCorrelationIdProvider.Options">
+            <summary>
+            跟踪关联ID配置选项信息
+            </summary>
+        </member>
+        <member name="M:Bing.AspNetCore.Tracing.AspNetCoreCorrelationIdProvider.#ctor(Microsoft.AspNetCore.Http.IHttpContextAccessor,Microsoft.Extensions.Options.IOptions{Bing.Tracing.CorrelationIdOptions})">
+            <summary>
+            初始化一个<see cref="T:Bing.AspNetCore.Tracing.AspNetCoreCorrelationIdProvider"/>类型的实例
+            </summary>
+            <param name="httpContextAccessor">Http上下文访问器</param>
+            <param name="options">跟踪关联ID选项</param>
+        </member>
+        <member name="M:Bing.AspNetCore.Tracing.AspNetCoreCorrelationIdProvider.Get">
+            <summary>
+            获取跟踪关联ID
+            </summary>
+        </member>
+        <member name="M:Bing.AspNetCore.Tracing.AspNetCoreCorrelationIdProvider.CreateNewCorrelationId">
+            <summary>
+            创建新跟踪关联ID
+            </summary>
+        </member>
+        <member name="T:Bing.AspNetCore.Tracing.CorrelationIdMiddleware">
+            <summary>
+            跟踪关联ID提供程序
+            </summary>
+        </member>
+        <member name="F:Bing.AspNetCore.Tracing.CorrelationIdMiddleware._next">
+            <summary>
+            方法
+            </summary>
+        </member>
+        <member name="F:Bing.AspNetCore.Tracing.CorrelationIdMiddleware._options">
+            <summary>
+            跟踪关联ID配置选项信息
+            </summary>
+        </member>
+        <member name="F:Bing.AspNetCore.Tracing.CorrelationIdMiddleware._correlationIdProvider">
+            <summary>
+            跟踪关联ID提供程序
+            </summary>
+        </member>
+        <member name="M:Bing.AspNetCore.Tracing.CorrelationIdMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate,Microsoft.Extensions.Options.IOptions{Bing.Tracing.CorrelationIdOptions},Bing.Tracing.ICorrelationIdProvider)">
+            <summary>
+            初始化一个<see cref="T:Bing.AspNetCore.Tracing.CorrelationIdMiddleware"/>类型的实例
+            </summary>
+            <param name="next">方法</param>
+            <param name="options">跟踪关联ID配置选项信息</param>
+            <param name="correlationIdProvider">跟踪关联ID提供程序</param>
+        </member>
+        <member name="M:Bing.AspNetCore.Tracing.CorrelationIdMiddleware.Invoke(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            执行方法
+            </summary>
+        </member>
+        <member name="M:Bing.AspNetCore.Tracing.CorrelationIdMiddleware.CheckAndSetCorrelationIdOnResponse(Microsoft.AspNetCore.Http.HttpContext,Bing.Tracing.CorrelationIdOptions,System.String)">
+            <summary>
+            检查并设置跟踪关联ID在响应内容
+            </summary>
+            <param name="httpContext">Http上下文</param>
+            <param name="options">跟踪关联ID配置选项信息</param>
+            <param name="correlationId">跟踪关联ID</param>
         </member>
         <member name="T:Bing.AspNetCore.VerifyCodes.IVerifyCodeService">
             <summary>

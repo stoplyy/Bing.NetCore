@@ -15,8 +15,6 @@ using Bing.Extensions.Swashbuckle.Extensions;
 using Bing.Extensions.Swashbuckle.Filters.Operations;
 using Bing.Logs.NLog;
 using Bing.Samples.Data;
-using Bing.Samples.EventHandlers.Abstractions;
-using Bing.Samples.EventHandlers.Implements;
 using Bing.Webs.Extensions;
 using Bing.Webs.Filters;
 using Microsoft.AspNetCore.Builder;

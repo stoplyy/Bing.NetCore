@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Reflection;
 using Newtonsoft.Json;
 
-namespace Bing.AspNetCore.Mvc.Models
+namespace Bing.AspNetCore.Apis.Models
 {
     /// <summary>
     /// 操作描述
@@ -13,23 +13,23 @@ namespace Bing.AspNetCore.Mvc.Models
         /// <summary>
         /// 控制器描述
         /// </summary>
-        public ControllerDescriptor Controller { get; protected set; }
+        public ControllerDescriptor Controller { get; set; }
 
         /// <summary>
         /// 名称
         /// </summary>
-        public string Name { get; protected set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// 描述
         /// </summary>
-        public string Description { get; protected set; }
+        public string Description { get; set; }
 
         /// <summary>
         /// 方法信息
         /// </summary>
         [JsonIgnore]
-        public MethodInfo MethodInfo { get; protected set; }
+        public MethodInfo MethodInfo { get; set; }
 
         /// <summary>
         /// 初始化一个<see cref="ActionDescriptor"/>类型的实例
@@ -58,10 +58,8 @@ namespace Bing.AspNetCore.Mvc.Models
         protected virtual void InitDescription()
         {
             var attribute = Attribute.GetCustomAttribute(MethodInfo, typeof(DescriptionAttribute));
-            if (attribute is DescriptionAttribute descriptionAttribute)
-            {
+            if (attribute is DescriptionAttribute descriptionAttribute) 
                 Description = descriptionAttribute.Description;
-            }
         }
     }
 }

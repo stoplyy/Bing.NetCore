@@ -10,7 +10,7 @@ namespace Bing.Samples.Modules
     /// <summary>
     /// Cap 模块
     /// </summary>
-    [DependsOnModule(typeof(AspNetCoreModule))]
+    [DependsOnModule(typeof(SampleAspNetCoreModule))]
     public class CapModule : AspNetCoreBingModule
     {
         /// <summary>

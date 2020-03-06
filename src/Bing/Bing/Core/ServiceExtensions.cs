@@ -7,6 +7,7 @@ using Bing.Reflections;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
 namespace Bing.Core
@@ -54,6 +55,39 @@ namespace Bing.Core
         /// </summary>
         /// <param name="provider">服务提供程序</param>
         public static BingOptions GetBingOptions(this IServiceProvider provider) => provider.GetService<IOptions<BingOptions>>()?.Value;
+
+        /// <summary>
+        /// 获取指定类型的日志对象
+        /// </summary>
+        /// <typeparam name="T">非静态强类型</typeparam>
+        /// <param name="provider">服务提供程序</param>
+        public static ILogger<T> GetLogger<T>(this IServiceProvider provider)
+        {
+            var factory = provider.GetService<ILoggerFactory>();
+            return factory.CreateLogger<T>();
+        }
+
+        /// <summary>
+        /// 获取指定类型的日志对象
+        /// </summary>
+        /// <param name="provider">服务提供程序</param>
+        /// <param name="type">指定类型</param>
+        public static ILogger GetLogger(this IServiceProvider provider, Type type)
+        {
+            var factory = provider.GetService<ILoggerFactory>();
+            return factory.CreateLogger(type);
+        }
+
+        /// <summary>
+        /// 获取指定名称的日志对象
+        /// </summary>
+        /// <param name="provider">服务提供程序</param>
+        /// <param name="name">名称</param>
+        public static ILogger GetLogger(this IServiceProvider provider, string name)
+        {
+            var factory = provider.GetService<ILoggerFactory>();
+            return factory.CreateLogger(name);
+        }
 
         /// <summary>
         /// Bing框架初始化，适用于非AspNetCore环境

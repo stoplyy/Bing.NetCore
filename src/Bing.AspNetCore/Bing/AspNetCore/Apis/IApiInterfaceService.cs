@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using Bing.AspNetCore.Mvc.Models;
+using Bing.AspNetCore.Apis.Models;
 
-namespace Bing.AspNetCore.Mvc
+namespace Bing.AspNetCore.Apis
 {
     /// <summary>
     /// Api接口服务

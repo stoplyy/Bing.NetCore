@@ -1910,6 +1910,27 @@
             </summary>
             <param name="provider">服务提供程序</param>
         </member>
+        <member name="M:Bing.Core.ServiceExtensions.GetLogger``1(System.IServiceProvider)">
+            <summary>
+            获取指定类型的日志对象
+            </summary>
+            <typeparam name="T">非静态强类型</typeparam>
+            <param name="provider">服务提供程序</param>
+        </member>
+        <member name="M:Bing.Core.ServiceExtensions.GetLogger(System.IServiceProvider,System.Type)">
+            <summary>
+            获取指定类型的日志对象
+            </summary>
+            <param name="provider">服务提供程序</param>
+            <param name="type">指定类型</param>
+        </member>
+        <member name="M:Bing.Core.ServiceExtensions.GetLogger(System.IServiceProvider,System.String)">
+            <summary>
+            获取指定名称的日志对象
+            </summary>
+            <param name="provider">服务提供程序</param>
+            <param name="name">名称</param>
+        </member>
         <member name="M:Bing.Core.ServiceExtensions.UseBing(System.IServiceProvider)">
             <summary>
             Bing框架初始化，适用于非AspNetCore环境
