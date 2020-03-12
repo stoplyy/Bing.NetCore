@@ -11896,107 +11896,6 @@
             释放资源
             </summary>
         </member>
-        <member name="T:Bing.Dependency.Container">
-            <summary>
-            默认容器。Autofac对象容器
-            </summary>
-        </member>
-        <member name="F:Bing.Dependency.Container._container">
-            <summary>
-            Autofac容器
-            </summary>
-        </member>
-        <member name="M:Bing.Dependency.Container.CreateList``1(System.String)">
-            <summary>
-            创建集合
-            </summary>
-            <typeparam name="T">对象类型</typeparam>
-            <param name="name">服务名称</param>
-            <returns></returns>
-        </member>
-        <member name="M:Bing.Dependency.Container.CreateList(System.Type,System.String)">
-            <summary>
-            创建集合
-            </summary>
-            <param name="type">对象类型</param>
-            <param name="name">服务名称</param>
-            <returns></returns>
-        </member>
-        <member name="M:Bing.Dependency.Container.Create``1(System.String)">
-            <summary>
-            创建对象
-            </summary>
-            <typeparam name="T">对象类型</typeparam>
-            <param name="name">服务名称</param>
-            <returns></returns>
-        </member>
-        <member name="M:Bing.Dependency.Container.Create(System.Type,System.String)">
-            <summary>
-            创建对象
-            </summary>
-            <param name="type">对象类型</param>
-            <param name="name">服务名称</param>
-            <returns></returns>
-        </member>
-        <member name="M:Bing.Dependency.Container.GetServiceFromHttpContext(System.Type,System.String)">
-            <summary>
-            从HttpContext获取服务
-            </summary>
-            <param name="type">对象类型</param>
-            <param name="name">服务名称</param>
-            <returns></returns>
-        </member>
-        <member name="M:Bing.Dependency.Container.GetService(System.Type,System.String)">
-            <summary>
-            获取服务
-            </summary>
-            <param name="type">对象类型</param>
-            <param name="name">服务名称</param>
-            <returns></returns>
-        </member>
-        <member name="M:Bing.Dependency.Container.BeginScope">
-            <summary>
-            作用域开始
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Bing.Dependency.Container.Register(Bing.Dependency.IConfig[])">
-            <summary>
-            注册依赖
-            </summary>
-            <param name="configs">依赖配置</param>
-        </member>
-        <member name="M:Bing.Dependency.Container.Register(Microsoft.Extensions.DependencyInjection.IServiceCollection,Bing.Dependency.IConfig[])">
-            <summary>
-            注册依赖
-            </summary>
-            <param name="services">服务集合</param>
-            <param name="configs">依赖配置</param>
-            <returns></returns>
-        </member>
-        <member name="M:Bing.Dependency.Container.Register(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{Autofac.ContainerBuilder},Bing.Dependency.IConfig[])">
-            <summary>
-            注册依赖
-            </summary>
-            <param name="services">服务集合</param>
-            <param name="actionBefore">注册前操作</param>
-            <param name="configs">依赖配置</param>
-            <returns></returns>
-        </member>
-        <member name="M:Bing.Dependency.Container.CreateBuilder(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{Autofac.ContainerBuilder},Bing.Dependency.IConfig[])">
-            <summary>
-            创建容器生成器
-            </summary>
-            <param name="services">服务集合</param>
-            <param name="actionBefore">注册前执行的操作</param>
-            <param name="configs">依赖配置</param>
-            <returns></returns>
-        </member>
-        <member name="M:Bing.Dependency.Container.Dispose">
-            <summary>
-            释放容器
-            </summary>
-        </member>
         <member name="T:Bing.Dependency.DependencyModule">
             <summary>
             依赖注入模块
@@ -12052,68 +11951,6 @@
             <param name="descriptor">描述</param>
             <param name="dependencyAttribute">依赖注入行为特性</param>
         </member>
-        <member name="T:Bing.Dependency.IConfig">
-            <summary>
-            依赖配置
-            </summary>
-        </member>
-        <member name="T:Bing.Dependency.IContainer">
-            <summary>
-            容器
-            </summary>
-        </member>
-        <member name="M:Bing.Dependency.IContainer.CreateList``1(System.String)">
-            <summary>
-            创建集合
-            </summary>
-            <typeparam name="T">对象类型</typeparam>
-            <param name="name">服务名称</param>
-            <returns></returns>
-        </member>
-        <member name="M:Bing.Dependency.IContainer.CreateList(System.Type,System.String)">
-            <summary>
-            创建集合
-            </summary>
-            <param name="type">对象类型</param>
-            <param name="name">服务名称</param>
-            <returns></returns>
-        </member>
-        <member name="M:Bing.Dependency.IContainer.Create``1(System.String)">
-            <summary>
-            创建对象
-            </summary>
-            <typeparam name="T">对象类型</typeparam>
-            <param name="name">服务名称</param>
-            <returns></returns>
-        </member>
-        <member name="M:Bing.Dependency.IContainer.Create(System.Type,System.String)">
-            <summary>
-            创建对象
-            </summary>
-            <param name="type">对象类型</param>
-            <param name="name">服务名称</param>
-            <returns></returns>
-        </member>
-        <member name="M:Bing.Dependency.IContainer.BeginScope">
-            <summary>
-            作用域开始
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Bing.Dependency.IContainer.Register(Bing.Dependency.IConfig[])">
-            <summary>
-            注册依赖
-            </summary>
-            <param name="configs">依赖配置</param>
-        </member>
-        <member name="M:Bing.Dependency.IContainer.Register(Microsoft.Extensions.DependencyInjection.IServiceCollection,Bing.Dependency.IConfig[])">
-            <summary>
-            注册依赖
-            </summary>
-            <param name="services">服务集合</param>
-            <param name="configs">依赖配置</param>
-            <returns></returns>
-        </member>
         <member name="T:Bing.Dependency.IDependencyRegistrar">
             <summary>
             依赖注册器
@@ -12124,64 +11961,6 @@
             注册依赖
             </summary>
             <param name="services">服务集合</param>
-        </member>
-        <member name="T:Bing.Dependency.IScope">
-            <summary>
-            作用域
-            </summary>
-        </member>
-        <member name="M:Bing.Dependency.IScope.Create``1(System.String)">
-            <summary>
-            创建实例
-            </summary>
-            <typeparam name="T">实例类型</typeparam>
-            <param name="name">服务名称</param>
-            <returns></returns>
-        </member>
-        <member name="M:Bing.Dependency.IScope.Create(System.Type,System.String)">
-            <summary>
-            创建对象
-            </summary>
-            <param name="type">对象类型</param>
-            <param name="name">服务名称</param>
-            <returns></returns>
-        </member>
-        <member name="T:Bing.Dependency.Scope">
-            <summary>
-            作用域
-            </summary>
-        </member>
-        <member name="F:Bing.Dependency.Scope._scope">
-            <summary>
-            Autofac 作用域
-            </summary>
-        </member>
-        <member name="M:Bing.Dependency.Scope.#ctor(Autofac.ILifetimeScope)">
-            <summary>
-            初始化一个<see cref="T:Bing.Dependency.Scope"/>类型的实例
-            </summary>
-            <param name="scope">Autofac 作用域</param>
-        </member>
-        <member name="M:Bing.Dependency.Scope.Dispose">
-            <summary>
-            释放对象
-            </summary>
-        </member>
-        <member name="M:Bing.Dependency.Scope.Create``1(System.String)">
-            <summary>
-            创建实例
-            </summary>
-            <typeparam name="T">实例类型</typeparam>
-            <param name="name">服务名称</param>
-            <returns></returns>
-        </member>
-        <member name="M:Bing.Dependency.Scope.Create(System.Type,System.String)">
-            <summary>
-            创建对象
-            </summary>
-            <param name="type">对象类型</param>
-            <param name="name">服务名称</param>
-            <returns></returns>
         </member>
         <member name="T:Bing.DisposeAction">
             <summary>
@@ -15709,18 +15488,6 @@
             基本路径。用于读取配置文件的根路径
             </summary>
         </member>
-        <member name="T:Bing.Configurations.ConfigurationUtil">
-            <summary>
-            配置工具
-            </summary>
-        </member>
-        <member name="M:Bing.Configurations.ConfigurationUtil.BuildConfiguration(Bing.Configurations.ConfigurationBuilderOptions)">
-            <summary>
-            构建配置
-            </summary>
-            <param name="options">配置构建起选项</param>
-            <returns></returns>
-        </member>
         <member name="T:Bing.Configurations.DefaultConfigurationAccessor">
             <summary>
             默认配置访问器
@@ -18588,6 +18355,11 @@
         <member name="M:Bing.Tracing.ICorrelationIdProvider.Get">
             <summary>
             获取跟踪关联ID
+            </summary>
+        </member>
+        <member name="T:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions">
+            <summary>
+            服务集合(<see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>) 扩展
             </summary>
         </member>
         <member name="T:Microsoft.Extensions.DependencyInjection.ServiceCollectionCommonExtensions">

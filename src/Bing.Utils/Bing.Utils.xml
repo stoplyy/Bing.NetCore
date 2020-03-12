@@ -12059,27 +12059,6 @@
             </summary>
             <param name="sign">签名</param>
         </member>
-        <member name="T:Bing.Utils.Configs.ConfigHelper">
-            <summary>
-            配置文件 操作辅助类
-            </summary>
-        </member>
-        <member name="M:Bing.Utils.Configs.ConfigHelper.GetJsonConfig(System.String,System.String)">
-            <summary>
-            获取Json配置文件
-            </summary>
-            <param name="configFileName">配置文件名。默认：appsettings.json</param>
-            <param name="basePath">基路径</param>
-            <returns></returns>
-        </member>
-        <member name="M:Bing.Utils.Configs.ConfigHelper.GetXmlConfig(System.String,System.String)">
-            <summary>
-            获取Xml配置文件
-            </summary>
-            <param name="configFileName">配置文件名。默认：appsettings.xml</param>
-            <param name="basePath">基路径</param>
-            <returns></returns>
-        </member>
         <member name="T:Bing.Utils.DisposeAction">
             <summary>
             释放操作
