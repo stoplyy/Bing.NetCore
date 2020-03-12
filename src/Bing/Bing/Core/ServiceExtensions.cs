@@ -45,12 +45,6 @@ namespace Bing.Core
         }
 
         /// <summary>
-        /// 获取<see cref="IConfiguration"/>配置信息
-        /// </summary>
-        /// <param name="services">服务集合</param>
-        public static IConfiguration GetConfiguration(this IServiceCollection services) => services.GetSingletonInstanceOrNull<IConfiguration>();
-
-        /// <summary>
         /// 获取Bing框架配置选项信息
         /// </summary>
         /// <param name="provider">服务提供程序</param>

@@ -1,6 +1,7 @@
-﻿using Microsoft.AspNetCore;
+﻿using AspectCore.Extensions.Hosting;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
 
 namespace Bing.Samples
 {
@@ -8,17 +9,21 @@ namespace Bing.Samples
     {
         public static void Main(string[] args)
         {
-            CreateWebHostBuilder(args).Build().Run();
+            CreateHostBuilder(args).Build().Run();
         }
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args)
+        public static IHostBuilder CreateHostBuilder(string[] args)
         {
-            var config = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-                .Build();
-            return WebHost.CreateDefaultBuilder(args)
-                .UseConfiguration(config)
-                .UseStartup<Startup>();
+            return Host.CreateDefaultBuilder(args)
+                .UseServiceContext()
+                .ConfigureAppConfiguration((context, builder) =>
+                {
+                    builder.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+                })
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>();
+                });
         }
     }
 }

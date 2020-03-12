@@ -1,11 +1,10 @@
-﻿using System;
-using AspectCore.Extensions.DependencyInjection;
-using Bing.AspNetCore;
+﻿using Bing.AspNetCore;
 using Bing.Core;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
 namespace Bing.Samples
@@ -32,18 +31,37 @@ namespace Bing.Samples
         /// <summary>
         /// 配置服务
         /// </summary>
-        public IServiceProvider ConfigureServices(IServiceCollection services)
+        public void ConfigureServices(IServiceCollection services)
         {
             services.AddBing<AspNetCoreBingModuleManager>();
-            return services.BuildServiceContextProvider();
-            //return services.BuildServiceProvider();
         }
 
         /// <summary>
         /// 配置请求管道
         /// </summary>
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
         {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseExceptionHandler("/#/500");
+                app.UseHsts();
+                //app.UseHttpsRedirection();// 启用HTTPS
+            }
+
+            app.UseRouting();
+            app.UseAuthorization();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+                //endpoints.MapDefaultControllerRoute();
+            });
+
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
             app.UseBing();
         }
     }

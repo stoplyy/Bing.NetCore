@@ -74,7 +74,7 @@ namespace Bing.Events.Cap
         /// <summary>
         /// 获取CAP事务
         /// </summary>
-        private CapTransactionBase GetCapTransaction() => Publisher.ServiceProvider.GetService<CapTransactionBase>();
+        private ICapTransaction GetCapTransaction() => Publisher.ServiceProvider.GetService<ICapTransaction>();
 
         /// <summary>
         /// 发布事件

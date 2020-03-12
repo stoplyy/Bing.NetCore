@@ -10,8 +10,8 @@ namespace Bing.Samples.Data.UnitOfWorks.SqlServer {
         /// 初始化工作单元
         /// </summary>
         /// <param name="options">配置项</param>
-        public SampleUnitOfWork( DbContextOptions<SampleUnitOfWork> options) 
-            : base( options ) {
+        public SampleUnitOfWork( DbContextOptions<SampleUnitOfWork> options, IServiceProvider serviceProvider) 
+            : base( options ,serviceProvider) {
         }
     }
 }

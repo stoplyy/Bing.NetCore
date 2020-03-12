@@ -6,12 +6,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Bing.Extensions.Swashbuckle" Version="1.1.0" />
+    <PackageReference Include="AspectCore.Extensions.Hosting" Version="2.0.0" />
+    <!--<PackageReference Include="Bing.Extensions.Swashbuckle" Version="1.1.1-preview-20200303-1" />-->
     <PackageReference Include="DotNetCore.CAP.Dashboard" Version="3.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.2" />
     <PackageReference Include="MiniProfiler.AspNetCore.Mvc" Version="4.1.0" />
     <PackageReference Include="MiniProfiler.EntityFrameworkCore" Version="4.1.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.2" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.1.0" />
   </ItemGroup>
 
   <ItemGroup>
