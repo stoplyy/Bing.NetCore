@@ -4,43 +4,6 @@
         <name>Bing.Datas.EntityFramework</name>
     </assembly>
     <members>
-        <member name="T:Bing.Datas.EntityFramework.Conventions.BingCoreConventionSetBuilder">
-            <summary>
-            Bing 核心约束集合生成器
-            </summary>
-        </member>
-        <member name="M:Bing.Datas.EntityFramework.Conventions.BingCoreConventionSetBuilder.#ctor(Microsoft.EntityFrameworkCore.Metadata.Conventions.Internal.CoreConventionSetBuilderDependencies)">
-            <summary>
-            初始化一个<see cref="T:Bing.Datas.EntityFramework.Conventions.BingCoreConventionSetBuilder"/>类型的实例
-            </summary>
-            <param name="dependencies">依赖</param>
-        </member>
-        <member name="M:Bing.Datas.EntityFramework.Conventions.BingCoreConventionSetBuilder.CreateConventionSet">
-            <summary>
-            创建约束集合
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:Bing.Datas.EntityFramework.Conventions.DecimalPrecisionAttributeConvention">
-            <summary>
-            Decimal精确度约定，用于ModelBuilder全局设置Decimal精确度属性
-            </summary>
-        </member>
-        <member name="M:Bing.Datas.EntityFramework.Conventions.DecimalPrecisionAttributeConvention.Apply(Microsoft.EntityFrameworkCore.Metadata.Internal.InternalPropertyBuilder,Bing.Datas.Attributes.DecimalPrecisionAttribute,System.Reflection.MemberInfo)">
-            <summary>
-            应用
-            </summary>
-        </member>
-        <member name="T:Bing.Datas.EntityFramework.Conventions.HasMaxLengthAttributeConvention">
-            <summary>
-            最大长度约定，用于ModelBuilder全局设置最大长度
-            </summary>
-        </member>
-        <member name="M:Bing.Datas.EntityFramework.Conventions.HasMaxLengthAttributeConvention.Apply(Microsoft.EntityFrameworkCore.Metadata.Internal.InternalPropertyBuilder,Bing.Datas.Attributes.HasMaxLengthAttribute,System.Reflection.MemberInfo)">
-            <summary>
-            应用
-            </summary>
-        </member>
         <member name="T:Bing.Datas.EntityFramework.Core.CompactRepositoryBase`2">
             <summary>
             仓储 - 配合持久化对象使用
@@ -1159,79 +1122,22 @@
             <param name="configuration">配置</param>
             <returns></returns>
         </member>
-        <member name="T:Bing.Datas.EntityFramework.Extensions.InternalPropertyBuilderExtensions">
-            <summary>
-            内部属性生成器扩展
-            </summary>
-        </member>
-        <member name="M:Bing.Datas.EntityFramework.Extensions.InternalPropertyBuilderExtensions.HasPrecision(Microsoft.EntityFrameworkCore.Metadata.Internal.InternalPropertyBuilder,Microsoft.EntityFrameworkCore.Metadata.Internal.ConfigurationSource,System.Int32,System.Int32)">
-            <summary>
-            设置精度
-            </summary>
-            <param name="propertyBuilder">内部属性生成器</param>
-            <param name="configurationSource">配置源</param>
-            <param name="precision">精度</param>
-            <param name="scale">保留小数位</param>
-            <returns></returns>
-        </member>
-        <member name="M:Bing.Datas.EntityFramework.Extensions.InternalPropertyBuilderExtensions.HasMaxLength(Microsoft.EntityFrameworkCore.Metadata.Internal.InternalPropertyBuilder,Microsoft.EntityFrameworkCore.Metadata.Internal.ConfigurationSource,System.Nullable{System.Boolean})">
-            <summary>
-            设置最大长度
-            </summary>
-            <param name="propertyBuilder">内部属性生成器</param>
-            <param name="configurationSource">配置源</param>
-            <param name="hasMaxLength">是否最大长度</param>
-            <returns></returns>
-        </member>
         <member name="T:Bing.Datas.EntityFramework.Extensions.ModelBuilderExtensions">
             <summary>
             实体生成器(<see cref="T:Microsoft.EntityFrameworkCore.ModelBuilder"/>) 扩展
             </summary>
-        </member>
-        <member name="M:Bing.Datas.EntityFramework.Extensions.ModelBuilderExtensions.SetSimpleUnderscoreTableNameConvention(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <summary>
-            设置简单下划线表名约定
-            </summary>
-            <param name="modelBuilder">实体生成器</param>
-            <returns></returns>
         </member>
         <member name="M:Bing.Datas.EntityFramework.Extensions.ModelBuilderExtensions.SetOneToManyCascadeDeleteConvention(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <summary>
             设置关闭所有主外键关系的级联删除
             </summary>
             <param name="modelBuilder">实体生成器</param>
-            <returns></returns>
         </member>
         <member name="M:Bing.Datas.EntityFramework.Extensions.ModelBuilderExtensions.HasGlobalDeleteQueryFilter(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <summary>
             全局逻辑删除查询过滤器
             </summary>
             <param name="modelBuilder">实体生成器</param>
-            <returns></returns>
-        </member>
-        <member name="T:Bing.Datas.EntityFramework.Extensions.PropertyBuilderExtensions">
-            <summary>
-            属性生成器扩展
-            </summary>
-        </member>
-        <member name="M:Bing.Datas.EntityFramework.Extensions.PropertyBuilderExtensions.HasPrecision``1(Microsoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder{``0},System.Int32,System.Int32)">
-            <summary>
-            设置精度
-            </summary>
-            <typeparam name="TProperty">属性类型</typeparam>
-            <param name="propertyBuilder">属性生成器</param>
-            <param name="precision">精度</param>
-            <param name="scale">保留小数位</param>
-            <returns></returns>
-        </member>
-        <member name="M:Bing.Datas.EntityFramework.Extensions.PropertyBuilderExtensions.HasMaxLength``1(Microsoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder{``0},System.Nullable{System.Boolean})">
-            <summary>
-            设置最大长度
-            </summary>
-            <typeparam name="TProperty">属性类型</typeparam>
-            <param name="propertyBuilder">属性生成器</param>
-            <param name="hasMaxLength">是否最大长度</param>
-            <returns></returns>
         </member>
         <member name="T:Bing.Datas.EntityFramework.Extensions.QueryableExtensions">
             <summary>

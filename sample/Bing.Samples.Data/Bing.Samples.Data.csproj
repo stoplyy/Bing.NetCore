@@ -5,6 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Mappings\Systems\Oracle\**" />
+    <Compile Remove="UnitOfWorks\Oracle\**" />
+    <EmbeddedResource Remove="Mappings\Systems\Oracle\**" />
+    <EmbeddedResource Remove="UnitOfWorks\Oracle\**" />
+    <None Remove="Mappings\Systems\Oracle\**" />
+    <None Remove="UnitOfWorks\Oracle\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Bing.Samples.Domain\Bing.Samples.Domain.csproj" />
   </ItemGroup>
 

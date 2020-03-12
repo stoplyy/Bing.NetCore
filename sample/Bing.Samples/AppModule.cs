@@ -54,11 +54,11 @@ namespace Bing.Samples
                     options.Filters.Add<ResultHandlerAttribute>();
                     options.Filters.Add<ExceptionHandlerAttribute>();
                 })
-                .AddJsonOptions(options =>
+                .AddNewtonsoftJson(options =>
                 {
                     options.SerializerSettings.DateFormatString = "yyyy-MM-dd HH:mm:ss";
                 })
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+                .SetCompatibilityVersion(CompatibilityVersion.Latest)
                 .AddControllersAsServices();
 
             // 注册工作单元
