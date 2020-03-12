@@ -68,6 +68,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Bing\EventBus\Local\" />
+    <Folder Include="Bing\EventBus\Distributed\" />
     <Folder Include="Bing\Events\Local\" />
   </ItemGroup>
 

@@ -774,14 +774,6 @@
             <param name="code">验证码</param>
             <param name="id">验证码编号</param>
         </member>
-        <member name="M:Bing.AspNetCore.VerifyCodes.IVerifyCodeService.GetImageString(System.Drawing.Image,System.String)">
-            <summary>
-            将图片序列化成字符串
-            </summary>
-            <param name="image">图片</param>
-            <param name="id">验证码编号</param>
-            <returns></returns>
-        </member>
         <member name="T:Microsoft.AspNetCore.Builder.ApplicationBuilderExtensions">
             <summary>
             应用程序构建器(<see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/>) 扩展
