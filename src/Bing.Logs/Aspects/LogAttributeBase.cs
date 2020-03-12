@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using AspectCore.DynamicProxy;
 using AspectCore.DynamicProxy.Parameters;
 using Bing.Aspects.Base;
@@ -23,7 +24,7 @@ namespace Bing.Logs.Aspects
                 return;
             ExecuteBefore(log, context, methodName);
             await next(context);
-            ExecuteAfter(log, context, methodName);
+            await ExecuteAfter(log, context, methodName);
         }
 
         /// <summary>
@@ -46,7 +47,9 @@ namespace Bing.Logs.Aspects
         /// <param name="methodName">方法名</param>
         private void ExecuteBefore(ILog log, AspectContext context, string methodName)
         {
-            log.Caption($"{context.ServiceMethod.Name}方法执行前")
+            log
+                .Tag(context.ServiceMethod.Name)
+                .Caption($"{context.ServiceMethod.Name}方法执行前")
                 .Class(context.ServiceMethod.DeclaringType.FullName)
                 .Method(methodName);
             foreach (var parameter in context.GetParameters())
@@ -66,12 +69,23 @@ namespace Bing.Logs.Aspects
         /// <param name="log">日志操作</param>
         /// <param name="context">Aspect上下文</param>
         /// <param name="methodName">方法名</param>
-        private void ExecuteAfter(ILog log, AspectContext context, string methodName)
+        private async Task ExecuteAfter(ILog log, AspectContext context, string methodName)
         {
-            var parameter = context.GetReturnParameter();
-            log.Caption($"{context.ServiceMethod.Name}方法执行后")
+            object returnValue;
+            try
+            {
+                returnValue = context.IsAsync() ? await context.UnwrapAsyncReturnValue() : context.ReturnValue;
+            }
+            catch (Exception e)
+            {
+                returnValue = context.ReturnValue;
+            }
+            var returnType = returnValue.GetType().FullName;
+            log
+                .Tag(context.ServiceMethod.Name)
+                .Caption($"{context.ServiceMethod.Name}方法执行后")
                 .Method(methodName)
-                .Content($"返回类型: {parameter.ParameterInfo.ParameterType.FullName},返回值: {parameter.Value.SafeString()}");
+                .Content($"返回类型: {returnType}, 返回值: {returnValue.SafeString()}");
             WriteLog(log);
         }
     }

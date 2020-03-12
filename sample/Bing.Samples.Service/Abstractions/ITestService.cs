@@ -20,9 +20,17 @@ namespace Bing.Samples.Service.Abstractions
         Task<string> GetAsync(Guid id);
 
         /// <summary>
+        /// 获取元祖字符串
+        /// </summary>
+        /// <param name="id">标识</param>
+        [DebugLog]
+        Task<(string a, string b)> GetTupleAsync(Guid id);
+
+        /// <summary>
         /// 写入日志
         /// </summary>
         /// <param name="content">内容</param>
+        [DebugLog]
         Task WriteLogAsync(string content);
 
         /// <summary>

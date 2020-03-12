@@ -32,8 +32,13 @@ namespace Bing.Samples.Service.Implements
         /// 获取字符串
         /// </summary>
         /// <param name="id">标识</param>
-        [DebugLog]
         public Task<string> GetAsync(Guid id) => Task.FromResult(id.ToString());
+
+        /// <summary>
+        /// 获取元祖字符串
+        /// </summary>
+        /// <param name="id">标识</param>
+        public Task<(string a, string b)> GetTupleAsync(Guid id) => Task.FromResult((id.ToString(), id.ToString()));
 
         /// <summary>
         /// 写入日志

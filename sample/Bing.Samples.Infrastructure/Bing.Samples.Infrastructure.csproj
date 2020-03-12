@@ -23,6 +23,7 @@
     <ProjectReference Include="..\..\src\Bing.Events\Bing.Events.csproj" />
     <ProjectReference Include="..\..\src\Bing.Logs.NLog\Bing.Logs.NLog.csproj" />
     <ProjectReference Include="..\..\src\Bing.Logs\Bing.Logs.csproj" />
+    <ProjectReference Include="..\..\src\Bing.Serialization.NewtonsoftJson\Bing.Serialization.NewtonsoftJson.csproj" />
     <ProjectReference Include="..\..\src\Bing\Bing.csproj" />
   </ItemGroup>
 

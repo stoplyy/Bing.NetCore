@@ -38,6 +38,17 @@ namespace Bing.Samples.Controllers
         }
 
         /// <summary>
+        /// 获取元祖字符串
+        /// </summary>
+        /// <param name="id">标识</param>
+        [HttpGet("getTuple")]
+        public async Task<IActionResult> GetTupleAsync(Guid id)
+        {
+            var result = await TestService.GetTupleAsync(id);
+            return Success(result);
+        }
+
+        /// <summary>
         /// 写入日志
         /// </summary>
         /// <param name="content">内容</param>

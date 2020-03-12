@@ -1,29 +1,22 @@
-﻿using System.Collections.Generic;
-using System.Text;
+﻿using System.Text;
 using Bing.AspNetCore;
 using Bing.AutoMapper;
-using Bing.Core;
 using Bing.Core.Modularity;
 using Bing.Datas.Dapper;
 using Bing.Datas.EntityFramework.SqlServer;
 using Bing.Datas.Enums;
 using Bing.DependencyInjection;
 using Bing.Events.Cap;
-//using Bing.Extensions.Swashbuckle.Configs;
-//using Bing.Extensions.Swashbuckle.Core;
-//using Bing.Extensions.Swashbuckle.Extensions;
-//using Bing.Extensions.Swashbuckle.Filters.Operations;
 using Bing.Logs.NLog;
 using Bing.Samples.Data;
+using Bing.Serialization;
 using Bing.Webs.Extensions;
 using Bing.Webs.Filters;
 using DotNetCore.CAP;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Savorboard.CAP.InMemoryMessageQueue;
-//using Swashbuckle.AspNetCore.Swagger;
 
 namespace Bing.Samples
 {
@@ -44,9 +37,6 @@ namespace Bing.Samples
         /// <param name="services">服务集合</param>
         public override IServiceCollection AddServices(IServiceCollection services)
         {
-            // 注册WebApi
-            //services.AddControllers();
-
             // 注册MVC
             services.AddControllers(options =>
             {
@@ -100,6 +90,10 @@ namespace Bing.Samples
 
             // 启用AOP
             services.EnableAop();
+
+            // 注册序列化组件
+            services.AddScoped<IJsonSerializer, NewtonsoftJsonSerializer>();
+
             return services;
         }
 
@@ -111,7 +105,7 @@ namespace Bing.Samples
         {
             app.UseCapDashboard();
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
-            //app.UseErrorLog();
+            app.UseErrorLog();
             app.UseStaticHttpContext();
             Enabled = true;
         }
