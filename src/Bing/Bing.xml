@@ -13569,6 +13569,100 @@
             克隆副本
             </summary>
         </member>
+        <member name="T:Bing.EventBus.IEventBus">
+            <summary>
+            事件总线
+            </summary>
+        </member>
+        <member name="T:Bing.EventBus.IEventDataWithInheritableGenericArgument">
+            <summary>
+            事件数据（可继承的泛型参数）
+            </summary>
+        </member>
+        <member name="M:Bing.EventBus.IEventDataWithInheritableGenericArgument.GetConstructorArgs">
+            <summary>
+            获取构造函数参数
+            </summary>
+        </member>
+        <member name="T:Bing.EventBus.IEventHandler">
+            <summary>
+            事件处理器
+            </summary>
+        </member>
+        <member name="T:Bing.EventBus.IEventHandlerDisposeWrapper">
+            <summary>
+            <see cref="T:Bing.EventBus.IEventHandler"/> 事件处理器的可释放包装
+            </summary>
+        </member>
+        <member name="P:Bing.EventBus.IEventHandlerDisposeWrapper.EventHandler">
+            <summary>
+            事件处理器
+            </summary>
+        </member>
+        <member name="T:Bing.EventBus.IEventHandlerFactory">
+            <summary>
+            事件处理器工厂
+            </summary>
+        </member>
+        <member name="M:Bing.EventBus.IEventHandlerFactory.GetHandler">
+            <summary>
+            获取事件处理器
+            </summary>
+        </member>
+        <member name="M:Bing.EventBus.IEventHandlerFactory.IsInFactories(System.Collections.Generic.List{Bing.EventBus.IEventHandlerFactory})">
+            <summary>
+            是否在事件处理器工厂列表
+            </summary>
+            <param name="handlerFactories">事件处理器工厂列表</param>
+        </member>
+        <member name="T:Bing.EventBus.IEventNameProvider">
+            <summary>
+            事件名称提供程序
+            </summary>
+        </member>
+        <member name="M:Bing.EventBus.IEventNameProvider.GetName(System.Type)">
+            <summary>
+            获取名称
+            </summary>
+            <param name="eventType">事件类型</param>
+        </member>
+        <member name="T:Bing.EventBus.IEventPublisher">
+            <summary>
+            事件发布者
+            </summary>
+        </member>
+        <member name="T:Bing.EventBus.IEventSubscriber">
+            <summary>
+            事件订阅者
+            </summary>
+        </member>
+        <member name="T:Bing.EventBus.Internal.SingletonEventHandlerFactory">
+            <summary>
+            单例生命周期的事件处理器工厂
+            </summary>
+        </member>
+        <member name="P:Bing.EventBus.Internal.SingletonEventHandlerFactory.HandlerInstance">
+            <summary>
+            事件处理器实例
+            </summary>
+        </member>
+        <member name="M:Bing.EventBus.Internal.SingletonEventHandlerFactory.#ctor(Bing.EventBus.IEventHandler)">
+            <summary>
+            初始化一个<see cref="T:Bing.EventBus.Internal.SingletonEventHandlerFactory"/>类型的实例
+            </summary>
+            <param name="handler">事件处理器</param>
+        </member>
+        <member name="M:Bing.EventBus.Internal.SingletonEventHandlerFactory.GetHandler">
+            <summary>
+            获取事件处理器
+            </summary>
+        </member>
+        <member name="M:Bing.EventBus.Internal.SingletonEventHandlerFactory.IsInFactories(System.Collections.Generic.List{Bing.EventBus.IEventHandlerFactory})">
+            <summary>
+            是否在事件处理器工厂列表
+            </summary>
+            <param name="handlerFactories">事件处理器工厂列表</param>
+        </member>
         <member name="T:Bing.Events.Event">
             <summary>
             事件

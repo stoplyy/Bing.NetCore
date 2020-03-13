@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using AspectCore.DynamicProxy;
 using AspectCore.DynamicProxy.Parameters;
 using Bing.Aspects.Base;
@@ -71,15 +70,11 @@ namespace Bing.Logs.Aspects
         /// <param name="methodName">方法名</param>
         private async Task ExecuteAfter(ILog log, AspectContext context, string methodName)
         {
-            object returnValue;
-            try
-            {
-                returnValue = context.IsAsync() ? await context.UnwrapAsyncReturnValue() : context.ReturnValue;
-            }
-            catch (Exception e)
-            {
-                returnValue = context.ReturnValue;
-            }
+            if (context.ServiceMethod.ReturnType == typeof(Task) ||
+                context.ServiceMethod.ReturnType == typeof(void) ||
+                context.ServiceMethod.ReturnType == typeof(ValueTask))
+                return;
+            var returnValue = context.IsAsync() ? await context.UnwrapAsyncReturnValue() : context.ReturnValue;
             var returnType = returnValue.GetType().FullName;
             log
                 .Tag(context.ServiceMethod.Name)
