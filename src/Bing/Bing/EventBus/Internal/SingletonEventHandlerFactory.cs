@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Bing.EventBus.Internal
 {
@@ -22,18 +22,15 @@ namespace Bing.EventBus.Internal
         /// <summary>
         /// 获取事件处理器
         /// </summary>
-        public IEventHandlerDisposeWrapper GetHandler()
-        {
-            throw new NotImplementedException();
-        }
+        public IEventHandlerDisposeWrapper GetHandler() => new EventHandlerDisposeWrapper(HandlerInstance);
 
         /// <summary>
         /// 是否在事件处理器工厂列表
         /// </summary>
         /// <param name="handlerFactories">事件处理器工厂列表</param>
-        public bool IsInFactories(List<IEventHandlerFactory> handlerFactories)
-        {
-            throw new NotImplementedException();
-        }
+        public bool IsInFactories(List<IEventHandlerFactory> handlerFactories) =>
+            handlerFactories
+                .OfType<SingletonEventHandlerFactory>()
+                .Any(f => f.HandlerInstance == HandlerInstance);
     }
 }
