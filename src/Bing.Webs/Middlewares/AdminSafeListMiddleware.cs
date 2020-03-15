@@ -36,7 +36,6 @@ namespace Bing.Webs.Middlewares
         /// 执行中间件拦截逻辑
         /// </summary>
         /// <param name="context">Http上下文</param>
-        /// <returns></returns>
         public async Task Invoke(HttpContext context)
         {
             if (context.Request.Method != "GET")

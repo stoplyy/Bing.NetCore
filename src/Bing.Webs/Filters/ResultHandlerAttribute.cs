@@ -20,18 +20,14 @@ namespace Bing.Webs.Filters
         {
             // 控制器过滤
             if (context.Controller.GetType().GetCustomAttributes<IgnoreResultHandlerAttribute>().Any())
-            {
                 return;
-            }
             // Action过滤
             if (context.ActionDescriptor is ControllerActionDescriptor controllerActionDescriptor)
             {
                 var ignore = controllerActionDescriptor.MethodInfo
                     .GetCustomAttributes<IgnoreResultHandlerAttribute>().Any();
                 if (ignore)
-                {
                     return;
-                }
             }
 
             if (context.Result is ValidationFailedResult validationFailedResult)
@@ -44,9 +40,7 @@ namespace Bing.Webs.Filters
             }
 
             if (context.Result is Result result)
-            {
                 return;
-            }
 
             if (context.Result is BadRequestObjectResult badRequestObjectResult)
             {

@@ -4,6 +4,7 @@ using System.IO;
 using System.Threading.Tasks;
 using Bing.Logs;
 using Bing.Logs.Extensions;
+using Bing.Utils.Json;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Internal;
 
@@ -23,16 +24,12 @@ namespace Bing.Webs.Middlewares
         /// 初始化一个<see cref="RequestLogMiddleware"/>类型的实例
         /// </summary>
         /// <param name="next">方法</param>
-        public RequestLogMiddleware(RequestDelegate next)
-        {
-            _next = next;
-        }
+        public RequestLogMiddleware(RequestDelegate next) => _next = next;
 
         /// <summary>
         /// 执行方法
         /// </summary>
         /// <param name="context">Http上下文</param>
-        /// <returns></returns>
         public async Task Invoke(HttpContext context)
         {
             if (!ExecuteInterception(context))
@@ -58,14 +55,10 @@ namespace Bing.Webs.Middlewares
         /// 是否执行拦截
         /// </summary>
         /// <param name="context">Http上下文</param>
-        /// <returns></returns>
         protected virtual bool ExecuteInterception(HttpContext context)
         {
             if (context.Request.Path.Value.Contains("swagger"))
-            {
                 return false;
-            }
-
             return true;
         }
 
@@ -77,10 +70,7 @@ namespace Bing.Webs.Middlewares
         private async Task WriteLogAsync(HttpContext context, Stopwatch stopwatch)
         {
             if (context == null)
-            {
                 return;
-            }
-
             if (IgnoreOctetStream(context.Response))
             {
                 context.Response.Body.Seek(0, SeekOrigin.Begin);
@@ -88,7 +78,7 @@ namespace Bing.Webs.Middlewares
             }
 
             var log = Log.GetLog(this).Caption("请求日志中间件");
-            log.Content(new Dictionary<string, string>()
+            log.Content(new Dictionary<string, string>
             {
                 {"请求方法", context.Request.Method},
                 {
@@ -97,6 +87,7 @@ namespace Bing.Webs.Middlewares
                 },
                 {"IP", context.Connection.RemoteIpAddress.ToString()},
                 {"请求耗时", $"{stopwatch.Elapsed.TotalMilliseconds} 毫秒"},
+                {"请求头", $"{context.Request.Headers.ToJson()}"},
                 {"请求内容", await FormatRequestAsync(context.Request)},
                 {"响应内容", await FormatResponseAsync(context.Response)}
             });
@@ -123,10 +114,7 @@ namespace Bing.Webs.Middlewares
         private async Task<string> FormatResponseAsync(HttpResponse response)
         {
             if (response.HasStarted)
-            {
                 return string.Empty;
-            }
-
             response.Body.Seek(0, SeekOrigin.Begin);
             var text = await new StreamReader(response.Body).ReadToEndAsync();
             response.Body.Seek(0, SeekOrigin.Begin);

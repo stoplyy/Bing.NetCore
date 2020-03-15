@@ -15820,23 +15820,11 @@
             容器操作
             </summary>
         </member>
-        <member name="M:Bing.Helpers.Ioc.CreateList``1">
-            <summary>
-            创建集合
-            </summary>
-            <typeparam name="T">对象类型</typeparam>
-        </member>
         <member name="M:Bing.Helpers.Ioc.Create``1">
             <summary>
             创建实例
             </summary>
             <typeparam name="T">对象类型</typeparam>
-        </member>
-        <member name="M:Bing.Helpers.Ioc.Create(System.Type)">
-            <summary>
-            创建实例
-            </summary>
-            <param name="type">对象类型</param>
         </member>
         <member name="T:Bing.Helpers.WebIdentity">
             <summary>

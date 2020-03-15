@@ -984,32 +984,27 @@
             </summary>
             <param name="context">操作执行上下文</param>
             <param name="next">操作执行下一步委托</param>
-            <returns></returns>
         </member>
         <member name="M:Bing.Webs.Filters.AntiDuplicateRequestAttribute.CreateLock">
             <summary>
             创建业务锁
             </summary>
-            <returns></returns>
         </member>
         <member name="M:Bing.Webs.Filters.AntiDuplicateRequestAttribute.GetKey(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
             <summary>
             获取锁定标识
             </summary>
             <param name="context">操作执行上下文</param>
-            <returns></returns>
         </member>
         <member name="M:Bing.Webs.Filters.AntiDuplicateRequestAttribute.GetExpiration">
             <summary>
             获取到期时间间隔
             </summary>
-            <returns></returns>
         </member>
         <member name="M:Bing.Webs.Filters.AntiDuplicateRequestAttribute.GetFailMessage">
             <summary>
             获取失败消息
             </summary>
-            <returns></returns>
         </member>
         <member name="T:Bing.Webs.Filters.LockType">
             <summary>
@@ -1093,7 +1088,6 @@
             <summary>
             获取日志操作
             </summary>
-            <returns></returns>
         </member>
         <member name="M:Bing.Webs.Filters.TraceLogAttribute.OnActionExecutionAsync(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext,Microsoft.AspNetCore.Mvc.Filters.ActionExecutionDelegate)">
             <summary>
@@ -1232,7 +1226,6 @@
             执行中间件拦截逻辑
             </summary>
             <param name="context">Http上下文</param>
-            <returns></returns>
         </member>
         <member name="T:Bing.Webs.Middlewares.AllowCorsRequestMiddleware">
             <summary>
@@ -1277,7 +1270,6 @@
             执行方法
             </summary>
             <param name="context">Http上下文</param>
-            <returns></returns>
         </member>
         <member name="M:Bing.Webs.Middlewares.ErrorLogMiddleware.WriteLog(Microsoft.AspNetCore.Http.HttpContext,System.Exception)">
             <summary>
@@ -1296,7 +1288,6 @@
             执行中间件拦截逻辑
             </summary>
             <param name="context">Http上下文</param>
-            <returns></returns>
         </member>
         <member name="T:Bing.Webs.Middlewares.RealIpMiddleware">
             <summary>
@@ -1376,14 +1367,12 @@
             执行方法
             </summary>
             <param name="context">Http上下文</param>
-            <returns></returns>
         </member>
         <member name="M:Bing.Webs.Middlewares.RequestLogMiddleware.ExecuteInterception(Microsoft.AspNetCore.Http.HttpContext)">
             <summary>
             是否执行拦截
             </summary>
             <param name="context">Http上下文</param>
-            <returns></returns>
         </member>
         <member name="M:Bing.Webs.Middlewares.RequestLogMiddleware.WriteLogAsync(Microsoft.AspNetCore.Http.HttpContext,System.Diagnostics.Stopwatch)">
             <summary>

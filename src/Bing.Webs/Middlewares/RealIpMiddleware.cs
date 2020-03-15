@@ -70,10 +70,7 @@ namespace Bing.Webs.Middlewares
         private void WriteLog(HttpContext context, IPAddress address)
         {
             if (context == null)
-            {
                 return;
-            }
-
             var log = Log.GetLog(this)
                 .Caption("真实IP中间件");
             log.Content($"解析真实IP成功 : {address}")
