@@ -15709,18 +15709,6 @@
             基本路径。用于读取配置文件的根路径
             </summary>
         </member>
-        <member name="T:Bing.Configurations.ConfigurationUtil">
-            <summary>
-            配置工具
-            </summary>
-        </member>
-        <member name="M:Bing.Configurations.ConfigurationUtil.BuildConfiguration(Bing.Configurations.ConfigurationBuilderOptions)">
-            <summary>
-            构建配置
-            </summary>
-            <param name="options">配置构建起选项</param>
-            <returns></returns>
-        </member>
         <member name="T:Bing.Configurations.DefaultConfigurationAccessor">
             <summary>
             默认配置访问器

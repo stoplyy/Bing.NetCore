@@ -4,7 +4,6 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Linq;
 
-// ReSharper disable once CheckNamespace
 namespace Bing.Extensions
 {
     /// <summary>
@@ -291,17 +290,16 @@ namespace Bing.Extensions
         /// <param name="binBytes">二进制数组</param>
         /// <param name="gray">灰度值</param>
         /// <param name="minAreaPoints">噪点阀值</param>
-        /// <returns></returns>
         public static byte[,] ClearNoiseArea(this byte[,] binBytes, byte gray, int minAreaPoints)
         {
             int width = binBytes.GetLength(0), height = binBytes.GetLength(1);
-            byte[,] newBinBytes = binBytes.Copy();
+            var newBinBytes = binBytes.Copy();
             // 遍历所有点，是黑点0，把与黑点连通的所有点灰度都改为1，下一个连通区域改为2，直到所有连通区域都标记完毕
-            Dictionary<byte, Point[]> areaPointDict = new Dictionary<byte, Point[]>();
+            var areaPointDict = new Dictionary<byte, Point[]>();
             byte setGray = 1;
-            for (int y = 0; y < height; y++)
+            for (var y = 0; y < height; y++)
             {
-                for (int x = 0; x < width; x++)
+                for (var x = 0; x < width; x++)
                 {
                     if (IsBlack(newBinBytes[x, y]))
                     {
@@ -317,8 +315,7 @@ namespace Bing.Extensions
                 }
             }
             // 筛选出区域点数小于阈值的区域，将原图相应点设置为白色
-            List<Point[]> pointsList =
-                areaPointDict.Where(m => m.Value.Length < minAreaPoints).Select(m => m.Value).ToList();
+            var pointsList = areaPointDict.Where(m => m.Value.Length < minAreaPoints).Select(m => m.Value).ToList();
             foreach (var points in pointsList)
             {
                 foreach (var point in points)
@@ -334,10 +331,18 @@ namespace Bing.Extensions
         /// 是否黑色
         /// </summary>
         /// <param name="value">颜色值</param>
-        /// <returns></returns>
-        private static bool IsBlack(byte value)
+        private static bool IsBlack(byte value) => value == 0;
+
+        /// <summary>
+        /// 复制一份二维数组的副本
+        /// </summary>
+        /// <param name="bytes">二维数组</param>
+        internal static byte[,] Copy(this byte[,] bytes)
         {
-            return value == 0;
+            int width = bytes.GetLength(0), height = bytes.GetLength(1);
+            var newBytes = new byte[width, height];
+            Array.Copy(bytes, newBytes, bytes.Length);
+            return newBytes;
         }
 
         #endregion

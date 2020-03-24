@@ -753,35 +753,6 @@
             <param name="options">跟踪关联ID配置选项信息</param>
             <param name="correlationId">跟踪关联ID</param>
         </member>
-        <member name="T:Bing.AspNetCore.VerifyCodes.IVerifyCodeService">
-            <summary>
-            验证码服务
-            </summary>
-        </member>
-        <member name="M:Bing.AspNetCore.VerifyCodes.IVerifyCodeService.CheckCode(System.String,System.String,System.Boolean)">
-            <summary>
-            校验验证码有效性
-            </summary>
-            <param name="code">验证码</param>
-            <param name="id">验证码编号</param>
-            <param name="removeIfSuccess">验证成功时是否移除</param>
-            <returns></returns>
-        </member>
-        <member name="M:Bing.AspNetCore.VerifyCodes.IVerifyCodeService.SetCode(System.String,System.String@)">
-            <summary>
-            设置验证码到Session中
-            </summary>
-            <param name="code">验证码</param>
-            <param name="id">验证码编号</param>
-        </member>
-        <member name="M:Bing.AspNetCore.VerifyCodes.IVerifyCodeService.GetImageString(System.Drawing.Image,System.String)">
-            <summary>
-            将图片序列化成字符串
-            </summary>
-            <param name="image">图片</param>
-            <param name="id">验证码编号</param>
-            <returns></returns>
-        </member>
         <member name="T:Microsoft.AspNetCore.Builder.ApplicationBuilderExtensions">
             <summary>
             应用程序构建器(<see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/>) 扩展
