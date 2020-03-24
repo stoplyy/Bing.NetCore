@@ -36,7 +36,6 @@ namespace Bing.Samples
         {
             services.AddBing<AspNetCoreBingModuleManager>();
             return services.BuildServiceContextProvider();
-            //return services.BuildServiceProvider();
         }
 
         /// <summary>

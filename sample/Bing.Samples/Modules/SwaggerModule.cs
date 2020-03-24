@@ -1,17 +1,18 @@
-﻿using Bing.AspNetCore;
+﻿using System.ComponentModel;
+using Bing.AspNetCore;
 using Bing.Core.Modularity;
-using Bing.Events.Cap;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using Savorboard.CAP.InMemoryMessageQueue;
+using Microsoft.OpenApi.Models;
 
 namespace Bing.Samples.Modules
 {
     /// <summary>
-    /// Cap 模块
+    /// Swagger 模块
     /// </summary>
+    [Description("Swagger模块")]
     [DependsOnModule(typeof(AspNetCoreModule))]
-    public class CapModule : AspNetCoreBingModule
+    public class SwaggerModule : AspNetCoreBingModule
     {
         /// <summary>
         /// 模块级别。级别越小越先启动
@@ -19,31 +20,22 @@ namespace Bing.Samples.Modules
         public override ModuleLevel Level => ModuleLevel.Application;
 
         /// <summary>
+        /// 模块启动顺序。模块启动的顺序先按级别启动，同一级别内部再按此顺序启动，
+        /// 级别默认为0，表示无依赖，需要在同级别有依赖顺序的时候，再重写为>0的顺序值
+        /// </summary>
+        public override int Order => 2;
+
+        /// <summary>
         /// 添加服务。将模块服务添加到依赖注入服务容器中
         /// </summary>
         /// <param name="services">服务集合</param>
         public override IServiceCollection AddServices(IServiceCollection services)
         {
-            // 注册CAP事件总线服务
-            services.AddCapEventBus(o =>
+            services.AddSwaggerGen(o =>
             {
-                o.UseEntityFramework<Bing.Samples.Data.UnitOfWorks.SqlServer.SampleUnitOfWork>();
-                o.UseDashboard();
-                // 设置处理成功的数据在数据库中保存的时间（秒），为保证系统性能，数据会定期清理
-                o.SucceedMessageExpiredAfter = 24 * 3600;
-                // 设置失败重试次数
-                o.FailedRetryCount = 5;
-                o.Version = "bing_test";
-                // 启用内存队列
-                o.UseInMemoryMessageQueue();
-                // 启用RabbitMQ
-                //o.UseRabbitMQ(x =>
-                //{
-                //    x.HostName = "";
-                //    x.UserName = "admin";
-                //    x.Password = "";
-                //});
+                o.SwaggerDoc($"v1", new OpenApiInfo() { Title = "Bing.Samples", Version = "1" });
             });
+            services.AddSwaggerGenNewtonsoftSupport();
             return services;
         }
 
@@ -53,6 +45,13 @@ namespace Bing.Samples.Modules
         /// <param name="app">应用程序构建器</param>
         public override void UseModule(IApplicationBuilder app)
         {
+            app.UseSwagger(o =>
+            {
+            });
+            app.UseSwaggerUI(o =>
+            {
+                o.SwaggerEndpoint("/swagger/v1/swagger.json", "Bing.Samples V1");
+            });
             Enabled = true;
         }
     }
