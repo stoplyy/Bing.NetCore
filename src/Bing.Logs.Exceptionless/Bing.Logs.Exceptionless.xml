@@ -70,12 +70,6 @@
             </summary>
             <param name="content">日志内容</param>
         </member>
-        <member name="M:Bing.Logs.Exceptionless.ExceptionlessProvider.ConvertTo(Bing.Logs.LogLevel)">
-            <summary>
-            转换日志等级
-            </summary>
-            <param name="level">平台日志等级</param>
-        </member>
         <member name="M:Bing.Logs.Exceptionless.ExceptionlessProvider.SetUser(Bing.Logs.Abstractions.ILogContent)">
             <summary>
             设置用户信息
@@ -135,6 +129,17 @@
             <param name="services">服务集合</param>
             <param name="configAction">配置操作</param>
             <param name="name">名称</param>
+        </member>
+        <member name="T:Bing.Logs.Exceptionless.Internal.LogLevelSwitcher">
+            <summary>
+            日志级别切换器
+            </summary>
+        </member>
+        <member name="M:Bing.Logs.Exceptionless.Internal.LogLevelSwitcher.Switch(Bing.Logs.LogLevel)">
+            <summary>
+            转换日志等级
+            </summary>
+            <param name="level">平台日志等级</param>
         </member>
         <member name="T:Bing.Logs.Exceptionless.LogContext">
             <summary>

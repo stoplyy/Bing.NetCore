@@ -3,6 +3,7 @@ using Bing.Configurations;
 using Bing.Extensions;
 using Bing.Logs.Abstractions;
 using Bing.Logs.Contents;
+using Bing.Logs.Exceptionless.Internal;
 using Exceptionless;
 using el = global::Exceptionless;
 
@@ -90,7 +91,7 @@ namespace Bing.Logs.Exceptionless
         {
             if (content.Exception != null && (level == LogLevel.Error || level == LogLevel.Fatal))
                 return _client.CreateException(content.Exception);
-            var builder = _client.CreateLog(GetMessage(content), ConvertTo(level));
+            var builder = _client.CreateLog(GetMessage(content), LogLevelSwitcher.Switch(level));
             if (content.Exception != null && level == LogLevel.Warning)
                 builder.SetException(content.Exception);
             return builder;
@@ -107,31 +108,6 @@ namespace Bing.Logs.Exceptionless
             if (content.Content.Length > 0)
                 return content.Content.ToString();
             return content.LogId;
-        }
-
-        /// <summary>
-        /// 转换日志等级
-        /// </summary>
-        /// <param name="level">平台日志等级</param>
-        private el.Logging.LogLevel ConvertTo(LogLevel level)
-        {
-            switch (level)
-            {
-                case LogLevel.Trace:
-                    return el.Logging.LogLevel.Trace;
-                case LogLevel.Debug:
-                    return el.Logging.LogLevel.Debug;
-                case LogLevel.Information:
-                    return el.Logging.LogLevel.Info;
-                case LogLevel.Warning:
-                    return el.Logging.LogLevel.Warn;
-                case LogLevel.Error:
-                    return el.Logging.LogLevel.Error;
-                case LogLevel.Fatal:
-                    return el.Logging.LogLevel.Fatal;
-                default:
-                    return el.Logging.LogLevel.Off;
-            }
         }
 
         /// <summary>
@@ -178,6 +154,7 @@ namespace Bing.Logs.Exceptionless
                 if (string.IsNullOrWhiteSpace(parameter.Value.SafeString()))
                     continue;
                 builder.SetProperty($"{GetLine()}. {parameter.Text}", parameter.Value);
+                builder.PluginContextData.Add(parameter.Text,parameter.Value);
             }
         }
 
