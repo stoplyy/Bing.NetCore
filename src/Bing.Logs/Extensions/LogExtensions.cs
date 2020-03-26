@@ -185,5 +185,13 @@ namespace Bing.Logs.Extensions
                 return log;
             return Exception(log, exception, exception.Code);
         }
+
+        /// <summary>
+        /// 添加扩展属性
+        /// </summary>
+        /// <param name="log">日志内容</param>
+        /// <param name="name">名称</param>
+        /// <param name="value">值</param>
+        public static ILog AddExtraProperty(this ILog log, string name, object value) => log.Set<LogContent>(content => content.AddExtraProperty(name, value));
     }
 }

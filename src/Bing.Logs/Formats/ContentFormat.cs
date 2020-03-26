@@ -52,6 +52,7 @@ namespace Bing.Logs.Formats
             Line12(result, content, ref line);
             Line13(result, content, ref line);
             Line14(result, content, ref line);
+            Line15(result, content, ref line);
             Finish(result);
             return result.ToString();
         }
@@ -343,6 +344,24 @@ namespace Bing.Logs.Formats
             {
                 r.AppendLine($"{LogResource.StackTrace}:");
                 r.Append(c.Exception.StackTrace);
+            }, ref line);
+        }
+
+        /// <summary>
+        /// 第15行
+        /// </summary>
+        /// <param name="result">拼接器</param>
+        /// <param name="content">日志内容</param>
+        /// <param name="line">行号</param>
+        protected void Line15(StringBuilder result, LogContent content, ref int line)
+        {
+            if (content.ExtraProperties.Any())
+                return;
+            AppendLine(result, content, (r, c) =>
+            {
+                r.AppendLine($"{LogResource.ExtraProperties}:");
+                foreach (var keyValue in content.ExtraProperties) 
+                    r.AppendLine($"{keyValue.Key}: {keyValue.Value}");
             }, ref line);
         }
 

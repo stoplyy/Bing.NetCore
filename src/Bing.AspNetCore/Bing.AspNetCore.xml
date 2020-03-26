@@ -352,28 +352,6 @@
             </summary>
             <param name="name">名称</param>
         </member>
-        <member name="T:Bing.AspNetCore.Mvc.ModelBinding.StringTrimModelBinder">
-            <summary>
-            字符串前后空白进行Trim操作的模型绑定器
-            </summary>
-        </member>
-        <member name="M:Bing.AspNetCore.Mvc.ModelBinding.StringTrimModelBinder.BindModelAsync(Microsoft.AspNetCore.Mvc.ModelBinding.ModelBindingContext)">
-            <summary>
-            绑定模型
-            </summary>
-            <param name="bindingContext">模型绑定上下文</param>
-        </member>
-        <member name="T:Bing.AspNetCore.Mvc.ModelBinding.StringTrimModelBinderProvider">
-            <summary>
-            <see cref="T:Bing.AspNetCore.Mvc.ModelBinding.StringTrimModelBinder"/>提供程序。提供对字符串前后空白进行Trim操作的模型绑定能力
-            </summary>
-        </member>
-        <member name="M:Bing.AspNetCore.Mvc.ModelBinding.StringTrimModelBinderProvider.GetBinder(Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderProviderContext)">
-            <summary>
-            获取绑定器
-            </summary>
-            <param name="context">模型绑定提供程序上下文</param>
-        </member>
         <member name="T:Bing.AspNetCore.Mvc.NullJsonResult">
             <summary>
             空JSON结果

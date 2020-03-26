@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -38,10 +39,7 @@ namespace Bing.Reflections
             foreach (var file in Directory.GetFiles(path, "*.dll"))
             {
                 if (Match(Path.GetFileName(file)) == false)
-                {
                     continue;
-                }
-
                 LoadAssemblyToAppDomain(file);
             }
         }
@@ -50,18 +48,12 @@ namespace Bing.Reflections
         /// 程序集是否匹配
         /// </summary>
         /// <param name="assemblyName">程序集名称</param>
-        /// <returns></returns>
         protected virtual bool Match(string assemblyName)
         {
             if (assemblyName.StartsWith($"{PlatformServices.Default.Application.ApplicationName}.Views"))
-            {
                 return false;
-            }
             if (assemblyName.StartsWith($"{PlatformServices.Default.Application.ApplicationName}.PrecompiledViews"))
-            {
                 return false;
-            }
-
             return Regex.IsMatch(assemblyName, SkipAssemblies, RegexOptions.IgnoreCase | RegexOptions.Compiled) == false;
         }
 
@@ -74,6 +66,7 @@ namespace Bing.Reflections
             try
             {
                 var assemblyName = AssemblyName.GetAssemblyName(file);
+                Debug.WriteLine($"【加载程序集】: {assemblyName}");
                 AppDomain.CurrentDomain.Load(assemblyName);
             }
             catch (BadImageFormatException)
@@ -84,17 +77,12 @@ namespace Bing.Reflections
         /// <summary>
         /// 从当前应用程序域获取程序集列表
         /// </summary>
-        /// <returns></returns>
         private IEnumerable<Assembly> GetAssembliesFromCurrentAppDomain()
         {
             var result = new List<Assembly>();
             foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
-            {
                 if (Match(assembly))
-                {
                     result.Add(assembly);
-                }
-            }
             return result.Distinct();
         }
 
@@ -102,10 +90,6 @@ namespace Bing.Reflections
         /// 程序集是否匹配
         /// </summary>
         /// <param name="assembly">程序集</param>
-        /// <returns></returns>
-        private bool Match(Assembly assembly)
-        {
-            return !Regex.IsMatch(assembly.FullName, SkipAssemblies, RegexOptions.IgnoreCase | RegexOptions.Compiled);
-        }
+        private bool Match(Assembly assembly) => !Regex.IsMatch(assembly.FullName, SkipAssemblies, RegexOptions.IgnoreCase | RegexOptions.Compiled);
     }
 }

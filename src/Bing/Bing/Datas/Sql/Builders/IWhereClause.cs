@@ -16,7 +16,6 @@ namespace Bing.Datas.Sql.Builders
         /// <param name="builder">Sql生成器</param>
         /// <param name="register">实体别名注册器</param>
         /// <param name="parameterManager">参数管理器</param>
-        /// <returns></returns>
         IWhereClause Clone(ISqlBuilder builder, IEntityAliasRegister register, IParameterManager parameterManager);
 
         /// <summary>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Bing.Core.Builders;
 using Bing.Exceptions;
@@ -92,7 +93,11 @@ namespace Bing.Core.Modularity
             modules = modules.OrderBy(x => x.Level).ThenBy(x => x.Order).ToList();
             LoadedModules = modules;
             foreach (var module in LoadedModules)
+            {
+                Debug.WriteLine($"【加载模块】: {module.GetType()}");
                 services = module.AddServices(services);
+            }
+                
             return services;
         }
 
@@ -102,16 +107,8 @@ namespace Bing.Core.Modularity
         /// <param name="provider">服务提供程序</param>
         public virtual void UseModule(IServiceProvider provider)
         {
-            Log.Info("Bing 框架初始化开始");
-            var dtStart = DateTime.Now;
-            foreach (var module in LoadedModules)
-            {
+            foreach (var module in LoadedModules) 
                 module.UseModule(provider);
-                Log.Info($"模块{module.GetType()}加载成功");
-            }
-
-            var ts = DateTime.Now.Subtract(dtStart);
-            Log.Info($"Bing 框架初始化完成，耗时：{ts:g}");
         }
     }
 }

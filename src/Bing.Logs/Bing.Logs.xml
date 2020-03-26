@@ -253,6 +253,11 @@
             标签列表
             </summary>
         </member>
+        <member name="P:Bing.Logs.Contents.LogContent.ExtraProperties">
+            <summary>
+            扩展属性
+            </summary>
+        </member>
         <member name="P:Bing.Logs.Contents.LogContent.Order">
             <summary>
             排序
@@ -402,6 +407,14 @@
             </summary>
             <param name="log">日志操作</param>
             <param name="exception">异常</param>
+        </member>
+        <member name="M:Bing.Logs.Extensions.LogExtensions.AddExtraProperty(Bing.Logs.ILog,System.String,System.Object)">
+            <summary>
+            添加扩展属性
+            </summary>
+            <param name="log">日志内容</param>
+            <param name="name">名称</param>
+            <param name="value">值</param>
         </member>
         <member name="T:Bing.Logs.Formats.ContentFormat">
             <summary>
@@ -570,6 +583,14 @@
         <member name="M:Bing.Logs.Formats.ContentFormat.Line14(System.Text.StringBuilder,Bing.Logs.Contents.LogContent,System.Int32@)">
             <summary>
             第14行
+            </summary>
+            <param name="result">拼接器</param>
+            <param name="content">日志内容</param>
+            <param name="line">行号</param>
+        </member>
+        <member name="M:Bing.Logs.Formats.ContentFormat.Line15(System.Text.StringBuilder,Bing.Logs.Contents.LogContent,System.Int32@)">
+            <summary>
+            第15行
             </summary>
             <param name="result">拼接器</param>
             <param name="content">日志内容</param>
@@ -768,6 +789,11 @@
         <member name="P:Bing.Logs.Properties.LogResource.Exception">
             <summary>
               查找类似 异常 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Bing.Logs.Properties.LogResource.ExtraProperties">
+            <summary>
+              查找类似 扩展属性 的本地化字符串。
             </summary>
         </member>
         <member name="P:Bing.Logs.Properties.LogResource.Host">

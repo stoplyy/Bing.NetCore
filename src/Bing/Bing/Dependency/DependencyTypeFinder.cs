@@ -23,10 +23,7 @@ namespace Bing.Dependency
         /// 初始化一个<see cref="DependencyTypeFinder"/>类型的实例
         /// </summary>
         /// <param name="allAssemblyFinder">所有程序集查找器</param>
-        public DependencyTypeFinder(IAllAssemblyFinder allAssemblyFinder)
-        {
-            _allAssemblyFinder = allAssemblyFinder;
-        }
+        public DependencyTypeFinder(IAllAssemblyFinder allAssemblyFinder) => _allAssemblyFinder = allAssemblyFinder;
 
         /// <summary>
         /// 重写已实现所有项的查找

@@ -33,11 +33,13 @@ namespace Bing.Dependency
         {
             // 服务定位器设置
             ServiceLocator.Instance.SetServiceCollection(services);
+
             services.AddTransient(typeof(Lazy<>), typeof(Lazier<>));
+            services.TryAddSingleton<IHybridServiceScopeFactory, DefaultServiceScopeFactory>();
+            services.AddScoped<ScopedDictionary>();
+
             // 查找所有自动注册的服务实现类型
-            var dependencyTypeFinder =
-                services.GetOrAddTypeFinder<IDependencyTypeFinder>(assemblyFinder =>
-                    new DependencyTypeFinder(assemblyFinder));
+            var dependencyTypeFinder = services.GetOrAddTypeFinder<IDependencyTypeFinder>(assemblyFinder => new DependencyTypeFinder(assemblyFinder));
 
             var dependencyTypes = dependencyTypeFinder.FindAll();
             foreach (var dependencyType in dependencyTypes)
@@ -92,7 +94,7 @@ namespace Bing.Dependency
                     continue;
                 }
 
-                bool multiple = serviceType.HasAttribute<MultipleDependencyAttribute>();
+                var multiple = serviceType.HasAttribute<MultipleDependencyAttribute>();
                 if (i == 0)
                 {
                     if (multiple)
@@ -102,14 +104,17 @@ namespace Bing.Dependency
                 }
                 else
                 {
-                    // 有多个接口，后边的接口注册使用第一个接口的实例，保证同个实现类的多个接口获得同一实例
-                    var firstServiceType = serviceTypes[0];
-                    descriptor = new ServiceDescriptor(serviceType, provider => provider.GetService(firstServiceType),
-                        lifetime.Value);
                     if (multiple)
+                    {
                         services.Add(descriptor);
+                    }
                     else
+                    {
+                        // 有多个接口，后边的接口注册使用第一个接口的实例，保证同个实现类的多个接口获得同一实例
+                        var firstServiceType = serviceTypes[0];
+                        descriptor = new ServiceDescriptor(serviceType, provider => provider.GetService(firstServiceType), lifetime.Value);
                         AddSingleService(services, descriptor, dependencyAttribute);
+                    }
                 }
             }
         }
@@ -139,8 +144,7 @@ namespace Bing.Dependency
         protected virtual Type[] GetImplementedInterfaces(Type type)
         {
             var exceptInterfaces = new[] { typeof(IDisposable) };
-            var interfaceTypes = type.GetInterfaces()
-                .Where(x => !exceptInterfaces.Contains(x) && !x.HasAttribute<IgnoreDependencyAttribute>()).ToArray();
+            var interfaceTypes = type.GetInterfaces().Where(x => !exceptInterfaces.Contains(x) && !x.HasAttribute<IgnoreDependencyAttribute>()).ToArray();
             for (var index = 0; index < interfaceTypes.Length; index++)
             {
                 var interfaceType = interfaceTypes[index];

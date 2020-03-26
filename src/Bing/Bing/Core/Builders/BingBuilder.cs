@@ -59,7 +59,7 @@ namespace Bing.Core.Builders
             return this;
         }
 
-        #endregion AddModule(添加模块)
+        #endregion
 
         #region ExceptModule(排除模块)
 
@@ -75,7 +75,7 @@ namespace Bing.Core.Builders
             return this;
         }
 
-        #endregion ExceptModule(排除模块)
+        #endregion
 
         #region AddOptions(添加选项配置)
 
@@ -90,6 +90,6 @@ namespace Bing.Core.Builders
             return this;
         }
 
-        #endregion AddOptions(添加选项配置)
+        #endregion
     }
 }

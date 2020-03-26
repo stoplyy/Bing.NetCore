@@ -17,7 +17,6 @@ namespace Bing.Datas.Sql
         /// <summary>
         /// 克隆
         /// </summary>
-        /// <returns></returns>
         ISqlBuilder Clone();
 
         /// <summary>

@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
+using Bing.Dependency;
 using Bing.Events;
 using Bing.Logs.Extensions;
 using Bing.Samples.Data;
@@ -6,6 +8,7 @@ using Bing.Samples.Domain.Events;
 using Bing.Samples.Domain.Models;
 using Bing.Samples.Domain.Services.Abstractions;
 using Bing.Samples.EventHandlers.Abstractions;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Bing.Samples.EventHandlers.Implements
 {
@@ -19,10 +22,12 @@ namespace Bing.Samples.EventHandlers.Implements
         /// </summary>
         /// <param name="unitOfWork">工作单元</param>
         /// <param name="roleManager">角色管理</param>
-        public TestMessageEventHandler(ISampleUnitOfWork unitOfWork, IRoleManager roleManager)
+        /// <param name="serviceProvider">服务提供程序</param>
+        public TestMessageEventHandler(ISampleUnitOfWork unitOfWork, IRoleManager roleManager, IServiceProvider serviceProvider)
         {
             UnitOfWork = unitOfWork;
             RoleManager = roleManager;
+            ServiceProvider = serviceProvider;
         }
 
         /// <summary>
@@ -34,6 +39,11 @@ namespace Bing.Samples.EventHandlers.Implements
         /// 角色管理
         /// </summary>
         protected IRoleManager RoleManager { get; set; }
+
+        /// <summary>
+        /// 服务提供程序
+        /// </summary>
+        protected IServiceProvider ServiceProvider { get; set; }
 
         /// <summary>
         /// 创建角色
@@ -67,6 +77,7 @@ namespace Bing.Samples.EventHandlers.Implements
         {
             Log.Caption("写入日志消息")
                 .Content(message.Content)
+                .AddExtraProperty("Test", message.Content)
                 .Debug();
             return Task.CompletedTask;
         }
@@ -93,7 +104,7 @@ namespace Bing.Samples.EventHandlers.Implements
         {
             Log.Caption("写入日志消息 group2.log")
                 .Content(message.Content)
-                .Debug();
+                .Fatal();
             return Task.CompletedTask;
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Text;
 using Bing.Logs.Abstractions;
@@ -154,6 +155,11 @@ namespace Bing.Logs.Contents
         public List<string> Tags { get; set; }
 
         /// <summary>
+        /// 扩展属性
+        /// </summary>
+        public IDictionary<string, object> ExtraProperties { get; set; }
+
+        /// <summary>
         /// 排序
         /// </summary>
         public int Order { get; set; }
@@ -172,6 +178,7 @@ namespace Bing.Logs.Contents
             Sql = new StringBuilder();
             SqlParams = new StringBuilder();
             Tags = new List<string>();
+            ExtraProperties = new ConcurrentDictionary<string, object>();
         }
 
         #endregion

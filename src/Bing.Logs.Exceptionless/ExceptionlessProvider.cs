@@ -22,11 +22,6 @@ namespace Bing.Logs.Exceptionless
         private readonly el.ExceptionlessClient _client;
 
         /// <summary>
-        /// 行号
-        /// </summary>
-        private int _line;
-
-        /// <summary>
         /// 日志名称
         /// </summary>
         public string LogName { get; }
@@ -67,20 +62,18 @@ namespace Bing.Logs.Exceptionless
         /// <param name="content">日志内容</param>
         public void WriteLog(LogLevel level, ILogContent content)
         {
-            InitLine();
             var builder = CreateBuilder(level, content);
+            // 致命错误
+            if (level == LogLevel.Fatal)
+                builder.MarkAsCritical();
             SetUser(content);
             SetSource(builder, content);
             SetReferenceId(builder, content);
             AddProperties(builder, content as ILogConvert);
+            AddExtraProperties(builder, content);
             AddTags(builder, content);
             builder.Submit();
         }
-
-        /// <summary>
-        /// 初始化行号
-        /// </summary>
-        private void InitLine() => _line = 1;
 
         /// <summary>
         /// 创建事件生成器
@@ -153,8 +146,24 @@ namespace Bing.Logs.Exceptionless
             {
                 if (string.IsNullOrWhiteSpace(parameter.Value.SafeString()))
                     continue;
-                builder.SetProperty($"{GetLine()}. {parameter.Text}", parameter.Value);
-                builder.PluginContextData.Add(parameter.Text,parameter.Value);
+                builder.SetProperty(parameter.Text, parameter.Value);
+            }
+        }
+
+        /// <summary>
+        /// 添加扩展属性集合
+        /// </summary>
+        /// <param name="builder">事件生成器</param>
+        /// <param name="content">日志转换器</param>
+        private void AddExtraProperties(EventBuilder builder, ILogContent content)
+        {
+            if (content == null)
+                return;
+            foreach (var parameter in content.ExtraProperties)
+            {
+                if (string.IsNullOrWhiteSpace(parameter.Value.SafeString()))
+                    continue;
+                builder.SetProperty(parameter.Key, parameter.Value);
             }
         }
 
@@ -169,10 +178,5 @@ namespace Bing.Logs.Exceptionless
             if (content.Tags.Any())
                 builder.AddTags(content.Tags.ToArray());
         }
-
-        /// <summary>
-        /// 获取行号
-        /// </summary>
-        private string GetLine() => _line++.ToString().PadLeft(2, '0');
     }
 }

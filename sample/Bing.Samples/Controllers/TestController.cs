@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Bing.Dependency;
 using Bing.Samples.Service.Abstractions;
 using Bing.Samples.Service.Requests;
 using Bing.Webs.Controllers;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Bing.Samples.Controllers
 {
@@ -16,15 +18,22 @@ namespace Bing.Samples.Controllers
         /// 初始化一个<see cref="TestController"/>类型的实例
         /// </summary>
         /// <param name="testService">测试服务</param>
-        public TestController(ITestService testService)
+        /// <param name="serviceProvider">服务提供程序</param>
+        public TestController(ITestService testService, IServiceProvider serviceProvider)
         {
             TestService = testService;
+            ServiceProvider = serviceProvider;
         }
 
         /// <summary>
         /// 测试服务
         /// </summary>
         public ITestService TestService { get; set; }
+
+        /// <summary>
+        /// 服务提供程序
+        /// </summary>
+        public IServiceProvider ServiceProvider { get; set; }
 
         /// <summary>
         /// 获取字符串
