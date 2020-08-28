@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Bing.AspNetCore;
 using Bing.Core;
 using Bing.EasyCaching;
+using EasyCaching.InMemory;
 using Bing.Extensions.Swashbuckle.Configs;
 using Bing.Extensions.Swashbuckle.Core;
 using Bing.Extensions.Swashbuckle.Extensions;
@@ -50,45 +51,47 @@ namespace Bing.Samples.Jwt
                 // 全局添加授权
                 options.Conventions.Add(new AuthorizeControllerModelConvention());
             }).SetCompatibilityVersion(CompatibilityVersion.Version_2_2).AddControllersAsServices();
-            
+
             services.AddNLog();
             // 添加EasyCaching缓存
-            services.AddCaching(options =>
-            {
-                options.UseCSRedis(config =>
-                {
-                    // 互斥锁的存活时间。默认值:5000
-                    config.LockMs = 5000;
-                    // 预防缓存在同一时间全部失效，可以为每个key的过期时间添加一个随机的秒数。默认值:120秒
-                    config.MaxRdSecond = 120;
-                    // 是否开启日志。默认值:false
-                    config.EnableLogging = false;
-                    // 没有获取到互斥锁时的休眠时间。默认值:300毫秒
-                    config.SleepMs = 300;
-                    config.DBConfig = new CSRedisDBOptions()
-                    {
-                        ConnectionStrings = new List<string>()
-                        {
-                            Configuration.GetConnectionString("RedisConnection")
-                        }
-                    };
-                }).WithJson();
-            });
+            services.AddCaching(options => options.UseInMemory());
+            // services.AddCaching(options =>
+            // {
+            //     options.UseCSRedis(config =>
+            //     {
+            //         // 互斥锁的存活时间。默认值:5000
+            //         config.LockMs = 5000;
+            //         // 预防缓存在同一时间全部失效，可以为每个key的过期时间添加一个随机的秒数。默认值:120秒
+            //         config.MaxRdSecond = 120;
+            //         // 是否开启日志。默认值:false
+            //         config.EnableLogging = false;
+            //         // 没有获取到互斥锁时的休眠时间。默认值:300毫秒
+            //         config.SleepMs = 300;
+            //         config.DBConfig = new CSRedisDBOptions()
+            //         {
+            //             ConnectionStrings = new List<string>()
+            //             {
+            //                 Configuration.GetConnectionString("RedisConnection")
+            //             }
+            //         };
+            //     }).WithJson();
+            // });
 
             var jwtOptions = Configuration.GetSection(nameof(JwtOptions)).Get<JwtOptions>();
 
-            services.AddAuthorization(options =>
-            {
-                options.AddPolicy("jwt", policy => policy.Requirements.Add(new JsonWebTokenAuthorizationRequirement()));
-            }).AddAuthentication(options =>
-            {
-                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            }).AddJwtBearer(o =>
-            {
-                o.TokenValidationParameters = GetValidationParameters(jwtOptions);
-                o.SaveToken = true;
-            });
+            // services.AddAuthorization(options =>
+            // {
+            //     options.AddPolicy("jwt", policy => policy.Requirements.Add(new JsonWebTokenAuthorizationRequirement()));
+            // }).AddAuthentication(options =>
+            // {
+            //     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            //     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            // }).AddJwtBearer(o =>
+            // {
+            //     o.TokenValidationParameters = GetValidationParameters(jwtOptions);
+            //     o.SaveToken = true;
+            // });
+
             services.AddJwt(Configuration);
 
             services.AddSwaggerCustom(CurrentSwaggerOptions);

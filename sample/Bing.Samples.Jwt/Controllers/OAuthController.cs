@@ -5,6 +5,7 @@ using Bing.Permissions.Identity.JwtBearer;
 using Bing.Webs.Controllers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace Bing.Samples.Jwt.Controllers
 {
@@ -35,6 +36,7 @@ namespace Bing.Samples.Jwt.Controllers
             var payload = new Dictionary<string, string>();
             payload["clientId"] = "66666";
             payload["userId"] = Guid.NewGuid().ToString();
+            payload["sub"] = Guid.NewGuid().ToString();
             payload["username"] = request.UserName;
             var result = await TokenBuilder.CreateAsync(payload);
             return Success(result);
@@ -58,6 +60,7 @@ namespace Bing.Samples.Jwt.Controllers
         [HttpGet("getContent")]
         public Task<IActionResult> GetAsync(string content)
         {
+            JsonResult userid = new JsonResult(from c in User.Claims select new {c.Type, c.Value});
             return Task.FromResult(Success(content));
         }
     }
